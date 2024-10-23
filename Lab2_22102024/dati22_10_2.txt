@@ -1,0 +1,4 @@
+##Dati correnti
+#Ij
+# Valore misurato +- Incertezza [A]
+1	2	3	4
