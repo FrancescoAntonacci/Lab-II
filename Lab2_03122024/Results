@@ -1,0 +1,12 @@
+Esperienza dell'oscilloscopio.
+Supposto che la resistenza interna dell' oscilloscopio sia 1 Mohm, allora C=4.77412433e-08 F
+ft=3.33+-0.05 Hz
+
+Esperienza del filtro passabanda.
+Vin=360 +- 6 mV 
+Ftlp= 5.49 +- 0.001 kHz
+Fthp= 483 +- 2 Hz
+
+corr=  [[ 1.         -0.76196082  0.79335046]  
+       [-0.76196082  1.         -0.59305864]
+       [ 0.79335046 -0.59305864  1.        ]]
