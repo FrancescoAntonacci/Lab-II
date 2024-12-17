@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1734276990 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/main.tex" "main.pdf" "main" 1734276991
+["pdflatex"] 1734367459 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/main.tex" "main.pdf" "main" 1734367460
   "/etc/texmf/web2c/texmf.cnf" 1727515552 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/main.tex" 1734199108 2793 33485b9744810022005e72131647050b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -75,10 +75,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727515555 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1727515559 1435883 51557329eb480ddca7c3acb7514fd33f ""
-  "fousquarewave.png" 1734276990 58760 a0cb2a637914a5391eddd571865f4e91 ""
-  "foutriawave.png" 1734199062 72551 1552215d3b126f5e47864ec1ada27a9d ""
-  "main.aux" 1734276991 2777 6e533539ab2106bd6eb477a2261c9e44 "pdflatex"
-  "main.out" 1734276991 2195 dadc16b982e7bc62546a2085c720ee6c "pdflatex"
+  "fousquarewave.png" 1734367459 58760 a0cb2a637914a5391eddd571865f4e91 ""
+  "foutriawave.png" 1734366988 74907 b590351502596517281986465da2a79e ""
+  "main.aux" 1734367460 2777 6e533539ab2106bd6eb477a2261c9e44 "pdflatex"
+  "main.out" 1734367460 2195 dadc16b982e7bc62546a2085c720ee6c "pdflatex"
   "main.tex" 1734199108 2793 33485b9744810022005e72131647050b ""
   (generated)
   "main.aux"

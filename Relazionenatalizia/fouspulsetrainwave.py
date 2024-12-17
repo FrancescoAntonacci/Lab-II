@@ -16,21 +16,24 @@ params = {
 }
 plt.rcParams.update(params)
 
-# Fourier sine series for a square wave
-def ff(x, iter=1000,a=1, omega=2 * np.pi, phi=0):
+def ff(x, iter=1000, a=1, omega=2 * np.pi, phi=0, delta=0.3):
     iter += 1
     f = 0
-    for k in range(1, iter, 2):
-        f += ((2 / (k * np.pi))**2) * np.cos(k * x * omega + phi)
-    return a*f
+    for k in range(1, iter):
+        f += (2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega + phi)
+    return a * (f+delta) 
+
 
 # Analytical square wave
-def triangwave(x, a, omega=2 * np.pi, phi=0):
-    return a * (1-(2/np.pi)*np.arccos(np.cos(x * omega + phi)))
+# Pulse train with zero offset
+def pulsetrain(x, a=1, omega=2 * np.pi, phi=0, delta=0.3):
+    pulse = np.abs(np.mod(x * omega + phi+1, 2 * np.pi)) < (2 * np.pi * delta)
+    return a * (pulse)
+
 
 # Residuals: Difference between square wave and Fourier series
-def residuals(x, a, iter, omega=2 * np.pi, phi=0):
-    return triangwave(x, a, omega, phi) - ff(x, iter, omega, phi)
+def residuals(x, a=1, iter=1000, omega=2 * np.pi, phi=0,delta=0.5):
+    return pulsetrain(x, a=a, omega=omega, phi=phi, delta=delta) - ff(x, iter=iter, a=a, omega=omega, phi=phi, delta=delta)
 
 # Parameters
 iter = np.logspace(1, num_plots, num_plots, base=10)  # Logarithmically spaced
@@ -46,20 +49,19 @@ for i, ax in enumerate(axes):
     if i % 2 == 0:
         iter_value = int(iter[i])
         iteration = int(1 + np.floor(iter_value / 2))  # Kind of wave we are working on
-        ax.plot(xx, ff(xx, iter=iteration), label=f'N={iter_value}')
+        ax.plot(xx, ff(xx, iter=iteration,delta=0.3), label=f'N={iter_value}')
         ax.grid(True)
         ax.legend(loc='upper right')
+        ax.plot(xx,pulsetrain(xx))
     if i % 2 == 1:
         iter_value = int(iter[i])
         iteration = int(iter_value / 10)  # Kind of wave we are working on
-        ax.plot(xx, residuals(xx, a=0.5, iter=iteration), label=f'N={iteration}')
+        ax.plot(xx, residuals(xx, iter=iteration,delta=0.3), label=f'N={iteration}')
         ax.grid(True)
         ax.legend(loc='upper right')
 
 # Add shared labels for x and y
 fig.text(0.5, 0.02, 'x', ha='center', fontsize=fontsize)  # Slightly lower x-axis label
 fig.text(0.02, 0.5, 'f(x)', va='center', rotation='vertical', fontsize=fontsize)  # Slightly left y-axis label
-plt.savefig(filepath + "foutriawave.png")  # Save the plot
-
-
+plt.savefig(filepath + "foupulsetrainwave.png")  # Save the plot
 plt.show()

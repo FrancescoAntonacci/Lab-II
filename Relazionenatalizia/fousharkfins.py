@@ -16,28 +16,52 @@ params = {
 }
 plt.rcParams.update(params)
 
-# Fourier sine series for a square wave
-def ff(x, iter=1000,a=1, omega=2 * np.pi, phi=0):
+
+
+##################
+def G_lpf(omega,ft=1000):
+    f=omega/(2*np.pi)
+    return 1/np.sqrt(1+(f/ft)**2)
+def dphi_lpf(omega,ft=1000):
+    f=omega/(2*np.pi)
+    return np.arctan(-f/ft)
+
+def G_hpf(omega,ft=1000):
+    f=omega/(2*np.pi)
+    return 1/np.sqrt(1+(ft/f)**2)
+def dphi_hpf(omega,ft=1000):
+    f=omega/(2*np.pi)
+    return np.arctan(ft/f)
+
+##################
+def sharkfin(x, iter=1000, omega=2 * np.pi,ft=1e1):
     iter += 1
     f = 0
     for k in range(1, iter, 2):
-        f += ((2 / (k * np.pi))**2) * np.cos(k * x * omega + phi)
-    return a*f
+        phi=dphi_lpf(k*omega,ft)
+        G=G_lpf(k*omega,ft)
+        f += G*(2 / (k * np.pi)) * np.sin(k * x * omega+phi)
+    return f
 
-# Analytical square wave
-def triangwave(x, a, omega=2 * np.pi, phi=0):
-    return a * (1-(2/np.pi)*np.arccos(np.cos(x * omega + phi)))
+    return f - np.mean(f)
 
-# Residuals: Difference between square wave and Fourier series
-def residuals(x, a, iter, omega=2 * np.pi, phi=0):
-    return triangwave(x, a, omega, phi) - ff(x, iter, omega, phi)
+
+def ff(x, iter=1000, omega=2 * np.pi, phi=0):
+    iter += 1
+    f = 0
+    for k in range(1, iter, 2):
+        f += (2 / (k * np.pi)) * np.sin(k * x * omega + phi)
+    return f
+
+##################
+
 
 # Parameters
 iter = np.logspace(1, num_plots, num_plots, base=10)  # Logarithmically spaced
-res_im = 10000
+res_im = 100
 xx = np.linspace(-1, 1, res_im)
+ft=2e0
 
-########## Create layout for subplots
 fig, axes = plt.subplots(int(num_plots / 2), 2, sharex=True)  # Share axes
 axes = axes.flatten()  # Flatten the array for easier iteration
 
@@ -46,20 +70,15 @@ for i, ax in enumerate(axes):
     if i % 2 == 0:
         iter_value = int(iter[i])
         iteration = int(1 + np.floor(iter_value / 2))  # Kind of wave we are working on
-        ax.plot(xx, ff(xx, iter=iteration), label=f'N={iter_value}')
+        ax.plot(xx, sharkfin(xx, iter=iteration,ft=ft), label=f'N={iter_value}')
         ax.grid(True)
         ax.legend(loc='upper right')
     if i % 2 == 1:
         iter_value = int(iter[i])
         iteration = int(iter_value / 10)  # Kind of wave we are working on
-        ax.plot(xx, residuals(xx, a=0.5, iter=iteration), label=f'N={iteration}')
+        ax.plot(xx, ff(xx, iter=iteration), label=f'N={iteration}')
         ax.grid(True)
         ax.legend(loc='upper right')
 
-# Add shared labels for x and y
-fig.text(0.5, 0.02, 'x', ha='center', fontsize=fontsize)  # Slightly lower x-axis label
-fig.text(0.02, 0.5, 'f(x)', va='center', rotation='vertical', fontsize=fontsize)  # Slightly left y-axis label
-plt.savefig(filepath + "foutriawave.png")  # Save the plot
-
-
+plt.savefig(filepath+"fousharkfins.png")
 plt.show()

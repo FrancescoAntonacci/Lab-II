@@ -74,34 +74,4 @@ for i, ax in enumerate(axes):
 fig.text(0.5, 0.02, 'x', ha='center', fontsize=fontsize)  # Slightly lower x-axis label
 fig.text(0.02, 0.5, 'f(x)', va='center', rotation='vertical', fontsize=fontsize)  # Slightly left y-axis label
 plt.savefig(filepath + "fousquarewave.png")  # Save the plot
-
-################ Logarithmic spacing for iterations
-maxiter = 3
-resolution = int(1e2)
-iterations = np.logspace(1, maxiter, resolution, base=10, dtype=int)  # Logarithmically spaced
-
-# Compute squared residuals and residual area ratios
-residual_values, area_ratios = squaredresiduals_and_ratios(xx, a=0.5, iterations=iterations)
-
-# Plot squared residuals vs. iterations
-plt.figure()
-plt.plot(iterations, residual_values, color='b')
-plt.xscale('log')
-plt.yscale('log')
-plt.xlabel('Iterations (log scale)', fontsize=fontsize)
-plt.ylabel('Squared Residuals (log scale)', fontsize=fontsize)
-plt.grid(True)
-plt.title('Squared Residuals vs Iterations', fontsize=fontsize)
-plt.savefig(filepath + "squarewaveresiduals.png")  # Save the plot
-
-# Plot residual area ratios vs. iterations
-plt.figure()
-plt.plot(iterations, area_ratios, color='r')
-plt.xscale('log')
-plt.xlabel('Iterations (log scale)', fontsize=fontsize)
-plt.ylabel('Residual Area Ratio', fontsize=fontsize)
-plt.grid(True)
-plt.title('Residual Area Ratio vs Iterations', fontsize=fontsize)
-plt.savefig(filepath + "squarewavearea.png")  # Save the plot
-
 plt.show()

@@ -64,7 +64,7 @@ maxiter = 3
 resolution = int(1e2)
 resolutionx=int(1e5)
 iter = np.logspace(1, maxiter, resolution, base=10, dtype=int)  # Spaziatura logaritmica
-x = np.random.uniform(-1, 1, resolutionx)  # Intervallo di campionamento
+x = np.linspace(-1, 1, resolutionx)  # Intervallo di campionamento
 pars = (0.5, 2 * np.pi, 0)  # Parametri delle onde
 
 # Calcolo dei residui quadrati e dei rapporti d'area
