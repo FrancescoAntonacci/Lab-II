@@ -34,7 +34,7 @@ def ff(x,a, omega, phi,c,ft, iter=1000):
     f = 0
     x=phi+x
     for k in range(1, iter, 2):
-        f += G_lpf(omega,ft)*((2 / (k * np.pi))**2) * np.cos(k * x * omega + dphi_lpf(omega,ft) )
+        f += G_lpf(k*omega,ft)*((2 / (k * np.pi))**2) * np.cos(k * x * omega + dphi_lpf(k*omega,ft) )
     f=f-np.mean(f)
     return a*f+c
 
@@ -69,9 +69,8 @@ plt.figure()
 plt.errorbar(t2,v2,fmt='.',label="Dati sperimentali")
 plt.plot(xx,ff(xx,*popt2))
 
-
 xx=np.linspace(max(t3),min(t3),10000)
-p0=(2.6e3,2*np.pi/2.1e3, 2e5,2000,1e-3)
+p0=(1e3,2*np.pi/2.1e3, -1e5,2000,1e-3)
 popt3,pcov3=curve_fit(ff,t3,v3,p0=p0,absolute_sigma=False)
 
 
@@ -79,16 +78,15 @@ plt.figure()
 plt.errorbar(t3,v3,fmt='.',label="Dati sperimentali")
 plt.plot(xx,ff(xx,*popt3))
 
+#Bad dataset-but do not discard!
+# xx=np.linspace(max(t4),min(t4),10000)
+# p0=(2.6e3,2*np.pi/2.1e2, 2e5,2000,1e-3)
+# popt4,pcov4=curve_fit(ff,t4,v4,p0=p0,absolute_sigma=False)
 
-"""Bad dataset-but do not discard!
-xx=np.linspace(max(t4),min(t4),10000)
-p0=(2.6e3,2*np.pi/2.1e2, 2e5,2000,1e-3)
-popt4,pcov4=curve_fit(ff,t4,v4,p0=p0,absolute_sigma=False)
+# plt.figure()
+# plt.errorbar(t4,v4,fmt='.',label="Dati sperimentali")
+# plt.plot(xx,ff(xx,*popt4))
 
-plt.figure()
-plt.errorbar(t4,v4,fmt='.',label="Dati sperimentali")
-plt.plot(xx,ff(xx,*popt4))
-"""
 
 xx=np.linspace(max(t5),min(t5),10000)
 p0=(2.6e3,2*np.pi/2.1e2, 2e5,2000,1e-3)

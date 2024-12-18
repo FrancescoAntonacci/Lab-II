@@ -33,12 +33,14 @@ def ff(x, a, omega, phi, c, ft, iter=1000):
     f = 0
     x = phi + x
     for k in range(1, iter, 2):
-        f += G_lpf(omega, ft) * ((2 / (k * np.pi))**2) * np.cos(k * x * omega + dphi_lpf(omega, ft))
+        f += G_lpf(k*omega, ft) * ((2 / (k * np.pi))**2) * np.cos(k * x * omega + dphi_lpf(k*omega, ft))
     f = f - np.mean(f)
     return a * f + c
 
 def sin(x, a, omega, phi, c):
     return a * np.sin(omega * x + phi) + c
+
+
 
 ### Caricamento dei dati
 data_files = [
@@ -48,7 +50,7 @@ data_files = [
 initial_guesses = [
     (2.6e3, 2 * np.pi / 2.1e5, 0.1e6, 2000, 1e-3),
     (2.6e3, 2 * np.pi / 2.1e4, 2e5, 2000, 1e-3),
-    (2.6e3, 2 * np.pi / 2.1e3, 2e5, 2000, 1e-3),
+    (1e3,2*np.pi/2.1e3, -1e5,2000,1e-3),
     (2.6e3, 2 * np.pi / 2.1e2, 2e5, 2000, 1e-3)
 ]
 
