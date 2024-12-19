@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
 
 ### Aesthetic Settings
-fontsize = 14
+fontsize = 18
 num_plots = 6
 params = {
     'figure.figsize': (6 * 1.618, 6),  # Figure size
@@ -31,7 +31,7 @@ def fi(x, a=1,omega=2 * np.pi, ft=1e-3, iter=1000):
         f += G_lpf(k*omega,ft)*(2 / (k * np.pi)) * np.sin(k * x * omega + dphi_lpf(k*omega,ft))
     return a*f
 
-def fd(x, a=1,omega=2 * np.pi, ft=1e-3, iter=1000):
+def fd(x, a=1,omega=2 * np.pi, ft=1e-1, iter=1000):
     iter += 1
     f = 0
     for k in range(1, iter, 2):
@@ -64,7 +64,7 @@ xx = np.linspace(-1, 1, res_im)
 
 plt.figure()
 plt.plot(xx,1e3*fi(xx,1,2*np.pi,1e-3),label="Segnale integrato x1000")
-plt.plot(xx,fd(xx,1,2*np.pi,10),label="Segnale derivato")
+plt.plot(xx,fd(xx,1,2*np.pi),label="Segnale derivato")
 plt.plot(xx,ff(xx,1,2*np.pi),label="Segnale")
 plt.grid()
 plt.ylim(-1,1)

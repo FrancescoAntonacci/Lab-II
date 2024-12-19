@@ -38,6 +38,13 @@ def fd(x, a=1, omega=2 * np.pi, delta=0.3,ft=1e1, iter=1000):
         f += G_hpf(k*omega,ft)*(2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega+dphi_hpf(k*omega,ft))
     return a * f 
 
+def fpb(x, a=1, omega=2 * np.pi, delta=0.3,ft1=1e1,ft2=1e-3, iter=1000):
+    iter += 1
+    f = 0
+    for k in range(1, iter):
+        f += G_lpf(k*omega,ft2)*G_hpf(k*omega,ft1)*(2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega+dphi_hpf(k*omega,ft1)+dphi_lpf(k*omega,ft2))
+    return a * f 
+
 
 
 ##################
@@ -68,6 +75,7 @@ plt.figure()
 plt.plot(xx,ff(xx),label="Segnale")
 plt.plot(xx,1e3*fi(xx),label="Segnale integrato x1000")
 plt.plot(xx,fd(xx),label="Segnale derivato")
+#plt.plot(xx,1e3*fpb(xx),label="Segnale fuori dal passabanda")
 
 plt.grid()
 plt.ylim(-1,1)

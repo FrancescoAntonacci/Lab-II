@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
 
 ## Belloccerie
-fontsize = 14
+fontsize = 20
 params = {
     'figure.figsize': (10, 6),          # Figura più ampia
     'axes.labelsize': fontsize,        # Dimensione etichette assi
@@ -51,8 +51,9 @@ def squaredresiduals_and_ratios(func, fou, x, iter, pars):
         res = residuals(func, fou, x, i, pars)
         residual_sums.append(np.sum(res ** 2))  # Somma dei residui quadrati
         residual_areas.append(np.sum(np.abs(res)) * (max(x) - min(x)) / len(x))  # Area dei residui
-    yy = func(x, *pars)
-    area = calc_area(x, yy)
+    xx=np.linspace(max(x),min(x),1000000)
+    yy = func(xx, *pars)
+    area = calc_area(xx, yy)
     ratios = np.array(residual_areas) / area  # Rapporto area residui/area totale
     return residual_sums, ratios
 
@@ -62,7 +63,7 @@ def calc_area(x, y):
 # Parametri
 maxiter = 3
 resolution = int(1e2)
-resolutionx=int(1e5)
+resolutionx=int(1e8)
 iter = np.logspace(1, maxiter, resolution, base=10, dtype=int)  # Spaziatura logaritmica
 x = np.linspace(-1, 1, resolutionx)  # Intervallo di campionamento
 pars = (0.5, 2 * np.pi, 0)  # Parametri delle onde
@@ -77,7 +78,7 @@ fig, ax = plt.subplots(1, 2, figsize=(14, 6), sharex=True)
 # Grafico residui quadrati
 ax[0].plot(iter, sq_res, color='r', label="Onda quadra")
 ax[0].plot(iter, tr_res, color='g', label="Onda triangolare")
-ax[0].set_title("Residui Quadrati in funzione del numero di iterazioni")
+ax[0].set_title("Residui Quadrati ")
 ax[0].set_xlabel("Numero di Iterazioni")
 ax[0].set_ylabel("Somma dei Residui Quadrati")
 ax[0].set_xscale("log")
@@ -88,9 +89,9 @@ ax[0].legend()
 # Grafico rapporto area residui
 ax[1].plot(iter, sq_area, color='r', label="Onda quadra")
 ax[1].plot(iter, tr_area, color='g', label="Onda triangolare")
-ax[1].set_title("Rapporto dell'area tra i grafici con l'area dell'onda ")
+ax[1].set_title("Rapporto dell'area ")
 ax[1].set_xlabel("Numero di Iterazioni")
-ax[1].set_ylabel("Rapporto Area tra i grafici/Area onda")
+ax[1].set_ylabel("Area tra i grafici/Area onda")
 ax[1].set_xscale("log")
 ax[1].set_yscale("log")
 ax[1].grid(True)
@@ -98,6 +99,6 @@ ax[1].legend()
 # Layout finale
 fig.tight_layout()
 
-plt.savefig(filepath+"residuals.png")
+plt.savefig(filepath+"residuals1.png")
 
 plt.show()

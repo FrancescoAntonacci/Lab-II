@@ -32,36 +32,37 @@ def pulsetrain(x, a=1, omega=2 * np.pi, phi=0, delta=0.3):
 
 
 # Residuals: Difference between square wave and Fourier series
-def residuals(x, a=1, iter=1000, omega=2 * np.pi, phi=0,delta=0.5):
+def residuals(x, a=1, iter=1000, omega=2 * np.pi, phi=0,delta=0.3):
     return pulsetrain(x, a=a, omega=omega, phi=phi, delta=delta) - ff(x, iter=iter, a=a, omega=omega, phi=phi, delta=delta)
 
-# Parameters
-iter = np.logspace(1, num_plots, num_plots, base=10)  # Logarithmically spaced
-res_im = 10000
-xx = np.linspace(-1, 1, res_im)
 
-########## Create layout for subplots
-fig, axes = plt.subplots(int(num_plots / 2), 2, sharex=True)  # Share axes
-axes = axes.flatten()  # Flatten the array for easier iteration
+iterations=(1,5,50,10000)
+# Parameters for the square wave and Fourier series
+res_im = 100000 # Resolution for the x-axis (number of points)
+xx = np.linspace(-1, 1, res_im)  # Generate x values between -1 and 1
+num_plots = len(iterations) * 2  # Each iteration generates two plots (wave and residuals)
 
-# Iterate through subplots
-for i, ax in enumerate(axes):
-    if i % 2 == 0:
-        iter_value = int(iter[i])
-        iteration = int(1 + np.floor(iter_value / 2))  # Kind of wave we are working on
-        ax.plot(xx, ff(xx, iter=iteration,delta=0.3), label=f'N={iter_value}')
-        ax.grid(True)
-        ax.legend(loc='upper right')
-        ax.plot(xx,pulsetrain(xx))
-    if i % 2 == 1:
-        iter_value = int(iter[i])
-        iteration = int(iter_value / 10)  # Kind of wave we are working on
-        ax.plot(xx, residuals(xx, iter=iteration,delta=0.3), label=f'N={iteration}')
-        ax.grid(True)
-        ax.legend(loc='upper right')
+# Create a grid layout for subplots
+fig, axes = plt.subplots(len(iterations), 2, sharex=True, figsize=(12, len(iterations) * 2))
+axes = axes if len(iterations) > 1 else [axes]  # Ensure compatibility when there's only one iteration
 
-# Add shared labels for x and y
-fig.text(0.5, 0.02, 'x', ha='center', fontsize=fontsize)  # Slightly lower x-axis label
-fig.text(0.02, 0.5, 'f(x)', va='center', rotation='vertical', fontsize=fontsize)  # Slightly left y-axis label
-plt.savefig(filepath + "foupulsetrainwave.png")  # Save the plot
-plt.show()
+# Iterate through each subplot
+for i, (ax_left, ax_right) in enumerate(axes):
+    iter_value = iterations[i]  # Get the current iteration value
+    
+    # Plot the reconstructed square wave (Fourier approximation)
+    ax_left.plot(xx, ff(xx, iter=iter_value), label=f'N={iter_value}')
+    ax_left.set_title(f'Ricostruzione onda quadra (N={iter_value})')
+    ax_left.grid(True)
+    # Plot the residuals (difference between Fourier and analytical wave)
+    ax_right.plot(xx, residuals(xx, iter=iter_value))
+    ax_right.set_title(f'Residui (N={iter_value})')
+    ax_right.grid(True)
+# Add shared labels for x and y axes
+fig.text(0.5, 0.005, 't  [arb.un.]', ha='center', fontsize=fontsize)  # Shared x-axis label
+fig.text(0.00, 0.5, 'x(t)[arb.un.]', va='center', rotation='vertical', fontsize=fontsize)  # Shared y-axis label
+
+# Save and display the figure
+plt.tight_layout()  # Adjust layout to avoid overlaps
+plt.savefig(filepath + "foupulsetrainwave1e5.png")  # Save the plot as an image
+plt.show()  # Display the plot

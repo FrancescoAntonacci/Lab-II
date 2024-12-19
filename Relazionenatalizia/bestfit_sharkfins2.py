@@ -5,7 +5,7 @@ from scipy.optimize import curve_fit
 filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
 
 ### Aesthetic Settings
-fontsize = 14
+fontsize = 18
 params = {
     'figure.figsize': (12, 8),  # Dimensione della figura
     'axes.labelsize': fontsize,
