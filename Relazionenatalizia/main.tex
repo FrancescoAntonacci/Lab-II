@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage[margin=1in]{geometry} % Adjust margins here
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{float}
@@ -10,9 +11,9 @@
 \title{Relazione Natalizia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
 \maketitle
+
 \section{Ricostruzione numerica di forme d'onda}
     \subsection{Forme d'onda quadre}
     \label{sez:quadra}
@@ -22,7 +23,7 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{fousquarewave1e2.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{fousquarewave1e2.png} % Replace with your image name
             \caption{A sinistra ricostruzione numerica dell'onda quadra Eq.($\ref{eq:quadra}$) su
                     due periodi con cento punti.
                     A destra residui tra onda analitica e la ricostruzione.
@@ -40,15 +41,15 @@
         All'aumentare dei termini $N$ della serie diminuisce la distranza tra onda analitica e serie 
         di seni.
 
-        Si osserva che nel caso di Fig($\ref{fig:quadra1e2}$), la quale ha una risoluzione 
-        peggiore, la deformazione dell'onda quadra assomiglia a quanto visto nelle esperienze 
+        Si osserva che nel caso di Fig($\ref{fig:quadra1e2}$),
+        la quale ha una risoluzion  peggiore, la deformazione dell'onda quadra assomiglia a quanto visto nelle esperienze 
         pratiche di laboratorio con l'oscilloscopio quando si usa il generatore di funzioni a
         frequenze sufficientemente alte: forse questo rivela qualcosa sul funzionamento del generatore
         di funzioni.\\
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{fousquarewave1e5.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{fousquarewave1e5.png} % Replace with your image name
             \caption{A sinistra ricostruzione numerica dell'onda quadra Eq.($\ref{eq:quadra}$) su
                     due periodi con centomila punti.
                     A destra residui tra onda analitica e la ricostruzione.
@@ -77,7 +78,7 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{foutriawave1e5.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{foutriawave1e5.png} % Replace with your image name
             \caption{A sinistra ricostruzione numerica dell'onda triangolare
              Eq.($\ref{eq:triangolare}$)su due periodi con centomila punti.
             A destra residui tra onda analitica e la ricostruzione.
@@ -92,7 +93,7 @@
         Sez.($\ref{sez:residui}$).
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{foutriawave1e2.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{foutriawave1e2.png} % Replace with your image name
             \caption{A sinistra ricostruzione numerica dell'onda triangolare
             Eq.($\ref{eq:triangolare}$)su due periodi con cento punti.
            A destra residui tra onda analitica e la ricostruzione.
@@ -132,7 +133,7 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{residuals1.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{residuals1.png} % Replace with your image name
             \caption{Nella figura simulazione numerica sono stati usati cento milioni di campionamenti presi tra due periodi.}
             \label{fig:res1}
         \end{figure}
@@ -141,7 +142,7 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1.2\textwidth]{residuals2.png} % Replace with your image name
+            \includegraphics[width=1\textwidth]{residuals2.png} % Replace with your image name
             \caption{Nella figura simulazione numerica sono stati usati 100 campionamenti presi tra due periodi.}
             \label{fig:res2}
         \end{figure}
@@ -154,11 +155,12 @@
         x(t) = \sum_{k=1,3,5...}^{\infty} \left(\frac{2}{k\pi}\right)\sin\left(k\pi\delta\right)\sin\left(k\omega t\right)
         \label{eq:ciufciuf}
     \end{equation}
+    $\delta$ è il rapporto tra massimo e minimo dell'onda.
     Come si può vedere in Fig.($\ref{fig:ciufciuf1} $) e in Fig.($\ref{fig:ciufciuf2} $)
     si possono fare le stesse identiche osservazioni fatte in Sez(\ref{sez:quadra}).
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.2\textwidth]{foupulsetrainwave1e2.png} % Replace with your image name
+        \includegraphics[width=1\textwidth]{foupulsetrainwave1e2.png} % Replace with your image name
         \caption{A sinistra ricostruzione numerica dell'onda triangolare
         Eq.($\ref{eq:ciufciuf}$)su due periodi con cento punti.
         A destra residui tra onda analitica e la ricostruzione.
@@ -168,7 +170,7 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.2\textwidth]{foupulsetrainwave1e5.png} % Replace with your image name
+        \includegraphics[width=1\textwidth]{foupulsetrainwave1e5.png} % Replace with your image name
         \caption{A sinistra ricostruzione numerica dell'onda triangolare
         Eq.($\ref{eq:ciufciuf}$)su due periodi con centomila punti.
         A destra residui tra onda analitica e la ricostruzione.
@@ -176,16 +178,8 @@
         \label{fig:ciufciuf2}
     \end{figure}
 
-
-        
-        
-    
-%%%%%%%%%%%%%%%%
-%
-%Effetto della frequenza della forma d'onda in ingresso
-%Influenza della frequenza di taglio dell'integratore
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro passa basso e filtro passa alto}
+\label{sez:filt}
 Un filtro passa basso di frequenza di taglio $f_T$, che riceve un segnale di 
 frequenza angolare $\omega$,lo riscala di un fattore $G$ e lo sfasa di un 
 angolo $\phi$ come dato da Eq.($\ref{eq:lpf}$).
@@ -201,7 +195,7 @@ angolo $\phi$ come dato da Eq.($\ref{eq:hpf}$).
     \begin{equation}
         f = \frac{\omega}{2\pi}, \quad 
         G(f) = \frac{1}{\sqrt{1 + \left(\frac{f_T}{f}\right)^2}}, \quad 
-        \phi = \arctan\left(\frac{f_T}{f}\right)
+        \phi(f)= \arctan\left(\frac{f_T}{f}\right)
         \label{eq:hpf}
     \end{equation}
 
@@ -213,44 +207,314 @@ all'interno della sinusoide o cosinusoide.
 
     
     \subsection{Onda quadra}
-        Riporto la forma d'onda della cosinusoide integrata in . 
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=1.2\textwidth]{fousharkfins.png} % Replace with your image name
-                \caption{}
-                \label{fig:shark1}
-            \end{figure}
+        \subsubsection{Filtro passa basso}
+            \label{sez:int_quadra}
+            La funzione che è stata usata per ricostruire le pinne di squalo è Eq.($\ref{eq:shark}$).
+                \begin{equation}
+                    x(t) = \sum_{k=1,3,5...}^{\infty} \left(\frac{2G(k \omega)}{k\pi}\right)\sin\left(k \omega t+\phi(f) \right),\quad
+                    f = \frac{\omega}{2\pi}
+                    \label{eq:shark}
+                \end{equation}
+            Come nelle onde precedenti è possibile verificare la convergenza della serie di 
+            seni con la forma d'onda analitica.
+            Inoltre si possono fare le stesse considerazioni per quanto riguarda 
+            il numero di termini della serie impiegati e i transienti
+            (vedi Fig($\ref{fig:shark1e2}$) e Fig($\ref{fig:shark1e5}$)).
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{fousharkfins1e2.png} % Replace with your image name
+                        \caption{A destra c'è l'onda a pinna di squalo.
+                        A sinistra c'è il grafico dei residui.
+                        La risoluzione utilizzata è stata di cento punti su due periodi.}
+                        \label{fig:shark1e2}
+                    \end{figure}
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{fousharkfins1e5.png} % Replace with your image name
+                        \caption{A destra c'è l'onda a pinna di squalo.
+                        A sinistra c'è il grafico dei residui.
+                        La risoluzione utilizzata è stata di centomila punti su due periodi.}
+                        \label{fig:shark1e5}
+                    \end{figure}
+                Si può facilmente simulare il comportamento di  un filtro al
+                variare della frequenza in ingresso. Tuttavia per semplicità 
+                la simulazione è stata fatta tenendo fissa la frequenza dell'onda e 
+                variando la frequenza di taglio, come fatto in Fig.($\ref{fig:sharkft}$).
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{fousharkfinsfts1.png} % Replace with your image name
+                        \caption{Onde a pinna di squalo ottenuto con l'Eq.($\ref{eq:shark}$).
+                        La risoluzione utilizzata è stata di centomila punti su due periodi.
+                        Sono stati usati 10000 termini della serie di seni.}
+                        \label{fig:sharkft}
+                    \end{figure}
+
+                Si vede chiaramente che quanto simulato è in accordo con quanto
+                visto in laboratorio: 
+                al decrescere della frequenza di taglio rispetto alla frequenza dell'onda quadra
+                l'onda tende a diventare triangolare e la sua ampiezza diminuisce; viceversa,
+                l'onda tenda a divenire quadra, ossia il segnale in ingresso tende a 
+                rimanere inalterato.
+            
+            
+            \subsubsection{Filtro passa alto}
+                E'interessante simulare il comportamento di un filtro passa alto 
+                come fatto in Fig($\ref{fig:der_square}$): si  può osservare specialmente 
+                nel caso $ft=0.1$[arb.un.] la stessa forma d'onda osservata collegando 
+                l'oscilloscopio in modalità AC al generatore di funzioni.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{der_square.png} % Replace with your image name
+                        \caption{Simulazione di filtro passa alto con onda quadra.
+                        La risoluzione utilizzata è stata di centomila punti su due periodi.
+                        Sono stati usati 10000 termini della serie di seni.}
+                        \label{fig:der_square}
+                    \end{figure}
+
 
     \subsection{Onda triangolare}
+        \subsubsection{Integratore}
+            Per amor di completezza è riportato in Fig.($\ref{fig:trilpf}$) anche il comportamento di un filtro passa
+            basso per un onda triangolare. Valgono tutti i commenti precedentemente in 
+            Sez.($\ref{sez:int_quadra}$)
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\textwidth]{fousharkfinsfts1.png} % Replace with your image name
+                \caption{Per la ricostruzione della forma d'onda è stato adottato 
+                il procedimento descritto in Sez.($\ref{sez:filt}$).
+                La risoluzione utilizzata è stata di centomila punti su due periodi.
+                Sono stati usati 10000 termini della serie di seni.}
+                \label{fig:trilpf}
+            \end{figure}
+        \subsubsection{Derivatore}
+            In questo caso si osserva (vedi Fig.($\ref{fig:trihpf}$))che la forma d'onda 
+            triangolare passante per un filtro passa alto coincide con quella simulata 
+            per un filtro passa basso attraversato da un'onda quadra(vedi Fig($\ref{fig:sharkft}$))
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{der_trian.png} % Replace with your image name
+                    \caption{Per la ricostruzione della forma d'onda è stato adottato 
+                    il procedimento descritto in Sez.($\ref{sez:filt}$).
+                    La risoluzione utilizzata è stata di centomila punti su due periodi.
+                    Sono stati usati 10000 termini della serie di seni.}
+                    \label{fig:trihpf}
+                \end{figure}
+
+
     \subsection{Treno di impulsi}
+                Le osservazioni che si possono fare in questo caso sono già state fatte 
+                nella trattazione dell'onda quadra Sez.($\ref{sez:int_quadra}$).
+            \subsubsection{Integratore}
+                In Fig.($\ref{fig:int_train}$) viene riportato il segnale integrato di un treno di impulsi.
+                Per facilità di rappresentazione e facilitare possibili manipolazioni
+                nello studio della forma, è stato scelto di tenere compresa la forma 
+                d'onda in un intervallo unitario centrato in zero.
+                Se questo non fosse stato fatto appositamente la forma d'onda, non 
+                essendo alternata, non avrebbe spontaneamente, eccetto che nel caso 
+                in cui si fosse ricondotti a un'onda quadra, rispettato questa richiesta.
+        
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{int_train.png} % Replace with your image name
+                        \caption{Per la ricostruzione della forma d'onda è stato adottato 
+                        il procedimento descritto in Sez.($\ref{sez:filt}$).
+                        La risoluzione utilizzata è stata di centomila punti su due periodi.
+                        Sono stati usati 10000 termini della serie di seni.}
+                        \label{fig:int_train}
+                    \end{figure}               
 
+            \subsubsection{Derivatore}
+                In Fig.($\ref{fig:der_train}$) viene riportato il segnale derivato di un treno di impulsi.     
+                    
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1\textwidth]{der_train.png} % Replace with your image name
+                        \caption{Per la ricostruzione della forma d'onda è stato adottato 
+                        il procedimento descritto in Sez.($\ref{sez:filt}$).
+                        La risoluzione utilizzata è stata di centomila punti su due periodi.
+                        Sono stati usati 10000 termini della serie di seni.}
+                        \label{fig:der_train}
+                    \end{figure}    
 
-
-
-\section{Filtro passa banda}
+            \subsubsection{Filtro passa banda}
+                E' adesso pura questione di soddisfazione simulare l'effetto
+                di un filtro passabanda su un terno di impulsi. Si veda Fig.($\ref{fig:band_train}$).
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{band_train.png} % Replace with your image name
+                    \caption{Per la ricostruzione della forma d'onda è stato adottato 
+                    il procedimento descritto in Sez.($\ref{sez:filt}$).
+                    La risoluzione utilizzata è stata di centomila punti su due periodi.
+                    Sono stati usati 10000 termini della serie di seni.}
+                    \label{fig:band_train}
+                \end{figure}
 
 
 \section{Best fit dei dati acquisiti con Arduino}
+    Per tutti i best-fit realizzati è stato utilizzato mille come numero con cui 
+    troncare la serie di Fourier. Questo è stato necessario per far eseguire il 
+    best-fit in tempi ragionevoli.
+    Come incertezza sulle misure è stata
+    presa la deviazione standard campione di un set di dati di misure
+    di differenze di potenziale costante raccolti con Ardunio.
+    
     \subsection{Onda quadra}
+            E' stato realizzato il best-fit dei minimi quadrati
+            di un set di dati compatibile con un'onda quadra.
+            Il modello con cui fare il best-fit è descritto dall'Eq.($\ref{eq:fit_square}$).
+                \begin{equation}
+                    V(t) = a\sum_{k=1,3,5...}^{1000} \frac{2}{k\pi}\sin\left(k\omega (t+\delta)\right) +c
+                    \label{eq:fit_square}
+                \end{equation}
+            Si osserva che trascurare o meno i punti sui transienti è incisivo
+            sul risultato di best-fit come si può vedere in Fig.($\ref{fig:bestfit_square.fig}$ ).
+            E' stato dunque ragionevole utilizzare $absolute\_ sigma=True$
+            nel primo best fit, e $absolute\_ sigma=False$ nel secondo.
+            Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
+            I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_square}).
+            In Fig.($\ref{fig:bestfit_square.fig}$) sono riportati i dati con il best fit e 
+            i residui.
+            
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1\textwidth]{bestfit_squarewave.png} % Replace with your image name
+                \caption{.
+                }
+                \label{fig:bestfit_square.fig}
+            \end{figure}     
+            
+
+            \begin{table}
+                \begin{tabular}{ccc}
+                    \hline
+                    Parametri & Fit trascurando i transienti & Fit considerando i transienti \\
+                    \hline
+                    $\omega$ [rad/$\mu$s] & $2.99227219 \times 10^{-5} \pm 1.20324666 \times 10^{-9}$ & $2.99296749 \times 10^{-5} \pm 2.70929941 \times 10^{-9}$ \\
+                    $\delta$ [$\mu$s] & $-35.2126409 \pm 24.3250744$ & $-42.6538259 \pm 19.0655774$ \\
+                    a [arb.un] & $2774.68491 \pm 1.31010568$ & $2647.37725 \pm 47.3558180$ \\
+                    c [arb.un] & $2012.88951 \pm 0.655496022$ & $2026.92741 \pm 23.6850179$ \\
+                    $\chi^{2}_{norm}$ & 0.01 & 14 \\
+                    \hline
+                \end{tabular}
+                \caption{Parametri ottenuti nei best-fit dell'onda quadra. 
+                Vedi modello Eq.($\ref{eq:fit_square}$).}
+                \label{tab:bestfit_square}
+            \end{table}
+
+
+
+            \begin{table}
+                \centering
+                \begin{tabular}{ccccc}
+                    \hline
+                    & $\omega$ & $\delta$ & a & c \\
+                    \hline
+                    $\omega$ & 1 & -0.86150131 & -0.00212887 & -0.0111021 \\
+                    $\delta$ & -0.86150131 & 1 & -0.00902428 & -0.01150904 \\
+                    a & -0.00212887 & -0.00902428 & 1 & -0.05885569 \\
+                    c & -0.0111021 & -0.01150904 & -0.05885569 & 1 \\
+                    \hline
+                \end{tabular}
+                \caption{Matrice di correlazione per il fit trascurando le misure sui transienti.}
+                \label{tab:corr_matrix_no_transients}
+            \end{table}
+
+            \begin{table}
+                \centering
+                \begin{tabular}{ccccc}
+                    \hline
+                    & $\omega$ & $\delta$ & a & c \\
+                    \hline
+                    $\omega$ & 1 & -0.37041923 & 0.03243353 & -0.02052812 \\
+                    $\delta$ & -0.37041923 & 1 & 0.05163791 & -0.07133078 \\
+                    a & 0.03243353 & 0.05163791 & 1 & -0.05385029 \\
+                    c & -0.02052812 & -0.07133078 & -0.05385029 & 1 \\
+                    \hline
+                \end{tabular}
+                \caption{Matrice di correlazione per il fit considerando le misure sui transienti.}
+                \label{tab:corr_matrix_with_transients}
+            \end{table}
+            
     \subsection{Onda a pinna di squalo}
+        E' stato realizzato il best-fit dei minimi quadrati
+        di quattro set di dati compatibile con un'onda a pinna di squalo.
+        Il modello con cui fare il best-fit è descritto dall'Eq.($\ref{eq:fit_shark}$).
+                \begin{equation}
+                    x(t) = a\sum_{k=1,3,5...}^{1000} \frac{2G(f,f_T)}{k\pi}\sin\left(k\omega (t+\delta)+\phi(f,f_T)\right) +c
+                    \label{eq:fit_shark}
+                \end{equation} 
+        I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_square}).%%%%%%%%%%%%%CHANGE TABLE 
+        In Fig.($\ref{fig:bestfit_shark.fig}$) sono riportati i dati con il best fit e 
+        i residui.
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=1\textwidth]{bestfit_sharkfins.png} % Replace with your image name
+                    \caption{.
+                    }
+                    \label{fig:bestfit_shark.fig}
+                \end{figure}     
+
+                \begin{table}[H]
+                    \centering
+                    \begin{tabular}{cccccc}
+                        \hline
+                        Parametri & Grafico1 & Grafico2 & Grafico3 & Grafico4 \\
+                        \hline
+                        $\omega$ [rad/s]    & $0.29839 \pm 0.0005$      & $300.691\pm 0.009$    & $2970.0 \pm 0.4$      & $29669.8\pm 0.2$ \\
+                        $f_T$ [mHz]         & $0.140 \pm 0.001$         & $0.1864 \pm 0.0004$   & $0.189 \pm 0.002$     & $0.1 \pm 0.1$ \\
+                        $\delta$ [$\mu$s]   & $178 \pm 3$               & $26 \pm 2$            & $10\pm 1$             & $6 \pm 1$ \\
+                        a [arb.un]          & $2779\pm 1$               & $2767 \pm 2$          & $2746\pm 20$          & $4137\pm 4644$ \\
+                        c [arb.un]          & $2090.0 \pm 0.6 $         &$2015.1\pm 0.6$        & $2025.9 \pm 0.6$      & $2014.8 \pm 0.6$ \\
+                        $\chi^{2}_{norm}$   & 0.3                       &0.0071                 & 0.006                 & 0.007\\
+                        \hline
+                    \end{tabular}
+                    \caption{Parametri ottenuti nei best-fit.}
+                    \label{tab:bestfit_params}
+                \end{table}
+                
+                
+        
+                
+        
     \subsection{Onda sinusoidale}
+        E' stato realizzato il best-fit dei minimi quadrati
+        di quattro set di dati compatibile con un'onda sinusoidale.
+        Il modello con cui fare il best-fit è descritto dall'Eq.($\ref{eq:fit_sin}$).
+            \begin{equation}
+                x(t)=a \sin\left(\omega t+\phi\right)
+                \label{eq:fit_sin}
+            \end{equation} 
+        Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
+        I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_square}).%%%%%%%%%%%%%CHANGE TABLE 
+        In Fig.($\ref{fig:bestfit_square.fig}$) sono riportati i dati con il best fit e 
+        i residui.
+
     \subsection{Onda triangolare}
+        E' stato realizzato il best-fit dei minimi quadrati
+        di quattro set di dati compatibile con un'onda traingolare.
+         Il modello con cui fare il best-fit è descritto dall'Eq.($\ref{eq:fit_trian}$).
+            \begin{equation}
+                x(t) = a\sum_{k=1,3,5...}^{1000} G(f,f_T)\frac{4}{(k\pi^2)}\sin\left(k\omega (t+\delta)+\phi(f,f_T)\right) +c
+                \label{eq:fit_trian}
+            \end{equation} 
+        Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
+        I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_square}).%%%%%%%%%%%%%CHANGE TABLE
+        In Fig.($\ref{fig:bestfit_square.fig}$) sono riportati i dati con il best fit e 
+        i residui.
+
+
+
+
+
 
 
 
 \section{Simulazione numerica dei grafici guadagno vs frequenza}
-    \subsection{Integratore con forma d'onda quadra in ingresso}
-        \subsubsection{Contestualizzazione dei risultati sperimentali}
-    \subsection{Integratore con forma d'onda triangolare in ingresso}
-        \subsubsection{Contestualizzazione dei risultati sperimentali}
 
 
 
-\section{Simulazioni facoltative}
-    \subsection{Derivatore con forma d'onda a scelta in ingresso}
-    \subsection{Distorsione di una forma d'onda quadra osservata con accoppiamento AC}
-    \subsection{Forma d'onda quadra con duty cycle variabile e filtro passa-basso}
-        \subsubsection{Effetti del filtro passa-basso su un treno di impulsi}
-    \subsection{Altre simulazioni e confronti con dati sperimentali}
+
 
 \end{document}

@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
 
 ### Aesthetic Settings
-fontsize = 14
+fontsize = 18
 num_plots = 6
 params = {
     'figure.figsize': (6 * 1.618, 6),  # Figure size
@@ -38,7 +38,7 @@ def residuals(x, a=1, iter=1000, omega=2 * np.pi, phi=0,delta=0.3):
 
 iterations=(1,5,50,10000)
 # Parameters for the square wave and Fourier series
-res_im = 100000 # Resolution for the x-axis (number of points)
+res_im = 100# Resolution for the x-axis (number of points)
 xx = np.linspace(-1, 1, res_im)  # Generate x values between -1 and 1
 num_plots = len(iterations) * 2  # Each iteration generates two plots (wave and residuals)
 
@@ -52,7 +52,7 @@ for i, (ax_left, ax_right) in enumerate(axes):
     
     # Plot the reconstructed square wave (Fourier approximation)
     ax_left.plot(xx, ff(xx, iter=iter_value), label=f'N={iter_value}')
-    ax_left.set_title(f'Ricostruzione onda quadra (N={iter_value})')
+    ax_left.set_title(f'Ricostruzione Ciuf ciuf (N={iter_value})')
     ax_left.grid(True)
     # Plot the residuals (difference between Fourier and analytical wave)
     ax_right.plot(xx, residuals(xx, iter=iter_value))
@@ -64,5 +64,5 @@ fig.text(0.00, 0.5, 'x(t)[arb.un.]', va='center', rotation='vertical', fontsize=
 
 # Save and display the figure
 plt.tight_layout()  # Adjust layout to avoid overlaps
-plt.savefig(filepath + "foupulsetrainwave1e5.png")  # Save the plot as an image
+plt.savefig(filepath + "foupulsetrainwave1e2.png")  # Save the plot as an image
 plt.show()  # Display the plot
