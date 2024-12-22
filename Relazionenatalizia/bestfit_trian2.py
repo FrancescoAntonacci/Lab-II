@@ -17,7 +17,6 @@ params = {
     'lines.markersize': 6
 }
 plt.rcParams.update(params)
-plt.style.use('seaborn-v0_8-muted')  # Stile pulito
 
 ### Funzioni
 def G_lpf(omega, ft=1000):
@@ -51,21 +50,32 @@ data_files = [
     "data/trian3.txt", "data/trian4bis.txt"
 ]
 initial_guesses = [
-    (2.6e3, 2 * np.pi / 2.1e5, 0.1e6, 2000, 1e-3),
-    (2.6e3, 2 * np.pi / 2.1e4, 2e5, 2000, 1e-3),
-    (1e3,2*np.pi/2.1e3, -1e5,2000,1e-3),
-    (2.6e3, 2 * np.pi / 2.1e2, 2e5, 2000, 1e-3)
+    (2.6e3, 2 * np.pi / 2.1e5, 1e5, 2000,  3e-4),
+    (2.6e3, 2 * np.pi / 2.1e4, 1e4, 2000, 3e-4),
+    (2.6e3,2*np.pi/2.1e3, 1e3,2000, 2e-4),
+    (2.6e3, 2 * np.pi / 2.1e2,100, 2025,  2e-4)
 ]
+
+"""
+t,v=np.loadtxt(filepath+data_files[3],unpack=True)
+xx=np.linspace(min(t),max(t),1000)
+plt.figure()
+plt.errorbar(t,v,s_v,fmt='k.')
+plt.plot(xx,ff(xx,*initial_guesses[3]))
+plt.show()"""
+
+
 
 # Creazione dei subplot 4x2 con due righe alternate di grafici principali e residui
 fig, axes = plt.subplots(4, 2, figsize=(12, 10), gridspec_kw={'height_ratios': [2, 1, 2, 1], 'hspace': 0.4, 'wspace': 0.3})
 axes = axes.flatten()
 
 # Loop per generare i grafici principali e residui
-i=1
 for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
+    j=idx+1
     if idx>1:
         idx+=2
+    
     # Caricamento dati
     t, v = np.loadtxt(filepath + file, unpack=True)
     s_v = np.full_like(v, s_v)
@@ -79,7 +89,7 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
     ax_main = axes[idx]  # Subplot per il grafico principale
     ax_main.errorbar(t, v, s_v, fmt='k.', label="Dati sperimentali", alpha=0.8)
     ax_main.plot(xx, ff(xx, *popt), 'r-', label="Best Fit")
-    ax_main.set_title(f'Grafico {i}')
+    ax_main.set_title(f'Grafico {j}')
     ax_main.grid(True, linestyle='--', alpha=0.5)
     if idx<1:
         ax_main.legend(loc='lower center', bbox_to_anchor=(0.5, 1.15), ncol=2)
@@ -87,9 +97,8 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
     # Grafico dei residui (colonna destra)
     ax_res = axes[idx+2]  # Subplot per i residui
     ax_res.plot(t, res, '.r', label="Residui")
-    ax_res.set_title(f'Residui Normalizzati {i}')
+    ax_res.set_title(f'Residui Normalizzati {j}')
     ax_res.grid(True, linestyle='--', alpha=0.5)
-    i+=1
 
     print(f"\n\nBest_fit{idx}")
     print("parametri:", popt)
@@ -102,6 +111,7 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
     print("matrice di correlazione:\n",corr12)
     k2=sum((res/s_v)**2)/(len(v)-len(popt))
     print("x2=",k2)
+    print("VPP=",np.max(ff(xx,*popt))-np.min(ff(xx,*popt)))
 
 
 # Etichette condivise
@@ -112,3 +122,4 @@ fig.text(0.04, 0.5, 'V [arb. un.]', ha='center', va='center', rotation='vertical
 plt.tight_layout(rect=[0.03, 0.03, 1, 1])
 plt.savefig(filepath + "bestfit_triangle.png")
 plt.show()
+

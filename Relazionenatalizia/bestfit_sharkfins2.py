@@ -60,8 +60,11 @@ axes = axes.flatten()
 # Loop per generare i grafici principali e residui
 i=1
 for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
+    j=idx+1
     if idx>1:
         idx+=2
+
+    
     # Caricamento dati
     t, v = np.loadtxt(filepath + file, unpack=True)
     s_v = np.full_like(v, s_v)
@@ -75,7 +78,7 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
     ax_main = axes[idx]  # Subplot per il grafico principale
     ax_main.errorbar(t, v, s_v, fmt='k.', label="Dati sperimentali", alpha=0.8)
     ax_main.plot(xx, sharkfin(xx, *popt), 'r-', label="Best Fit")
-    ax_main.set_title(f'Grafico {i}')
+    ax_main.set_title(f'Grafico {j}')
     ax_main.grid(True, linestyle='--', alpha=0.5)
     if idx<1:
         ax_main.legend(loc='lower center', bbox_to_anchor=(0.5, 1.15), ncol=2)
@@ -83,7 +86,7 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
     # Grafico dei residui (colonna destra)
     ax_res = axes[idx+2]  # Subplot per i residui
     ax_res.plot(t, res, '.r', label="Residui")
-    ax_res.set_title(f'Residui Normalizzati {i}')
+    ax_res.set_title(f'Residui Normalizzati {j}')
     ax_res.grid(True, linestyle='--', alpha=0.5)
     i+=1
     ###Printaggio selvaggio dei risultati
@@ -106,5 +109,5 @@ fig.text(0.04, 0.5, 'V [arb. un.]', ha='center', va='center', rotation='vertical
 
 # Salvataggio e visualizzazione
 plt.tight_layout(rect=[0.03, 0.03, 1, 1])
-plt.savefig(filepath + "bestfit_triangle.png")
+plt.savefig(filepath + "bestfit_sharkfins.png")
 plt.show()

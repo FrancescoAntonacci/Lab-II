@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{Antonacci_Sermi2024}
+Antonacci e~Sermi.
+\newblock Dati per i best-fit.
+\newblock Disponibili a:
+  \url{https://github.com/FrancescoAntonacci/Lab-II/tree/main}, 2024-2025.
+\newblock I dati sono disponibili su:
+  Guadagno:\url{https://github.com/FrancescoAntonacci/Lab-II/blob/main/Lab2_29102024/data_ard/data12.txt};
+  Treno di
+  impulsi:\url{https://github.com/FrancescoAntonacci/Lab-II/blob/main/Lab2_19112024/Arduino_negro/data6.txt};
+  e fits degli integratori:
+  \url{https://github.com/FrancescoAntonacci/Lab-II/tree/main/Lab2_26112024}.
+
+\end{thebibliography}
