@@ -1,0 +1,18 @@
+# Organizzazione della cartella
+Prestare molta attenzione al seguente file se si vuole maneggiare su di essi.
+* i file che presentano il nome _fousquarewave.py_, _foustrianwave.py_ servono per rappresentare le figure 1, 2 (onda quadra), 3 e 4 (onda triangolare) della relazione. Rappresentano, rispettivamente, le onde quadre e triangolari calcolate troncando la serie di Fourier all'$n$-esimo termine. La risoluzione, indicata nella relazione, va cambiata all'interno del file al parametro *res_im*;
+* i file _residuals1.py_ e _residuals2.py_ sono quei file che vengono utilizzati per la generazione delle figure 5 e 6 sulla somma dei residui quadrati e il rapporto delle aree utilizzando risoluzioni differenti per i punti;
+* il file che presenta il nome _fouspulsetrainwave.py_ rappresenta invece il file utilizzato per generare i grafici (figure 7 e 8) sul treno di impulsi, ovvero la figura 7. Valgono le medesime considerazioni fatte su *res_im* fatte per i file _fousquarewave.py_ e _foustriangwave.py_;
+* il file _fousharkfins1.py_ viene utilizzato per generare i grafici del filtro passa-basso (figura 9 e 10) sempre con risoluzioni controllate da *res_im*
+* il file _fousharkfins3.py_ serve per generare il grafico (figura 11) del filtro passo-basso al variare della frequenza in ingresso; 
+* il file *int_square.py* serve per generare il grafico (figura 12) del filtro passa-alto che riceve un'onda quadra in arrivo;
+* il file *integ_trian1.py* serve per generare il grafico (figura 13) di un filtro passa-basso che riceve un'onda triangolare;
+* il file *integ_trian2.py* serve per generare il grafico (figura 14) di un filtro passa-basso che riceve un'onda triangolare;
+* il file *fous_int_der_train1.py* serve per generare il grafico (figura 15) di un un filtro passa-basso che riceve un treno di impulsi e il grafico (figura 16) di un filtro passa-alto che riceve un treno di impulsi. Il comportamento del codice (ovvero se genera la figura 15 o 16) dipende esclusivamente dal tipo di funzioni che vengono utilizzate all'interno della funzione *par*, ovvero la funzione che si occupa di calcolare opportunamente i coefficienti della serie di Fourier moltiplicati per il relativo *gain*;
+* il file *fous_int_der_train2.py* serve per generare il grafico (figura 17) del filtro passa-banda;
+* il file *bestfit_squarewave.py* serve per generare il grafico (figura 18) del bestfit della presa dati fatta con Arduino nel caso di onda quadra + stampa i dati raccolti nella tabella sottostante
+* il file *bestfit_sharkfins2.py* serve per generare il grafico (figura 19) del bestfit della presa dati fatta con Arduino nel caso di onda a pinne di squalo + stampa i dati raccolti nella tabella sottostante
+* il file *bestfit_sinusoid.py* serve per generare il grafico (figura 20) del bestfit della presa dati fatta con Arduino nel caso di un'onda sinuisoidale + stampa i dati raccolti nella tabella sottostante
+* il file *bestfit_trian2.py* serve per generare il grafico (figura 21) del bestfit della presa dati fatta con Arduino nel caso di un'onda triangolare + stampa i dati raccolti nella tabella sottostante
+* il file *bestfit_train.py* serve per generare il grafico (figura 22) del bestfit della presa dati fatta con Arduino nel caso di un treno di impulsi + stampa i dati raccolti nella tabella sottostante
+* il file *gain_squarewave.py* e il file *gain_trianwave.py* servono, rispettivamente a generare il grafico (figura 23, a) del grafico del guadagno in funzione della frequenza nel caso di un'onda quadra e il grafico (figura 23, b) del grafico del guadagno in funzione della frequenza nel caso di un'onda triangolare.
