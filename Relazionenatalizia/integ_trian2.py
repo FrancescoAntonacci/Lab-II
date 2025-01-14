@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
+filepath = r'./'
 
 ### Aesthetic Settings
 fontsize = 18
@@ -64,8 +64,8 @@ for i, ax in enumerate(axes):
     ax.grid(True)
 
 # Add shared labels for x and y axes
-fig.text(0.5, 0.005, 't  [arb.un.]', ha='center', fontsize=fontsize)  # Shared x-axis label
-fig.text(0.00, 0.5, 'x(t)[arb.un.]', va='center', rotation='vertical', fontsize=fontsize)  # Shared y-axis label
+fig.supxlabel('t  [arb.un.]', fontsize=fontsize)  # Shared x-axis label
+fig.supylabel('x(t)[arb.un.]', fontsize=fontsize)  # Shared y-axis label
 
 # Save and display the figure
 plt.tight_layout()  # Adjust layout to avoid overlaps

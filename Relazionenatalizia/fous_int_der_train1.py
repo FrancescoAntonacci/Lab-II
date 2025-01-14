@@ -1,7 +1,11 @@
 import numpy as np
 from matplotlib import pyplot as plt
-
-filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
+##  Code to generate the plots of an integrator, derivator and band-pass filter of a train pulse wave
+##  The function ff generates the Fourier series of a train pulse wave
+##  The function fi generates the Fourier series of a low-pass filter of a train pulse wave (the 'i' means integrator)
+##  The function fd generates the Fourier series of a high-pass filter of a train pulse wave (the 'd' means derivator)
+##  Change the function where in the for cycle denoted by the comment "Ciclo per creare i plot" to generate the plots of the integrator, derivator and band-pass filter
+filepath = r'./'
 
 ### Aesthetic Settings
 fontsize = 18
@@ -24,6 +28,7 @@ def ff(x, a=1, omega=2 * np.pi, delta=0.3, iter=1000):
         f += (2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega)
     return a * f 
 
+# Fourier sine series for a low-pass pulse wave
 def fi(x, a=1, omega=2 * np.pi, delta=0.3,ft=1e-3, iter=1000):
     iter += 1
     f = 0
@@ -31,6 +36,7 @@ def fi(x, a=1, omega=2 * np.pi, delta=0.3,ft=1e-3, iter=1000):
         f += G_lpf(k*omega,ft)*(2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega+dphi_lpf(k*omega,ft))
     return a * f 
 
+#Fourier sine series for a high-pass pulse wave
 def fd(x, a=1, omega=2 * np.pi, delta=0.3,ft=1e1, iter=1000):
     iter += 1
     f = 0
@@ -38,6 +44,7 @@ def fd(x, a=1, omega=2 * np.pi, delta=0.3,ft=1e1, iter=1000):
         f += G_hpf(k*omega,ft)*(2 / (k * np.pi)) * np.sin(np.pi * k * delta) * np.cos(k * x * omega+dphi_hpf(k*omega,ft))
     return a * f 
 
+# Fourier sine series for a band-pass pulse wave
 def fpb(x, a=1, omega=2 * np.pi, delta=0.3,ft1=1e1,ft2=1e-3, iter=1000):
     iter += 1
     f = 0
@@ -73,18 +80,19 @@ ft=(1e-3,1e-2,1e-1,1e-0,1e1,1e2)
 
 fig, axes = plt.subplots(int(len(ft)/2), 2, sharex=True, figsize=(12, len(ft)))
 axes=axes.flatten()
+## --------- FOR LOOP TO CREATE PLOTS ------------
 # Ciclo per creare i plot
 for i, ax in enumerate(axes):
     ft_iteration=ft[i]
-    ax.plot(xx, fd(xx,ft=ft_iteration ))
+    ax.plot(xx, fi(xx,ft=ft_iteration ))
     ax.set_title(f'$ft1,ft2={ft_iteration}$[arb.un.]')
     ax.grid(True)
 
 # Add shared labels for x and y axes
-fig.text(0.5, 0.005, 't  [arb.un.]', ha='center', fontsize=fontsize)  # Shared x-axis label
-fig.text(0.00, 0.5, 'x(t)[arb.un.]', va='center', rotation='vertical', fontsize=fontsize)  # Shared y-axis label
+fig.supxlabel('t  [arb.un.]', fontsize=fontsize)  # Shared x-axis label
+fig.supylabel('x(t)[arb.un.]', fontsize=fontsize)  # Shared y-axis label
 
 # Save and display the figure
 plt.tight_layout()  # Adjust layout to avoid overlaps
-plt.savefig(filepath + "der_train.png")  # Save the plot as an image
+plt.savefig(filepath + "int_train1.png")  # Save the plot as an image
 plt.show()  # Display the plot

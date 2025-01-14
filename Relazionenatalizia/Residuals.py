@@ -18,7 +18,7 @@ plt.rcParams.update(params)
 
 
 
-# Fourier sine series for a square wave
+# Fourier sine series for a triangular wave
 def ft(x, iter=1000,a=1, omega=2 * np.pi, phi=0):
     iter += 1
     f = 0
@@ -26,7 +26,7 @@ def ft(x, iter=1000,a=1, omega=2 * np.pi, phi=0):
         f += ((2 / (k * np.pi))**2) * np.cos(k * x * omega + phi)
     return a*f
 
-# Analytical square wave
+# Analytical triangular wave
 def triangwave(x, a, omega=2 * np.pi, phi=0):
     return a * (1-(2/np.pi)*np.arccos(np.cos(x * omega + phi)))
 
@@ -42,7 +42,7 @@ def squarewave(x, a, omega=2 * np.pi, phi=0):
     return a * np.sign(np.sin(x * omega + phi))
 
 # Residuals: Difference between square wave and Fourier series
-def residuals(func,fou,x,iter, pars):
+def residuals(func,fou,x,iter, pars): # func is the analytical function, fou is the Fourier series
     return func(x, *pars) - fou(x, iter,*pars)
 
 # Compute squared residuals and residual area ratios

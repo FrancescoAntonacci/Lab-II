@@ -1,5 +1,18 @@
 import numpy as np
 from matplotlib import pyplot as plt
+"""
+Code for generate the plot of a high-pass filter (derivator) that receives a square wave as input.
+The code can be either used to generate a plot of a low-pass filter (integrator) that receives a square wave as
+input by changing the functions used to calculate the Fourier coefficients in the function par.
+Be aware that
+    - G_lpf and dphi_lpf are the gain and phase of the low-pass filter
+    - G_hpf and dphi_hpf are the gain and phase of the high-pass filter
+    - par is the function that calculates the Fourier series of the square wave (as already said above)
+"""
+
+
+
+
 
 filepath = r'./'
 
@@ -38,9 +51,9 @@ def par(x, iter=1000, omega=2 * np.pi,ft=1e1):
     iter += 1
     f = 0
     for k in range(1, iter, 2):
-        phi=dphi_lpf(k*omega,ft)
-        G=G_lpf(k*omega,ft)
-        f += G*(2 / (k * np.pi))**2 * np.cos(k * x * omega+phi)
+        phi=dphi_hpf(k*omega,ft)
+        G=G_hpf(k*omega,ft)
+        f += G*(2 / (k * np.pi)) * np.sin(k * x * omega+phi)
     return f
 
 
@@ -69,5 +82,5 @@ fig.supylabel('x(t)[arb.un.]', fontsize=fontsize)  # Shared y-axis label
 
 # Save and display the figure
 plt.tight_layout()  # Adjust layout to avoid overlaps
-plt.savefig(filepath + "integ_trian.png")  # Save the plot as an image
+plt.savefig(filepath + "der_square.png")  # Save the plot as an image
 plt.show()  # Display the plot

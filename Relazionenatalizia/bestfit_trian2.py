@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy.optimize import curve_fit
 
-filepath = r'/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/Relazionenatalizia/'
+filepath = r'./'
 
 ### Aesthetic Settings
 fontsize = 18
@@ -115,8 +115,8 @@ for idx, (file, p0) in enumerate(zip(data_files, initial_guesses)):
 
 
 # Etichette condivise
-fig.text(0.5, 0.04, 'Tempo [$\mu$s]', ha='center', va='center', fontsize=fontsize)
-fig.text(0.04, 0.5, 'V [arb. un.]', ha='center', va='center', rotation='vertical', fontsize=fontsize)
+fig.supxlabel('Tempo [$\mu$s]', fontsize=fontsize)
+fig.supylabel('V [arb. un.]', fontsize=fontsize)
 
 # Salvataggio e visualizzazione
 plt.tight_layout(rect=[0.03, 0.03, 1, 1])
