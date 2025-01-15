@@ -1,5 +1,5 @@
-# Organizzazione della cartella
-Prestare molta attenzione al seguente file se si vuole maneggiare su di essi.
+# Organizzazione della cartella Relazionenatalizione
+Prestare molta attenzione al seguente file se si vuole maneggiare sui file presenti in questa cartella. I codici utili alla relazione sono nella cartella *Codici grafici relazione*
 * i file che presentano il nome __fousquarewave.py__, __foustrianwave.py__ servono per rappresentare le figure 1, 2 (onda quadra), 3 e 4 (onda triangolare) della relazione. Rappresentano, rispettivamente, le onde quadre e triangolari calcolate troncando la serie di Fourier all'$n$-esimo termine. La risoluzione, indicata nella relazione, va cambiata all'interno del file al parametro *res_im*;
 * i file __residuals1.py__ e __residuals2.py__ sono quei file che vengono utilizzati per la generazione delle figure 5 e 6 sulla somma dei residui quadrati e il rapporto delle aree utilizzando risoluzioni differenti per i punti;
 * il file che presenta il nome __fouspulsetrainwave.py__ rappresenta invece il file utilizzato per generare i grafici (figure 7 e 8) sul treno di impulsi, ovvero la figura 7. Valgono le medesime considerazioni fatte su *res_im* fatte per i file _fousquarewave.py_ e _foustriangwave.py_;
@@ -15,4 +15,4 @@ Prestare molta attenzione al seguente file se si vuole maneggiare su di essi.
 * il file **bestfit_sinusoid.py** serve per generare il grafico (figura 20) del bestfit della presa dati fatta con Arduino nel caso di un'onda sinuisoidale + stampa i dati raccolti nella tabella sottostante
 * il file **bestfit_trian2.py** serve per generare il grafico (figura 21) del bestfit della presa dati fatta con Arduino nel caso di un'onda triangolare + stampa i dati raccolti nella tabella sottostante
 * il file **bestfit_train.py** serve per generare il grafico (figura 22) del bestfit della presa dati fatta con Arduino nel caso di un treno di impulsi + stampa i dati raccolti nella tabella sottostante
-* il file **gain_squarewave.py** e il file *gain_trianwave.py* servono, rispettivamente a generare il grafico (figura 23, a) del grafico del guadagno in funzione della frequenza nel caso di un'onda quadra e il grafico (figura 23, b) del grafico del guadagno in funzione della frequenza nel caso di un'onda triangolare.
+* il file **gain_squarewave.py** e il file **gain_trianwave.py** servono, rispettivamente a generare il grafico (figura 23, a) del grafico del guadagno in funzione della frequenza nel caso di un'onda quadra e il grafico (figura 23, b) del grafico del guadagno in funzione della frequenza nel caso di un'onda triangolare.
