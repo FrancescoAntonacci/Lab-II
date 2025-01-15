@@ -1,4 +1,4 @@
-# Organizzazione della cartella Relazionenatalizione
+# Organizzazione della cartella Relazionenatalizia
 Prestare molta attenzione al seguente file se si vuole maneggiare sui file presenti in questa cartella. I codici utili alla relazione sono nella cartella *Codici grafici relazione*
 * i file che presentano il nome __fousquarewave.py__, __foustrianwave.py__ servono per rappresentare le figure 1, 2 (onda quadra), 3 e 4 (onda triangolare) della relazione. Rappresentano, rispettivamente, le onde quadre e triangolari calcolate troncando la serie di Fourier all'$n$-esimo termine. La risoluzione, indicata nella relazione, va cambiata all'interno del file al parametro *res_im*;
 * i file __residuals1.py__ e __residuals2.py__ sono quei file che vengono utilizzati per la generazione delle figure 5 e 6 sulla somma dei residui quadrati e il rapporto delle aree utilizzando risoluzioni differenti per i punti;
