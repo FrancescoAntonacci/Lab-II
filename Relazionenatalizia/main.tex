@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage[margin=0.80in, a4paper]{geometry} % Adjust margins here
 \usepackage{amsmath}
-\usepackage[italian]{babel}
 \usepackage{float}
 \usepackage{url} % For formatting URLs
 \usepackage{hyperref}
@@ -19,6 +18,8 @@
 \maketitle
 
 \section{Ricostruzione numerica di forme d'onda}
+    Tutte le simulazioni di questa sezione sono state fatte assegnando alle onde 
+    periodo unitario.
     \subsection{Forme d'onda quadre}
     \label{sez:quadra}
         Un'onda quadra alternata dispari con ampiezza picco-picco unitaria e fase 
@@ -46,10 +47,9 @@
         di seni.
 
         \noindent Si osserva che nel caso di Fig($\ref{fig:quadra1e2}$),
-        la quale ha una risoluzion  peggiore, la deformazione dell'onda quadra assomiglia a quanto visto nelle esperienze 
+        la quale ha una risoluzione  peggiore, la deformazione dell'onda quadra assomiglia a quanto visto nelle esperienze 
         pratiche di laboratorio con l'oscilloscopio quando si usa il generatore di funzioni a
-        frequenze sufficientemente alte: forse questo rivela qualcosa sul funzionamento del generatore
-        di funzioni.\\
+        frequenze sufficientemente alte.\\
 
         \begin{figure}[htbp]
             \centering
@@ -61,15 +61,18 @@
         \end{figure}  
         
         
-        \noindent Si osserva che la presenza di lati obliqui nei transienti è conseguenza di un sottocampionamento
-        della mia ricostruzione, questo comporta che non c'è miglioramento all'aumentare dei termini 
+        \noindent La presenza di lati obliqui nei transienti è conseguenza di un sottocampionamento
+        della ricostruzione, questo comporta che non c'è miglioramento dell'approssimazione all'aumentare dei termini 
         della serie.
 
-        \noindent I residui nei punti iniziali e i transienti non si annullano mai: in corrispondenza di ognuno di
-        questi punti si trovano dei picchi. \newline \newline
+        \noindent I residui nei punti iniziali e sui transienti non si annullano mai:  
+        infatti non c'è convergenza semplice nei punti di discontinuità 
+        della funzione, e quindi in corrispondenza di ognuno di
+        questi  si trovano dei picchi. \newline \newline
 
 
     \subsection{Forme d'onda triangolari}
+        \label{sez:trian}
         Un'onda triangolare alternata pari con ampiezza picco-picco unitaria
         e fase nulla è descitta dall' Eq.($\ref{eq:triangolare}$).
         \begin{equation}
@@ -87,12 +90,15 @@
             N è il numero a cui è stata troncata la serie. }
             \label{fig:trian1e5}
         \end{figure}
-        \noindent Similmente a quanto accade per l'onda quadra, anche in questo caso, nei punti 
-        in cui la derivata è discontinua e nei punti al bordo non c'è convergenza
-        semplice come si può vedere dai grafici dei residui in Fig.($\ref{fig:trian1e5}$) e 
+        \noindent Differentemente da quanto accade per l'onda quadra, 
+        in questo caso, nei punti in cui la derivata è discontinua 
+        e nei punti al bordo c'è convergenza semplice anche se più lenta 
+        che altrove.
+        A tal proposito, si vedano grafici dei residui in Fig.($\ref{fig:trian1e5}$) e 
         Fig.($\ref{fig:trian1e2}$).
-        Anche solo qualitativamente si osserva a entrambe le risolizioni che 
-        la convergenza all'onda analitica è più rapida dell'onda quadra, una migliore discussione di ciò avverrà in
+        Anche solo qualitativamente si osserva a entrambe le risoluzioni che 
+        la convergenza all'onda analitica è più rapida dell'onda quadra,
+         una migliore discussione di ciò avverrà in
         Sez.($\ref{sez:residui}$).
         \begin{figure}[H]
             \centering
@@ -105,9 +111,11 @@
         \end{figure}        
         
         \noindent Per quanto riguarda l'utilizzo di diverse risoluzioni nei grafici, l'impiego di una risoluzione 
-        minore comporta problemi nella convergenza solo nei punti iniziali e non nei punti di transiente,
-        l'impiego di una risoluzione maggiore fa osservare dei picchi nei residui in prossimità dei transienti.
-        Chiaramente non mettere i punti di picco tra i punti che vengono campionati 
+        minore comporta problemi nella convergenza solo nei punti iniziali
+         e non nei punti di transiente; al contrario, l'impiego di una risoluzione 
+        maggiore fa osservare dei picchi nei residui in prossimità dei transienti;
+        questo è legato al particolare campionamento effettuato: 
+        non mettere i punti di picco tra quelli che vengono campionati 
         comporta una deformazione della forma d'onda graficata che non viene osservata 
         nei residui.
 
@@ -118,17 +126,17 @@
     \label{sez:residui}
        
         La serie di Fourier delle rispettive onde dovrebbe convergere integralmente alle funzioni analitiche.
-        Come ci si aspetta dalla teroria, la velocità di convergenza rispetto al numero 
+        La velocità di convergenza rispetto al numero 
         di iterazioni è diversa per le forme d'onda come si può vedere 
         in Fig.($\ref{fig:res1}$).\\ 
-        Tuttavia nel caso dell'onda quadra si osserva un comportamento inaspettato:
-        quando il campionamento avviene su numero sufficientemente
-        piccolo di periodi,  non c'è più convergenza integrale tra la funzione semplice, definita sugli 
+        Quando il campionamento avviene su numero sufficientemente
+        piccolo di periodi,nel caso in questione 50 campionamenti al periodo,
+          non c'è più convergenza integrale tra la funzione semplice, definita sugli 
         intervalli dalla serie di Fourier, e la funzione analitica:con ogni
         probabilità questo è dovuto al transiente che non è adeguatamente approssimato.
-        Inoltre,per entrambe le onde compiono delle oscillazioni dei residui che si
-        smorzano nella coda all'aumentare delle iterazioni come 
-        si può vedere in Fig.($\ref{fig:res2}$).
+        Inaspettatamente ,si osserva che entrambe le onde compiono delle "oscillazioni smorzate":
+        la convergenza dovrebbe migliorare all'aumentare dei termini delle serie,
+        ma localmente questo non è verificato, si veda Fig.($\ref{fig:res2}$).
         
 
         \begin{figure}[H]
@@ -156,8 +164,8 @@
         \label{eq:ciufciuf}
     \end{equation}
     $\delta$ è il rapporto tra massimo e minimo dell'onda.
-    Come si può vedere in Fig.($\ref{fig:ciufciuf1} $) e in Fig.($\ref{fig:ciufciuf2} $)
-    si possono fare le stesse identiche osservazioni fatte in Sez(\ref{sez:quadra}).
+    Come si può vedere in Fig.($\ref{fig:ciufciuf1} $) e in Fig.($\ref{fig:ciufciuf2} $),
+    è possibile fare le stesse identiche osservazioni fatte in Sez(\ref{sez:quadra}).
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.85\textwidth]{foupulsetrainwave1e2.png} % Replace with your image name
@@ -206,20 +214,21 @@
     $G \left( k\omega,f_T\right)$ e sommando il termine $\phi \left( k\omega,f_T\right)$ 
     all'interno della sinusoide o cosinusoide. $G$ e $\phi$ hanno significato di Eq.($\ref{eq:lpf}$)
     o Eq($\ref{eq:hpf}$) dipendentemente dal filtro del contesto.
-      
 
+    Tutte le simulazioni di questa sezione sono state fatte assegnando alle onde periodo unitario.
+      
     
     \subsection{Onda quadra}
-    Le funzioni descriventi il segnale i uscita o in ingresso da un filtro passa basso
+    Le funzioni descriventi il segnale in uscita o in ingresso da un filtro passa basso
     o passa alto, i quali in ingresso hanno un'onda quadra, 
     sono date dal procedimento descritto i Sez.($\ref{sez:filt}$).
         \subsubsection{Filtro passa basso}
             \label{sez:int_quadra}
-            Come nella sezione precedente, è possibile verificare la convergenza della serie di 
-            seni con la forma d'onda analitica.
-            Inoltre, si possono fare le stesse considerazioni riguardanti 
-            il numero di termini della serie impiegati, i transienti e il campionamento
-            (vedi Fig($\ref{fig:shark1e2}$) e Fig($\ref{fig:shark1e5}$)).
+
+            E' possibile fare le stesse considerazioni riguardanti 
+            il numero di termini della serie impiegati, i transienti e il campionamento come
+            in Sez.($\ref{sez:trian}$), in quanto la curva che viene apprissimata è 
+            continua (vedi Fig($\ref{fig:shark1e2}$) e Fig($\ref{fig:shark1e5}$)).
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.85\textwidth]{fousharkfins1e2.png} % Replace with your image name
@@ -237,10 +246,10 @@
                         La serie di Fourier è stata troncata al termine $N=10000$.}
                         \label{fig:shark1e5}
                     \end{figure}
-                Si può facilmente simulare il comportamento di  un filtro al
+                Si può simulare il comportamento di  un filtro al
                 variare della frequenza in ingresso: per semplicità 
                 la simulazione è stata fatta tenendo fissa la frequenza dell'onda e 
-                variando la frequenza di taglio, come fatto in Fig.($\ref{fig:sharkft}$).
+                variando la frequenza di taglio, si veda Fig.($\ref{fig:sharkft}$).
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.85\textwidth]{fousharkfinsfts1.png} % Replace with your image name
@@ -250,8 +259,8 @@
                         \label{fig:sharkft}
                     \end{figure}
 
-                \noindent Si vede chiaramente che quanto simulato è in accordo con quanto
-                visto in laboratorio: 
+                \noindent Quanto simulato e mostrato in Fig.($\ref{fig:sharkft}$)
+                è in accordo con quanto visto in laboratorio: 
                 al decrescere della frequenza di taglio rispetto alla frequenza dell'onda quadra
                 l'onda tende a diventare triangolare e la sua ampiezza diminuisce; viceversa,
                 l'onda tenda a divenire quadra, ossia il segnale in ingresso tende a 
@@ -259,8 +268,8 @@
             
             
             \subsubsection{Filtro passa alto}
-                E'interessante simulare il comportamento di un filtro passa alto 
-                come fatto in Fig($\ref{fig:der_square}$): si  può osservare specialmente 
+                In Fig($\ref{fig:der_square}$) si simula il passaggio di un'onda quadra
+                attraverso un filtro passa alto: si  può osservare specialmente 
                 nel caso $ft=0.1$[arb.un.] la stessa forma d'onda osservata collegando 
                 l'oscilloscopio in modalità AC al generatore di funzioni.
                     \begin{figure}[H]
@@ -279,8 +288,8 @@
     sono date dal procedimento descritto i Sez.($\ref{sez:filt}$).
         \subsubsection{Integratore}
             
-            In Fig.($\ref{fig:trilpf}$) anche il comportamento di un filtro passa
-            basso per un onda triangolare. Valgono tutti i commenti precedentemente in 
+            In Fig.($\ref{fig:trilpf}$) viene riportato il comportamento di un filtro passa
+            basso per un' onda triangolare. Valgono tutti i commenti precedentemente in 
             Sez.($\ref{sez:int_quadra}$)
             \begin{figure}[H]
                 \centering
@@ -292,7 +301,7 @@
                 \label{fig:trilpf}
             \end{figure}
         \subsubsection{Derivatore}
-            In questo caso si osserva (vedi Fig.($\ref{fig:trihpf}$))che la forma d'onda 
+            In questo caso (vedi Fig.($\ref{fig:trihpf}$)), si osserva che la forma d'onda 
             triangolare passante per un filtro passa alto coincide con quella simulata 
             per un filtro passa basso attraversato da un'onda quadra(vedi Fig($\ref{fig:sharkft}$))
                 \begin{figure}[H]
@@ -347,8 +356,8 @@
                     \end{figure}    
 
             \subsubsection{Filtro passa banda}
-                E' adesso pura questione di soddisfazione simulare l'effetto
-                di un filtro passabanda su un terno di impulsi. Si veda Fig.($\ref{fig:band_train}$).
+                In Fig.($\ref{fig:band_train}$) si simula il comportamento di un treno di impulsi
+                attraversante un filtro passa banda.
                 \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.85\textwidth]{band_train.png} % Replace with your image name
@@ -361,30 +370,35 @@
 
 
 \section{Best fit dei dati acquisiti con Arduino}
-    Abbiamo infine deciso di ricostruire le forme d'onda di alcuni segnali in uscita da un filtro passa-basso che avevamo
-    campionato in laboratorio con Arduino. Il filtro passa-basso, con i valori nominali della resistenza $R$ e della capacità $C$ del
+    Sono stati realizzati dei best fit con le funzioni ricostruite
+    dei i dati di un filtro passa-basso che acquisiti
+    in laboratorio con Arduino. 
+    Il filtro passa-basso, con i valori nominali della resistenza $R$ e della capacità $C$ del
     condensatore riportati in Tab.(\ref{tab:val_nom}),
     \begin{table}[htbp]
         \centering
         \begin{tabular}{c c}
             \hline
-            $R$ [$\Omega$] & $C$ [$\mu$F] \\
+            $R$ [k$\Omega$] & $C$ [$\mu$F] \\
             \hline
-            $680 \pm 34$ & $1.0 \pm 0.2$ \\
+            $0.68 \pm 0.03$ & $1.0 \pm 0.2$ \\
             \hline
         \end{tabular}
         \caption{Tabella dei valori nominali della resistenza e della capacità del condensatore con cui abbiamo realizzato il filtro passa-basso in laboratorio.}
         \label{tab:val_nom}
     \end{table}
-    doveva essere caratterizzato da una frequenza di taglio che è data dalla formula $f_T = \frac{1}{2 \pi RC}$, che nel nostro caso vale
+    doveva essere caratterizzato da una frequenza di taglio che è
+     data dalla formula $f_T = \frac{1}{2 \pi RC}$, che nel nostro caso vale:
     $$
-    f_T = (234 \pm 0.3) \text{ Hz}.
+    f_T = (0.23 \pm 0.06) \text{ mHz}.
     $$
-    Per tutti i best-fit realizzati abbiamo troncato la serie di Fourier al termine $N=10^3$. Questo è stato necessario per far eseguire il 
+    Per tutti i best-fit realizzati abbiamo troncato la serie di Fourier al termine $N=1000$. Questo è stato necessario per far eseguire il 
     best-fit in tempi ragionevoli.
     Come incertezza sulle misure di potenziale è stata
     presa la deviazione standard campione di un set di dati, raccolti con Arduino, delle misure
     della differenze di potenziale tenuta costante \cite{Antonacci_Sermi2024}.
+    Per la natura statistica dell'incertezza è stato dunque assunto \emph{absolute\_ sigma=True},
+    eccetto dove specificato il contrario.
     \subsection{Onda quadra}
             E' stato realizzato il best-fit dei minimi quadrati
             di un set di dati compatibile con un'onda quadra.
@@ -395,6 +409,11 @@
                 \end{equation}
             Si osserva che trascurare o meno i punti sui transienti è incisivo
             sul risultato di best-fit come si può vedere in Fig.($\ref{fig:bestfit_square}$).
+            Quello che accade è che considerando i transienti non sarebbe legittimo
+            applicare l'argoritmo di best-fit Levenberg-Marquardt in quanto l'errore 
+            sulla variabile indipendente non è trascurabile: implementare la  tecnica 
+            dell'errore efficare, a causa della divergenza della derivata della funzione, equivale
+            a trascurare le misure sui transienti.
             E' stato dunque ragionevole utilizzare \emph{absolute\_ sigma=True}
             nel primo best fit, e \emph{absolute\_ sigma=False} nel secondo.
             Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
@@ -438,11 +457,10 @@
                     x(t) = \left[a\sum_{k=1,3,5...}^{1000} \frac{2G(f,f_T)}{k\pi}\sin\left(k\omega (t+\delta)+\phi(f,f_T)\right)\right] +c
                     \label{eq:fit_shark}
                 \end{equation} 
-        I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_square}).%%%%%%%%%%%%%CHANGE TABLE 
+        I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_params}).%%%%%%%%%%%%%CHANGE TABLE 
         In Fig.($\ref{fig:bestfit_shark.fig}$) sono riportati i dati con il best fit e 
-        i residui: si osserva che la frequenza di taglio è stata sottostimata e tutte le stime effettuate
-        non sono compatibili fra loro entro le barre di errore. Ciò fa pensare che sia stato commesso un errore
-        durante il campionamento dei dati oppure la frequenza di taglio attesa non è quella effettiva.
+        i residui: si osserva che, fatta eccezione del primo grafico,la frequenza di taglio aspettata è compatibile entro una 
+        barra di errore con quelle stimate. 
 
                 \begin{figure}[H]
                     \centering
@@ -466,7 +484,7 @@
                         $\chi^{2}_{norm}$   & 0.3                       &0.0071                 & 0.006                 & 0.007\\
                         \hline
                     \end{tabular}
-                    \caption{Parametri ottenuti nei best-fit nel caso di un'onda a pinna di squalo. $\omega$ rappresenta la frequenza angolare, $\delta$ lo sfasamento, a l'ampiezza e c l'offset.}
+                    \caption{Parametri ottenuti nei best-fit dell'onda quadra eseguito utilizzando il modello descritto dall'eq.($\ref{eq:fit_shark}$).}
                     \label{tab:bestfit_params}
                 \end{table}
     \subsection{Onda sinusoidale}
@@ -511,6 +529,7 @@
             \end{table}
 
     \subsection{Onda triangolare}
+        \label{sez:bestfit_trian}
         E' stato realizzato il best-fit dei minimi quadrati
         di quattro set di dati compatibile con un'onda traingolare.
          Il modello con cui fare il best-fit è descritto dall'Eq.($\ref{eq:fit_trian}$).
@@ -521,10 +540,13 @@
         Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
         I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_triangle}).%%%%%%%%%%%%%CHANGE TABLE
         In Fig.($\ref{fig:bestfit_triangle}$) sono graficati i dati con il best fit e 
-        i residui. Dal $\chi^2$ possiamo dedurre che gli errori sono stati largamente sovrastimati, inoltre la frequenza di taglio è anche stavolta stata sottostimata in maniera ancora più drammatica rispetto al caso dell'onda a pinna di squalo.
-        Siccome il circuito utilizzato per fare il campionamento dei dati era lo stesso, valgono le medesime considerazioni fatte in precedenza: nel caso di un errore
-        da noi commesso nella presa dati, questo ha influenzato anche questa presa dati oppure la frequenza di taglio attesa non è quella effettiva.
-
+        i residui. Dal $\chi^2$ possiamo dedurre che gli errori sono stati largamente sovrastimati.
+        Anche in questo caso,fatta eccezione del primo grafico,la frequenza di taglio aspettata 
+        è compatibile entro una  barra di errore con quelle stimate.Il fatto che la prima stima  della
+        frequenza  di taglio ,quella a frequenza più bassa,si discosti dalle altre suggerisce
+        che il modello stia trascurando qualche fenomeno che a basse frequenze è incisivo.
+        Siccome il circuito utilizzato per fare il campionamento dei dati era lo stesso, valgono le medesime considerazioni fatte in precedenza.
+       
             \begin{figure}[H]            
                 \centering
                 \includegraphics[width=0.85\textwidth]{bestfit_triangle.png} % Replace with your image name
@@ -556,13 +578,14 @@
         E' stato realizzato il best-fit dei minimi quadrati
         di un set di dati compatibile con un treno di impulsi utilizzando il modello descritto in Eq.(\ref{eq:bestfit_train})
         \begin{equation}
-            x(t) = a \left[\sum_{k=1}^{10^3} \frac{2 G(f, f_T)}{k\pi} \sin{\left( k \pi \sigma \right)} \cos{\left((k \omega t) + \delta\right)}\right] + c
+            x(t) = a \left[\sum_{k=1}^{1000} \frac{2 G(f, f_T)}{k\pi} \sin{\left( k \pi \sigma \right)} \cos{\left((k \omega t) + \delta\right)}\right] + c
         \label{eq:bestfit_train}
         \end{equation}
-        Riportiamo in Tab.(\ref{tab:bestfit_triangle}) i valori di bestfit ottenuti: il $\chi^2$ in questo caso ci dice che gli errori sono stati enormememente sia considerando i transienti che non.
+        Riportiamo in Tab.(\ref{tab:bestfit_train}) i valori di bestfit ottenuti: in entrambi i casi c'è un $\chi^2$
+        molto elevato dovuto alla presenza di punti sui transienti..
             \begin{figure}[H]            
                 \centering
-                \includegraphics[width=0.85\textwidth]{bestfit_train.png} % Replace with your image name
+                \includegraphics[width=1\textwidth]{bestfit_train.png} % Replace with your image name
                 \caption{Grafico di bestfit nel caso di un treno di impulsi utilizzando il modello descritto in Eq.(\ref{eq:bestfit_train})
                 }
                 \label{fig:bestfit_train}
@@ -582,23 +605,32 @@
                     \hline
                 \end{tabular}
                 \caption{Parametri ottenuti nei best-fit. $a$ rappresenta l'offset delle nostre misure rispetto allo zero, $\omega$ la frequenza angolare, $\sigma$ il duty cycle e $\chi^2_{\text{norm}}$ è il chiquadro normalizzato}
-                \label{tab:bestfit_triangle}
+                \label{tab:bestfit_train}
             \end{table}
 \section{Simulazione numerica dei grafici guadagno vs frequenza}
-    Infine, abbiamo rappresentano il guadagno del segnale periodico in uscita in funzione della frequenza in entrata, riportati in riportati in Fig.($\ref{fig:image1}$) e Fig.($\ref{fig:image2}$). Il modello utilizzato per effettuare questo bestfit è descritto dall'Eq.(\ref{eq:gain_bestfit})
-    \begin{align}
-        &G(f) = \max_{t}{F(t, f)} - \min_{t}{F(t, f)}
-        \label{eq:gain_bestfit}
-    \end{align}
-    dove abbiamo posto, nel caso dell'onda quadra, che
-    $$
-    F(t, f) = a \left[\sum_{k=1}^n \frac{2}{k\pi} \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \sin{\left(k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
-    $$
-    e, nel caso dell'onda triangolare, che
-    $$
-    F(t, f) = a \left[\sum_{k=1}^n \left( \frac{2}{k\pi} \right)^2 \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \cos{\left( k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
-    $$
-    dove $a$ e $f_T$ sono i parametri da stimare col bestfit. \\
+    Infine, abbiamo rappresentano il guadagno del segnale periodico in uscita
+     in funzione della frequenza in entrata, si vedano 
+     Fig.($\ref{fig:image1}$) e Fig.($\ref{fig:image2}$). 
+      I modelli utilizzati per effettuare i bestfit sono descritti da Eq.($\ref{eq:gain_square}$) 
+      e da Eq.($\ref{eq:gain_trian}$) rispettivamente per l'onda quadrata e la triangolare. 
+      Nel primo best fit è stato usato \emph{absolute\_ sigma=False} in quanto  
+      sono stati usati dati acquisiti con l'oscilloscopio, soggetto ad errori sistematici.
+      Nel secondo caso è stato usato \emph{absolute\_ sigma=True} in quanto i dati sono 
+      stati estrapolati dal bestfit dell'onda triangolare fatto a in 
+      Sez.($\ref{sez:bestfit_trian}$).
+    
+      \begin{equation}
+        F(t, f) = a \left[\sum_{k=1}^n \frac{2}{k\pi} \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \sin{\left(k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
+        \label{eq:gain_square}
+    \end{equation}
+
+    \begin{equation}
+        F(t, f) = a \left[\sum_{k=1}^n \left( \frac{2}{k\pi} \right)^2 \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \cos{\left( k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
+        \label{eq:gain_trian}
+    \end{equation}
+    
+    $a$ e $f_T$ sono i parametri da stimati col bestfit. $a$ è un parametro di controllo che ci 
+    aspettiamo essere 1. Tuttavia dai best fit Tab.($\ref{tab:results}$) questa richiesta non è attesa\\
     Come atteso, osserviamo che il guadagno di un'onda quadra è maggiore rispetto a quello di un'onda triangolare. 
         \begin{figure}[htbp]
             \centering
@@ -619,8 +651,10 @@
             \label{fig:side_by_side_images}
         \end{figure}
 
-        \noindent Riportiamo i valori di bestfit in Tab.(\ref{tab:results}): nel caso dell'onda quadra il valore del $\kappa^2$ ci porta a concludere che gli errori sono stati largamente sottostimati, nel caso dell'onda triangolare invece notevolmente sovrastimati. La frequenza di taglio, invece, risulta invece sottostimata
-        rispetto a quella attesa con i valori nominali, mentre nel caso della triangolare è in valore meno sottostimata; tuttavia, in ogni caso, i valori non sono minimamente compatibili entro le barre di errore. 
+        \noindent Riportiamo i valori di bestfit in Tab.(\ref{tab:results}): nel caso dell'onda quadra il valore del $\kappa^2$ . La frequenza di taglio, per l'onda triangolare è
+        in accordo con quanto aspettato, ma non con i best fit realizzati in Sez.($\ref{sez:bestfit_trian}$) .
+        Nel caso dell'onda quadra non c'è accordo con la misura effettuata in laboratorio della frequenza di taglio: $f_{t}=(340.4\pm0.1)$ $\mu$Hz. 
+
         \begin{table}[H]
             \centering
             \begin{tabular}{ccc}
