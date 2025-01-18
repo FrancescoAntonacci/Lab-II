@@ -232,16 +232,16 @@
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.85\textwidth]{fousharkfins1e2.png} % Replace with your image name
-                        \caption{A destra c'è l'onda a pinna di squalo.
-                        A sinistra c'è il grafico dei residui.
+                        \caption{A sinistra c'è l'onda a pinna di squalo.
+                        A destra c'è il grafico dei residui.
                         La risoluzione utilizzata è stata di cento punti su due periodi.}
                         \label{fig:shark1e2}
                     \end{figure}
                     \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.85\textwidth]{fousharkfins1e5.png} % Replace with your image name
-                        \caption{A destra c'è l'onda a pinna di squalo.
-                        A sinistra c'è il grafico dei residui.
+                        \caption{A sinistra c'è l'onda a pinna di squalo.
+                        A destra c'è il grafico dei residui.
                         La risoluzione utilizzata è stata di centomila punti su due periodi.
                         La serie di Fourier è stata troncata al termine $N=10000$.}
                         \label{fig:shark1e5}
@@ -540,7 +540,7 @@
         Dal $\chi^2$ risulta che l'errore è stato sovrastimato. 
         I parametri ottenuti sono riportati in Tab.(\ref{tab:bestfit_triangle}).%%%%%%%%%%%%%CHANGE TABLE
         In Fig.($\ref{fig:bestfit_triangle}$) sono graficati i dati con il best fit e 
-        i residui. Dal $\chi^2$ possiamo dedurre che gli errori sono stati largamente sovrastimati.
+        i residui. Dal $\chi^2$ possiamo dedurre che gli errori sono stati sovrastimati.
         Anche in questo caso,fatta eccezione del primo grafico,la frequenza di taglio aspettata 
         è compatibile entro una  barra di errore con quelle stimate.Il fatto che la prima stima  della
         frequenza  di taglio ,quella a frequenza più bassa,si discosti dalle altre suggerisce
@@ -582,7 +582,7 @@
         \label{eq:bestfit_train}
         \end{equation}
         Riportiamo in Tab.(\ref{tab:bestfit_train}) i valori di bestfit ottenuti: in entrambi i casi c'è un $\chi^2$
-        molto elevato dovuto alla presenza di punti sui transienti..
+        molto elevato dovuto alla presenza di punti sui transienti.
             \begin{figure}[H]            
                 \centering
                 \includegraphics[width=1\textwidth]{bestfit_train.png} % Replace with your image name
@@ -604,11 +604,11 @@
                     $\chi^{2}_{\text{norm}}$   & 49                                    & 65 \\
                     \hline
                 \end{tabular}
-                \caption{Parametri ottenuti nei best-fit. $a$ rappresenta l'offset delle nostre misure rispetto allo zero, $\omega$ la frequenza angolare, $\sigma$ il duty cycle e $\chi^2_{\text{norm}}$ è il chiquadro normalizzato}
+                \caption{Parametri ottenuti nei best-fit. $a$ rappresenta l'offset delle nostre misure rispetto allo zero, $\omega$ la frequenza angolare, $\delta$ il dutycycle ,$\sigma$ lo sfasamento e $\chi^2_{\text{norm}}$ è il chiquadro normalizzato}
                 \label{tab:bestfit_train}
             \end{table}
 \section{Simulazione numerica dei grafici guadagno vs frequenza}
-    Infine, abbiamo rappresentano il guadagno del segnale periodico in uscita
+    Sono stati eseguiti due bestfit per il guadagno del segnale periodico in uscita
      in funzione della frequenza in entrata, si vedano 
      Fig.($\ref{fig:image1}$) e Fig.($\ref{fig:image2}$). 
       I modelli utilizzati per effettuare i bestfit sono descritti da Eq.($\ref{eq:gain_square}$) 
@@ -651,7 +651,7 @@
             \label{fig:side_by_side_images}
         \end{figure}
 
-        \noindent Riportiamo i valori di bestfit in Tab.(\ref{tab:results}): nel caso dell'onda quadra il valore del $\kappa^2$ . La frequenza di taglio, per l'onda triangolare è
+        \noindent Riportiamo i valori di bestfit in Tab.(\ref{tab:results}).La frequenza di taglio, per l'onda triangolare è
         in accordo con quanto aspettato, ma non con i best fit realizzati in Sez.($\ref{sez:bestfit_trian}$) .
         Nel caso dell'onda quadra non c'è accordo con la misura effettuata in laboratorio della frequenza di taglio: $f_{t}=(340.4\pm0.1)$ $\mu$Hz. 
 
