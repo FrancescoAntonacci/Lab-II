@@ -613,28 +613,25 @@
      in funzione della frequenza in entrata, uno per una forma d'onda 
      quadra, l'altro per una forma d'onda triangolare: si vedano 
      Fig.($\ref{fig:image1}$) e Fig.($\ref{fig:image2}$). 
-      I modelli utilizzati per effettuare i bestfit sono descritti da Eq.($\ref{eq:gain_square}$) 
-      e da Eq.($\ref{eq:gain_trian}$) rispettivamente per l'onda quadrata e la triangolare. 
-      Nel primo bestfit è stato usato \emph{absolute\_ sigma=False} in quanto  
+      Il modello utilizzato per effettuare i bestfit è descritto da Eq.($\ref{eq:gain}$). 
+      
+    
+      \begin{equation}
+        G=\max{F(f,a,f_t)}-\min{F(f,a,f_t)}
+        \label{eq:gain}
+    \end{equation}
+        Nel primo bestfit è stato usato \emph{absolute\_ sigma=False} in quanto  
       sono stati usati dati acquisiti con l'oscilloscopio, soggetto ad errori sistematici.
       Nel secondo caso è stato usato \emph{absolute\_ sigma=True} in quanto i dati sono 
       stati estrapolati dal bestfit dell'onda triangolare fatto a in 
       Sez.($\ref{sez:bestfit_trian}$).
-    
-      \begin{equation}
-        F(t, f) = a \left[\sum_{k=1}^n \frac{2}{k\pi} \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \sin{\left(k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
-        \label{eq:gain_square}
-    \end{equation}
-
-    \begin{equation}
-        F(t, f) = a \left[\sum_{k=1}^n \left( \frac{2}{k\pi} \right)^2 \frac{1}{\sqrt{1 + \left( \frac{f}{f_T} \right)^2}} \cos{\left( k\omega t + \arctan{\left(-\frac{f}{f_T}\right)} \right)}\right]
-        \label{eq:gain_trian}
-    \end{equation}
-    
-    $a$ e $f_T$ sono i parametri da stimati col bestfit. $a$ è un parametro di controllo che ci 
-    aspettiamo essere 1. Tuttavia dai bestfit Tab.($\ref{tab:results}$) questa richiesta non è attesa nel caso dell'onda triangolare.
-    Come atteso, osserviamo che il guadagno di un'onda quadra è maggiore rispetto a quello di un'onda triangolare. 
-        \begin{figure}[htbp]
+        Dove $F(f,a,f_t)$ è lo sviluppo in serie delle onde quadrate e triangolari integrate: si considera
+        $F(f,a,f_t)$ è già il rapporto tra l'ampiezza picco picco del segnale e il segnale in ingresso.
+        $f$ è la frequenza del segnale in ingresso, mentre $a$ e $f_T$ sono i parametri 
+        stimati col bestfit. $a$ è un parametro di controllo che ci 
+        aspettiamo essere 1. Tuttavia dai bestfit Tab.($\ref{tab:results}$) questa richiesta non è attesa nel caso dell'onda triangolare.
+        Come atteso, osserviamo che il guadagno di un'onda quadra è maggiore rispetto a quello di un'onda triangolare. 
+    \begin{figure}[htbp]
             \centering
             \begin{subfigure}{0.45\textwidth} % Adjust width as needed
                 \centering
@@ -662,7 +659,7 @@
                 \hline
                             &Onda quadra        & Onda triangolare\\
                 \hline
-                $f_T$[Hz]  &$128\pm5$      & $222\pm1$\\
+                $f_T$[Hz]  &$218\pm5$      & $222\pm1$\\
                 $a$         &$0.977\pm0.02$    &   $0.951\pm0.002$\\
                 $\kappa^2$        & $2  $             &   $1$ \\
             
