@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  18 JAN 2025 09:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  18 JAN 2025 20:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -431,67 +431,67 @@ File: ./img//integ_trian.png Graphic file (type png)
 <use ./img//integ_trian.png>
 Package pdftex.def Info: ./img//integ_trian.png  used on input line 296.
 (pdftex.def)             Requested size: 409.59708pt x 204.80052pt.
-<./img//der_trian.png, id=225, 867.24pt x 433.62pt>
+<./img//der_trian.png, id=223, 867.24pt x 433.62pt>
 File: ./img//der_trian.png Graphic file (type png)
 <use ./img//der_trian.png>
-Package pdftex.def Info: ./img//der_trian.png  used on input line 309.
+Package pdftex.def Info: ./img//der_trian.png  used on input line 308.
 (pdftex.def)             Requested size: 409.59708pt x 204.80052pt.
  [8 <./img//der_square.png> <./img//integ_trian.png>]
-<./img//int_train1.png, id=239, 867.24pt x 433.62pt>
+<./img//int_train1.png, id=235, 867.24pt x 433.62pt>
 File: ./img//int_train1.png Graphic file (type png)
 <use ./img//int_train1.png>
-Package pdftex.def Info: ./img//int_train1.png  used on input line 336.
+Package pdftex.def Info: ./img//int_train1.png  used on input line 335.
 (pdftex.def)             Requested size: 409.59708pt x 204.80052pt.
-<./img//der_train.png, id=243, 867.24pt x 433.62pt>
+<./img//der_train.png, id=237, 867.24pt x 433.62pt>
 File: ./img//der_train.png Graphic file (type png)
 <use ./img//der_train.png>
-Package pdftex.def Info: ./img//der_train.png  used on input line 350.
+Package pdftex.def Info: ./img//der_train.png  used on input line 348.
 (pdftex.def)             Requested size: 409.59708pt x 204.80052pt.
  [9 <./img//der_trian.png> <./img//int_train1.png>]
-<./img//band_train.png, id=255, 867.24pt x 433.62pt>
+<./img//band_train.png, id=247, 867.24pt x 433.62pt>
 File: ./img//band_train.png Graphic file (type png)
 <use ./img//band_train.png>
-Package pdftex.def Info: ./img//band_train.png  used on input line 363.
+Package pdftex.def Info: ./img//band_train.png  used on input line 361.
 (pdftex.def)             Requested size: 409.59708pt x 204.80052pt.
  [10 <./img//der_train.png> <./img//band_train.png>]
-<./img//bestfit_squarewave.png, id=272, 1156.32pt x 578.16pt>
+<./img//bestfit_squarewave.png, id=262, 1156.32pt x 578.16pt>
 File: ./img//bestfit_squarewave.png Graphic file (type png)
 <use ./img//bestfit_squarewave.png>
-Package pdftex.def Info: ./img//bestfit_squarewave.png  used on input line 427.
+Package pdftex.def Info: ./img//bestfit_squarewave.png  used on input line 422.
 (pdftex.def)             Requested size: 409.59708pt x 204.7939pt.
- [11 <./img//bestfit_squarewave.png>]
-<./img//bestfit_sharkfins.png, id=288, 867.24pt x 722.7pt>
+<./img//bestfit_sharkfins.png, id=269, 867.24pt x 722.7pt>
 File: ./img//bestfit_sharkfins.png Graphic file (type png)
 <use ./img//bestfit_sharkfins.png>
-Package pdftex.def Info: ./img//bestfit_sharkfins.png  used on input line 467.
+Package pdftex.def Info: ./img//bestfit_sharkfins.png  used on input line 462.
 (pdftex.def)             Requested size: 409.59708pt x 341.3342pt.
-<./img//bestfit_sinusoid.png, id=294, 867.24pt x 722.7pt>
+ [11 <./img//bestfit_squarewave.png>]
+<./img//bestfit_sinusoid.png, id=286, 867.24pt x 722.7pt>
 File: ./img//bestfit_sinusoid.png Graphic file (type png)
 <use ./img//bestfit_sinusoid.png>
-Package pdftex.def Info: ./img//bestfit_sinusoid.png  used on input line 505.
+Package pdftex.def Info: ./img//bestfit_sinusoid.png  used on input line 500.
 (pdftex.def)             Requested size: 409.59708pt x 341.3342pt.
  [12 <./img//bestfit_sharkfins.png>]
-<./img//bestfit_triangle.png, id=309, 867.24pt x 722.7pt>
+<./img//bestfit_triangle.png, id=298, 867.24pt x 722.7pt>
 File: ./img//bestfit_triangle.png Graphic file (type png)
 <use ./img//bestfit_triangle.png>
-Package pdftex.def Info: ./img//bestfit_triangle.png  used on input line 552.
+Package pdftex.def Info: ./img//bestfit_triangle.png  used on input line 547.
 (pdftex.def)             Requested size: 409.59708pt x 341.3342pt.
  [13 <./img//bestfit_sinusoid.png>]
-<./img//bestfit_train.png, id=326, 1156.32pt x 578.16pt>
+<./img//bestfit_train.png, id=312, 1156.32pt x 578.16pt>
 File: ./img//bestfit_train.png Graphic file (type png)
 <use ./img//bestfit_train.png>
-Package pdftex.def Info: ./img//bestfit_train.png  used on input line 588.
+Package pdftex.def Info: ./img//bestfit_train.png  used on input line 583.
 (pdftex.def)             Requested size: 481.87546pt x 240.93764pt.
  [14 <./img//bestfit_triangle.png>]
-<./img//gain_squarewave.png, id=342, 467.5869pt x 289.08pt>
+<./img//gain_squarewave.png, id=331, 467.5869pt x 289.08pt>
 File: ./img//gain_squarewave.png Graphic file (type png)
 <use ./img//gain_squarewave.png>
-Package pdftex.def Info: ./img//gain_squarewave.png  used on input line 639.
+Package pdftex.def Info: ./img//gain_squarewave.png  used on input line 641.
 (pdftex.def)             Requested size: 216.84248pt x 134.0591pt.
-<./img//gain_trianwave.png, id=343, 467.5869pt x 289.08pt>
+<./img//gain_trianwave.png, id=332, 467.5869pt x 289.08pt>
 File: ./img//gain_trianwave.png Graphic file (type png)
 <use ./img//gain_trianwave.png>
-Package pdftex.def Info: ./img//gain_trianwave.png  used on input line 646.
+Package pdftex.def Info: ./img//gain_trianwave.png  used on input line 648.
 (pdftex.def)             Requested size: 216.84248pt x 134.0591pt.
  (./main.bbl [15 <./img//bestfit_train.png>]
 Underfull \hbox (badness 5105) in paragraph at lines 4--15
@@ -510,21 +510,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--15
 
 ) [16 <./img//gain_squarewave.png> <./img//gain_trianwave.png>] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C41784CFAAE052E082AF20669E0413EF;3902.
+(rerunfilecheck)             Checksum: BC1837AAC89CCDEF398A309754229BBD;3873.
  ) 
 Here is how much of TeX's memory you used:
- 11026 strings out of 480171
- 179914 string characters out of 5894489
- 475720 words of memory out of 5000000
- 28752 multiletter control sequences out of 15000+600000
+ 11028 strings out of 480171
+ 179950 string characters out of 5894489
+ 475437 words of memory out of 5000000
+ 28754 multiletter control sequences out of 15000+600000
  475455 words of font info for 50 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 67i,13n,77p,521b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,13n,77p,520b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (16 pages, 2368484 bytes).
+Output written on main.pdf (16 pages, 2367344 bytes).
 PDF statistics:
- 457 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
+ 445 PDF objects out of 1000 (max. 8388607)
+ 335 compressed objects within 4 object streams
  84 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
