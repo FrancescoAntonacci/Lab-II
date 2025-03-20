@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  20 MAR 2025 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  20 MAR 2025 18:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -342,35 +342,55 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-<./img//FFT12/RLCdiagram.png, id=79, 463.7325pt x 353.32pt>
+<./img//FFT12/RLCdiagram.png, id=55, 463.7325pt x 353.32pt>
 File: ./img//FFT12/RLCdiagram.png Graphic file (type png)
 <use ./img//FFT12/RLCdiagram.png>
 Package pdftex.def Info: ./img//FFT12/RLCdiagram.png  used on input line 51.
 (pdftex.def)             Requested size: 216.84248pt x 165.21399pt.
-<./img//FFT12/FFTRLC.png, id=81, 1156.32pt x 722.7pt>
+<./img//FFT12/FFTRLC.png, id=57, 1156.32pt x 722.7pt>
 File: ./img//FFT12/FFTRLC.png Graphic file (type png)
 <use ./img//FFT12/FFTRLC.png>
 Package pdftex.def Info: ./img//FFT12/FFTRLC.png  used on input line 59.
 (pdftex.def)             Requested size: 481.87546pt x 301.17204pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img//FFT12/RLCdiagram.png>] [2 <./img//FFT12/FFTRLC.png>] [3] (./main.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img//FFT12/RLCdiagram.png>]
+Underfull \hbox (badness 1661) in paragraph at lines 93--101
+\OT1/cmr/m/n/10 cita da un cir-cuito RLC, come mostrato in
+ []
+
+<./img//FFT13/RLCmaterialsdiagram.png, id=74, 527.9725pt x 264.99pt>
+File: ./img//FFT13/RLCmaterialsdiagram.png Graphic file (type png)
+<use ./img//FFT13/RLCmaterialsdiagram.png>
+Package pdftex.def Info: ./img//FFT13/RLCmaterialsdiagram.png  used on input line 104.
+(pdftex.def)             Requested size: 216.84248pt x 108.8326pt.
+<./img//FFT13/FFTMATERIALS1.png, id=75, 1156.32pt x 722.7pt>
+File: ./img//FFT13/FFTMATERIALS1.png Graphic file (type png)
+<use ./img//FFT13/FFTMATERIALS1.png>
+Package pdftex.def Info: ./img//FFT13/FFTMATERIALS1.png  used on input line 112.
+(pdftex.def)             Requested size: 481.87546pt x 301.17204pt.
+<./img//FFT13/FFTMATERIALS2.png, id=76, 1156.32pt x 722.7pt>
+File: ./img//FFT13/FFTMATERIALS2.png Graphic file (type png)
+<use ./img//FFT13/FFTMATERIALS2.png>
+Package pdftex.def Info: ./img//FFT13/FFTMATERIALS2.png  used on input line 113.
+(pdftex.def)             Requested size: 481.87546pt x 301.17204pt.
+[2 <./img//FFT12/FFTRLC.png> <./img//FFT13/RLCmaterialsdiagram.png>] [3 <./img//FFT13/FFTMATERIALS1.png> <./img//FFT13/FFTMATERIALS2.png>] [4] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DDBDB0D955D73B9E4326419455A5C371;2923.
+(rerunfilecheck)             Checksum: ADACC0776A6A4211045C33218F5A14B6;1960.
  ) 
 Here is how much of TeX's memory you used:
- 10712 strings out of 480171
- 172758 string characters out of 5894489
- 462875 words of memory out of 5000000
- 28526 multiletter control sequences out of 15000+600000
- 474334 words of font info for 46 fonts, out of 8000000 for 9000
+ 10731 strings out of 480171
+ 173496 string characters out of 5894489
+ 463514 words of memory out of 5000000
+ 28543 multiletter control sequences out of 15000+600000
+ 474027 words of font info for 45 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 67i,10n,77p,489b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,10n,77p,491b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (3 pages, 287880 bytes).
+Output written on main.pdf (4 pages, 606070 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 155 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

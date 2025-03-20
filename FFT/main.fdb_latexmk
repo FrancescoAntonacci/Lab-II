@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1742483754 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" "main.pdf" "main" 1742483755
+["pdflatex"] 1742491062 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" "main.pdf" "main" 1742491063
   "/etc/texmf/web2c/texmf.cnf" 1727515552 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" 1742483754 3883 aacac7123d70bb24aceb7e8e6be22934 ""
+  "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" 1742491060 7873 9d31aaedeb12cc84aa2c1757c25b0a22 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -82,11 +82,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1727515555 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1727515559 1435883 51557329eb480ddca7c3acb7514fd33f ""
-  "img//FFT12/FFTRLC.png" 1742482613 210101 53ce29a25f984d25c98d1028282a761d ""
+  "img//FFT12/FFTRLC.png" 1742490939 212363 a394ca5c497e6a89dc06d9f8d247f3fe ""
   "img//FFT12/RLCdiagram.png" 1742481277 31508 9c8637682b35bcf300a9fe20e29773da ""
-  "main.aux" 1742483755 4106 5bf235e8033923790d656dc93ecabef3 "pdflatex"
-  "main.out" 1742483755 2923 ddbdb0d955d73b9e4326419455a5c371 "pdflatex"
-  "main.tex" 1742483754 3883 aacac7123d70bb24aceb7e8e6be22934 ""
+  "img//FFT13/FFTMATERIALS1.png" 1742490452 190865 27677aa43254aef2fc88a6b4565bb681 ""
+  "img//FFT13/FFTMATERIALS2.png" 1742490445 178550 efdf820358d2199b91ad8a3711510f20 ""
+  "img//FFT13/RLCmaterialsdiagram.png" 1742483894 27577 4e4a517f0f55fcfb93bf394e6833f0a6 ""
+  "main.aux" 1742491063 4996 faa2e27681deca63f5d189dfd8961ea5 "pdflatex"
+  "main.out" 1742491063 1960 adacc0776a6a4211045c33218f5a14b6 "pdflatex"
+  "main.tex" 1742491060 7873 9d31aaedeb12cc84aa2c1757c25b0a22 ""
   (generated)
   "main.aux"
   "main.log"
