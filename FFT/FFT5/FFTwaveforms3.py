@@ -12,11 +12,10 @@ filepath='dataFFT5/'
 #the rest is badly taken data           'data7','data8','data9','data10','data11','data12',
 
 
-filename=['data1','data2','data3']
+filename=['data14','data15']
 filepath_images='img/FFT5/'
-f = np.array([177.455,178.0571,178.0571])*1e-3 #Just data1,2,3; converting to kHz 
-sf = np.array([0.002,0.0009,0.0009])*1e-3#Just data1,2,3 ;converting to kHz
-
+f = np.array([133.52992,133.4881])*1e-3 #Just data1,2,3; converting to kHz 
+sf = np.array([0.000003,0.0003])*1e-3#Just data1,2,3 ;converting to kHz
 
 # Create a figure with subplots
 fig, axes = plt.subplots(len(filename), 2, figsize=(16, 10), sharex='col', sharey='col')
@@ -63,31 +62,10 @@ for idx, i in enumerate(filename):
     # Plot frequency-domain (FFT)
     axes[idx, 1].plot(ff, v_tilde, label='ADS dell\'FFT')
     axes[idx, 1].plot(xx, yy, 'r--', label='f0 best-fit')
-
-
-    if i=='data1':
-            xxx=np.full_like(yy,0.35)
-            axes[idx, 1].plot(xxx, yy,'g--', label="rumore?")
-
-    if i=='data3' or i=='data2':
-        axes[idx, 1].plot(xx*2, yy,'g--', label="armoniche successive")
-        for j in range(2,20):
-                axes[idx, 1].plot(xx*j, yy, 'g--')
-
-    if i=='data2':
-        yy_data2=1e-1*(max(v)/(np.pi*ff))**2
-        axes[idx, 1].plot(ff,yy_data2 , 'k--',label='andamento delle armoniche')
-
-
-    if i=='data3':
-        yy_data3=1e3*max(v)/(np.pi*ff)
-        axes[idx, 1].plot(ff,yy_data3 , 'k--',label='andamento delle armoniche')
-
-
-        
+    
 
     axes[idx, 1].set_yscale('log')
-    axes[idx, 1].set_xlim(-0.1, 10 * f[idx])
+    axes[idx, 1].set_xlim(-0.01, 4 * f[idx])
     axes[idx, 1].grid()
     axes[idx, 1].minorticks_on()
     axes[idx, 1].legend(loc='upper right')
@@ -104,10 +82,9 @@ fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)
 fig.text(0.04, 0.5, 'Vc(t)[arb. units]', va='center', rotation='vertical', fontsize=18)
 fig.text(0.5, 0.5, 'ADS [arb. units]', va='center', rotation='vertical', fontsize=18)
 
-fig.text(0.91, 0.22, 'Onda sinusoidale', va='center', rotation='vertical', fontsize=18)
-fig.text(0.91, 0.5, 'Onda triangolare', va='center', rotation='vertical', fontsize=18)
-fig.text(0.91, 0.77, 'Onda quadra', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.22, 'Onda quadrata', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.67, 'Onda sinusoidale', va='center', rotation='vertical', fontsize=18)
 
 # Show all plots in a single figure
-plt.savefig(filepath_images + 'FFTwaveforms1.png')
+plt.savefig(filepath_images + 'FFTwaveforms3.png')
 plt.show()

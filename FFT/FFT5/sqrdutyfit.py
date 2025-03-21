@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
-t,v=np.loadtxt('dataFFT5/data2.txt',unpack=True)
+t,v=np.loadtxt('dataFFT5/data3.txt',unpack=True)
 t = t * 1e-6
 
 init =[1.12e3, -0.0008, 3.5e3, 1600]
@@ -32,6 +32,8 @@ plt.figure()
 plt.errorbar(t,v,fmt='o')
 plt.plot(tt,model(tt,*popt))
 plt.show()
+
+
 
 f0=1.11876554e+03/(2*np.pi)
 sf0=5.46413047e-03/(2*np.pi)
