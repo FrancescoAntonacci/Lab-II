@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1742516321.45795 "c:/Users/franc/Lab-II/FFT/main.tex" "main.pdf" "main" 1742516324.96196 0
-  "c:/Users/franc/Lab-II/FFT/main.tex" 1742516313 8045 e6754acc0c319552c35290cfe0739741 ""
+["pdflatex"] 1742672511.96867 "c:/Users/franc/Lab-II/FFT/main.tex" "main.pdf" "main" 1742672515.69569 0
+  "c:/Users/franc/Lab-II/FFT/main.tex" 1742672510 8996 4570f0908d78ddae36bd2ca1830851d8 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1738282454 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1738279662 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1738279662 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -79,14 +79,19 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1738319164 5512124 2cf941ede77dae451992032562f7b65f ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1738440260 3353596 ab0fb6a81119f7b3235d363cf6bed8dd ""
   "c:/texlive/2024/texmf.cnf" 1738440187 852 eaddfdcc21440c8a614bc47cfcebd7a2 ""
+  "img/FFT11/first_graph.pdf" 1742569894 45426 ecf2fb18c515e958c03cd271d9d15266 ""
+  "img/FFT11/fourth_graph.pdf" 1742570034 26069 9870441788e35057360cf7ce9a8fb609 ""
+  "img/FFT11/schema_circuitino.png" 1742572902 110317 a648c16d3a99356160384a68fd31535f ""
+  "img/FFT11/second_graph.pdf" 1742569924 58577 3314ce813caa9aaf74b39d9940d58c45 ""
+  "img/FFT11/third_graph.pdf" 1742569961 46820 21dacb2a3760839309b909c5968824b2 ""
   "img/FFT12/FFTRLC.png" 1742515531 212363 1ee908586220a98a9ae62f5b4368cc0a ""
   "img/FFT12/RLCdiagram.png" 1742515531 31508 c689b238b93359e1527f4c9b9fecff82 ""
   "img/FFT13/FFTMATERIALS1.png" 1742515531 190865 3f21a18a65368a2e03c15898676c73d7 ""
   "img/FFT13/FFTMATERIALS2.png" 1742515531 178550 ad5c30551dbc7a1ad89b89cdc1d22589 ""
   "img/FFT13/RLCmaterialsdiagram.png" 1742515531 27577 013b7c1a9b294b32a123e3e785246efb ""
-  "main.aux" 1742516324 4397 a3d76721f14f62201654184236ff583c "pdflatex"
-  "main.out" 1742516324 1960 adacc0776a6a4211045c33218f5a14b6 "pdflatex"
-  "main.tex" 1742516313 8045 e6754acc0c319552c35290cfe0739741 ""
+  "main.aux" 1742672515 4651 49641c761e3a2c67ed40c0ae15f1fb94 "pdflatex"
+  "main.out" 1742672515 1960 adacc0776a6a4211045c33218f5a14b6 "pdflatex"
+  "main.tex" 1742672510 8996 4570f0908d78ddae36bd2ca1830851d8 ""
   (generated)
   "main.aux"
   "main.log"

@@ -15,9 +15,9 @@ def fitting(t, V, init):
     return curve_fit(anal, t, V, p0=init)
 
 if __name__ == "__main__":
-    init = (np.pi/(2650*1e-6), 10, 5/1e-6, 230)
+    init = (np.pi/(4.25 * 2650*1e-6), 5, 1/1e-6, 235)
     # Import niggers from africa s
-    t, V = load_data("C:\\Users\\franc\\Lab-II\\FFT\\dataFFT11\\data_15_06.txt")
+    t, V = load_data("C:\\Users\\franc\\Lab-II\\FFT\\dataFFT11\\data_17_04.txt")
 
     # Fit della serie di STOCAZZONEEEEEEEEEEEEEEEEEEEEEE
     popt, _ = fitting(t, V, init)
