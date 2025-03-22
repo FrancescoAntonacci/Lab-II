@@ -17,19 +17,189 @@
 \begin{document}
 \maketitle
 
-\section{Forme d'onda sinusoidali}
+\section{Forme d'onda}
+    
+        E' stata fatta la FFT di forme d'onda quadrate, trinagolari e sinusoidali
+        acquisite in laboratorio
+        Il risultato è mostrato in Fig.($\ref{fig:for_ond}$).
 
-\section{Forme d'onda quadrate}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{FFT5/FFTwaveforms1.png}
+        \caption{A destra sono mostrati segnali acquisiti in laboratorio, a sinistra 
+                è stata eseguita la FFT.}
+        \label{fig:for_ond}
+    \end{figure}    
 
-\section{Forme d'onda triangolari}
+        Nel caso dell'onda sinusoidale si osseva la comparsa di un picco dovuto a 
+        rumore a $300$[Hz].
+        Per le altre forme d'onda è interessante notare la comparsa delle 
+        armoniche successive alla principale, come ci si aspetta dallo 
+        sviluppo in serie di seni e coseni delle rispettive forme d'onda.
+        In questi casi è stata diseganta sopra la FFT
+        la legge di potenza di come scalano le armoniche successive , rispettivamente
+        $\frac{1}{k}$ e $\frac{1}{k^2}$ per l'onda quadra e  per quella triangolare.
 
-\section{Forme d'onda treni di impulsi}
+        E' stato eseguito un bestfit per le frequenze principali $f_0$, i risultati 
+        sono riportati in Tab.($\ref{tab:for_ond}$) e 
+        mostrati in Fig.($\ref{fig:for_ond}$) assieme al rispettivo valore 
+        estrapolato dalla FFT.
 
-\section{Forme d'onda pinne di squalo}
+        Come incertezza sulla frequenza $f_0$ estrapolata dalla FFt è stata 
+        considerata la deviazione standard di una distribuzione uniforme attorno
+        a $f_0$ con ampiezza la risoluzione del campionamento:si assume infatti
+         che ogni punti attorno a $f_0$ possa essere equiprobabilmente il "valore reale".  
+         
 
-\section{Forme d'onda acquisite male}
+        \begin{table}[H]
+            \centering
+            \caption{Confronto tra le frequenze di oscillazione misurate con quelle ottenute tramite FFT e bestfit.
+                    Attorno ai valori medi è stata rappresentata la barra di errore per il valore
+                    misurato e per quello del bestfit, per il quale non si vede essendo molto piccola.}
+                \begin{tabular}{ccc}
+                    onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
+                    \hline
+                    Sinusoide       &   $0.1790190 \pm 0.0000002$           & $0.177455 \pm 0.000002$ \\
+                    Triangolare     &   $0.1790190 \pm 0.0000003$           & $0.1780571\pm 0.0000009$ \\
+                    Quadra          &   $0.1790190 \pm 0.0000003$           & $0.1780571 \pm 0.0000009$ \\
+                \end{tabular}
+                \caption{I tre segnali sono stati raccolti a distanza di poco tempo
+                        cambiando solo la forma d'onda con il generatore di funzioni,
+                        tuttavia colpisce la vicinanza dei valori $f_{0fft}$.
+                        Nessuno dei valori per la frequenza acqusito con la FFT
+                        e col Fit sono compatibili nella barra di errore.
+                        Potrebbe essere stato sottostimato l'errore nella FFT.}
+                \label{tab:for_ond}
+        \end{table}
 
-\section{Forme d'onda col duty cycle}
+        Sono state anche fatte acquisizioni "lunghe" di forme d'onda sinusoidali
+         e quadrate. Sono riportati i risultati del bestfit in Fig.($\ref{fig:for_lun}$)
+         e in Tab.($\ref{tab:for_lun}$)
+
+         
+
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{FFT5/FFTwaveforms3.png}
+            \caption{A destra sono mostrati segnali acquisiti in laboratorio, a sinistra 
+                    è stata eseguita la FFT.
+                    E' molto interessante osservare che nel caso dell'onda quadra 
+                    non compare l'armonica successiva aspettata: questo potrebbe essere 
+                    legato al fatto che in media sono presi sette punti per periodo e quindi 
+                    è possibile che ci sia un sottocampionamento dei dati per questa analisi.}
+            \label{fig:for_lun}
+        \end{figure}    
+
+
+         \begin{table}[H]
+            \centering
+            \caption{}
+                \begin{tabular}{ccc}
+                    onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
+                    \hline
+                    Sinusoide       &   $0.133540389 \pm 0.000000004$           & $0.13352992 \pm 0.0000003$ \\
+                    Quadra          &   $0.133540389 \pm 0.000000004$           & $0.1334881 \pm  0.000003$ \\
+                \end{tabular}
+                \caption{Similmente a quanto accade in Tab.($\ref{tab:for_ond}$) le 
+                frequenze estrapolate con FFT sono molto vicine tra loro e molto precise;
+                le frequenze estrapolate con FFT e bestfit sono molto vicine tuttavia non 
+                sono compatibili dentro la barra di errore.}
+                \label{tab:for_lun}
+        \end{table}
+        
+
+
+\section{Forme d'onda distorte}
+
+        Sono stati raccolti segnali cambiando il duty cycle ed è stato eseguito un fit 
+        con una sinusoide con l'obbiettivo di far convergere solo la frequenza.
+
+        E' stata realizzata per ciascuna forma d'onda l'FFT.
+        Il risultato della manipolazione dei dati è riporato in Fig.($\ref{fig:for_dis}$)
+        e in Tab.($\ref{tab:for_dis}$).
+        \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{FFT5/FFTwaveforms2.png}
+                \caption{A destra sono mostrati segnali acquisiti in laboratorio, 
+                        a sinistra è stata eseguita la FFT.
+                        Attorno ai valori medi è stata rappresentata la barra di 
+                        errore per il valore misurato e per quello del bestfit, 
+                        per il quale non si vede essendo molto piccola.}
+                \label{fig:for_dis}
+        \end{figure}   
+
+        \begin{table}[H]
+            \centering
+
+                \begin{tabular}{ccc}
+                    onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
+                    \hline
+                    Sinusoide       &   $0.1566416 \pm 0.0000003$           & $0.15559 \pm 0.00002$ \\
+                    Triangolare     &   $0.1566416 \pm 0.0000003$           & $0.15559 \pm 0.00002$ \\
+                    Quadra          &   $0.1566416 \pm 0.0000003$           & $0.15576 \pm 0.00006$ \\
+                \end{tabular}
+                \caption{I tre segnali sono stati raccolti a distanza di poco tempo
+                cambiando solo la forma d'onda con il generatore di funzioni,
+                tuttavia colpisce la vicinanza dei valori $f_{0fft}$.
+                Nessuno dei valori per la frequenza acqusito con la FFT
+                e col Fit sono compatibili nella barra di errore.
+                Potrebbe essere stato sottostimato l'errore nella FFT.}
+                \label{tab:for_dis}
+        \end{table}
+
+\section{Cattive acquisizioni}
+
+    In Fig.($\ref{fig:merda}$) sono riportati esempi di "cattive acquisizioni".
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{FFT5/FFTwaveforms4.png}
+            \caption{I primi due grafici rappresentano il campionamento di una porta di arduino scollegata.
+            In mezzo è riporato un sottocampionamento: per ogni periodo è acquisito un 
+            solo punto.
+            La terza coppia di figure dall'alto rappresenta un sovracampionamento 
+            di un periodo: l'acquizione prende  solo il ramo crescente di un seno.}
+            \label{fig:merda}
+        \end{figure}  
+    
+    E' stato eseguito un bestfit con una legge esponenziale per la sezione decrescente
+    del segnale acquisito con arduino scollegato: fisicamente questo è legato all'ipotesi 
+    che una certa carica presente prima dell'acquisizione 
+    sulla porta è dissipata quando la porta comunica con il resto di Arduino.
+    Il risultato del bestfit è riporatto in Tab.($\ref{tab:merda}$)
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{cc}
+                $\tau[ms]$ & $\chi^2_{norm}$\\
+                \hline
+                $0.8598\pm0.0004$ &$5$\\
+            \end{tabular}
+        \caption{Risultati bestfit per legge esponenziale di un'acquisizione 
+                con arduino scollegato. $\tau$ è il tempo di decadimento della legge 
+                esponenziale.}
+        \label{tab:merda}
+        \end{table}
+
+
+
+    Per quanto riguarda il sovracampionamento è sufficiente dire che la 
+    FFT non riesce a trovare l'armonica principale del segnale sinusoidale e 
+    che i diversi picchi che compaiono nel segnale possono esseredi natura puramente
+    accidentale.
+
+    Nel caso di sottocampionamento siccome una sinusoide localmente può 
+    essere approssimata con una retta, si è disegnato sopra la FFT la funzione
+    $\frac{\alpha}{f}$ -dove $\alpha$ è una costante arbitraria-
+    in quanto ciascun termine dello sviluppo in serie  di 
+    armoniche della funzione $g(f)=f$ è proporzionale all'inverso della 
+    corrispettiva frequenza.
+
+
+
+
+
+
 
 \section{Autoscillatore}
 
@@ -181,8 +351,39 @@ Riportiamo in Fig() i grafici con a sinistra il segnale in uscita e a destra la 
 
         
 
-\section{Glicemia}
+
+
+
 
 \section{"Il pinnacolone"}
+
+\section{Glicemia}
+
+        E' stata acquisita la Glicemia di un paziente di diabete mellito tipo 1 in 
+        due periodi diversi: le vacanze natalizie e la sessione di studio per gli esami.
+        I risultati dell'analisi con FFT sono riportati in Fig.($\ref{fig:rubbish}$).
+        I due periodi sono paragonabili in quanto ravvicinati e si assume che
+        la temperatura e lo stess non abbiano subito variazioni significative 
+        nel paziente.
+        
+        Si evidenziano i tempi che determinano le frequenze caratteristiche dell'andamento glicemico:
+            \begin{itemize}
+                \item 3 ore - il tempo di effetto dell'insulina
+                \item 6 ore - il tempo che durante il giorno intercorre tra i parassite
+                \item 24 ore - il giorno (da cui il sonno, la produzione ormonale, le attività
+                svolte...)
+            \end{itemize}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{rubbish/rubbish.png}
+                \caption{E' evidente la presenza di una maggiore regolarità nel 
+                periodo di studio rispetto alle festività: il picco legato
+                al giorno e quello legato ai scompare durante le festività 
+                per le persistenti iperglicemie dovute all'aumentata insulino
+                resistenza e ai pasti più ricchi di grassi.
+                Il picco legato all'azione dell'insulina si attenua probabilmente
+                a causa dell'elevata insulinoresistenza.}
+                \label{fig:rubbish}
+            \end{figure} 
 
 \end{document}

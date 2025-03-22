@@ -27,7 +27,6 @@ sf = sTfit / Tfit**2  # kHz"""
 
 # Create a figure with subplots
 fig, axes = plt.subplots(len(filename), 2, figsize=(16, 10), sharex='col', sharey='col')
-axes = np.atleast_2d(axes)  # Ensure axes is 2D
 
 for idx, i in enumerate(filename):
     # Load data
@@ -35,9 +34,9 @@ for idx, i in enumerate(filename):
     t = t *1e-3  # Convert to ms
     
     # Compute sampling parameters
-    delta_t = np.mean(np.diff(t))  # Mean delta_t
-    f_s = 1 / (2 * delta_t)
-    ff = np.linspace(0, f_s, len(t) // 2 + 1)
+    numpoints = len(t)  # Number of points
+    df = 1 / (2 * max(t))
+    ff = np.linspace(0, df*numpoints, numpoints//2 + 1)
     
 
     # Compute FFT
@@ -46,7 +45,7 @@ for idx, i in enumerate(filename):
 
     k=np.argmax(v_tilde[1:])+1
     f_fft=ff[k]
-    sf_fft=f_s/(len(ff)*np.sqrt(12))
+    sf_fft=df/(len(ff)*np.sqrt(12))
 
     print("f0_fft=",f_fft,"+-",sf_fft)
     print("f0_bestfit=",f[idx],"+-",sf[idx])
