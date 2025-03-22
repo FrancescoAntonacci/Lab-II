@@ -71,7 +71,7 @@ for idx, i in enumerate(filename):
         
 
     axes[idx, 1].set_yscale('log')
-    axes[idx, 1].set_xlim(-0.1, 10 * f[idx])
+    axes[idx, 1].set_xlim(-0.1, 6 * f[idx])
     axes[idx, 1].grid()
     axes[idx, 1].minorticks_on()
     axes[idx, 1].legend(loc='upper right')
@@ -79,8 +79,8 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'FFT', ha='center', fontsize=18)
-fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'FFT', ha='center', fontsize=18)
+fig.text(0.34, 0.90, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
 fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)

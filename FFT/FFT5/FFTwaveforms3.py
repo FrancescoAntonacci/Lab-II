@@ -63,9 +63,17 @@ for idx, i in enumerate(filename):
     axes[idx, 1].plot(ff, v_tilde, label='ADS dell\'FFT')
     axes[idx, 1].plot(xx, yy, 'r--', label='f0 best-fit')
     
+    if i=='data1':
+            xxx=np.full_like(yy,0.35)
+            axes[idx, 1].plot(xxx, yy,'g--', label="rumore?")
+
+    if i=='data15':
+        axes[idx, 1].plot(xx*2, yy,'g--', label="armoniche successive?")
+        for j in range(2,20):
+                axes[idx, 1].plot(xx*j, yy, 'g--')
 
     axes[idx, 1].set_yscale('log')
-    axes[idx, 1].set_xlim(-0.01, 4 * f[idx])
+    axes[idx, 1].set_xlim(-0.01, 3 * f[idx])
     axes[idx, 1].grid()
     axes[idx, 1].minorticks_on()
     axes[idx, 1].legend(loc='upper right')
@@ -73,8 +81,8 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'FFT', ha='center', fontsize=18)
-fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'FFT', ha='center', fontsize=18)
+fig.text(0.34, 0.90, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
 fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)

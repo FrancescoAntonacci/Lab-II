@@ -50,7 +50,9 @@ for idx, i in enumerate(filename):
         res=v[:200]-model(t[:200],*popt)
         x2=np.sum((res)**2/1e2)
         print('x2=',x2)
-        
+
+
+
 
     # Reference lines
     yy = np.linspace(min(v_tilde), max(v_tilde), 4000)
@@ -68,7 +70,10 @@ for idx, i in enumerate(filename):
 
     # Plot frequency-domain (FFT)
     axes[idx, 1].plot(ff, v_tilde, label='ADS dell\'FFT')
-    
+    if i == 'data13':
+        fff=np.linspace(min(ff),max(ff),4000)
+        axes[idx,1].plot(fff,5e1/fff,label='1/x')    
+
 
     axes[idx, 1].set_yscale('log')
     axes[idx, 1].grid()
@@ -78,8 +83,8 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'FFT', ha='center', fontsize=18)
-fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'FFT', ha='center', fontsize=18)
+fig.text(0.34, 0.90, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
 fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)
@@ -87,9 +92,10 @@ fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)
 fig.text(0.04, 0.5, 'Vc(t)[arb. units]', va='center', rotation='vertical', fontsize=18)
 fig.text(0.5, 0.5, 'ADS [arb. units]', va='center', rotation='vertical', fontsize=18)
 
-fig.text(0.91, 0.22, 'Onda quadrata', va='center', rotation='vertical', fontsize=18)
-fig.text(0.91, 0.67, 'Onda sinusoidale', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.80, 'Arduino Scollegato', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.50, 'Sovracampionamento', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.20, 'Sottocampionamento', va='center', rotation='vertical', fontsize=18)
 
 # Show all plots in a single figure
-plt.savefig(filepath_images + 'FFTwaveforms3.png')
+plt.savefig(filepath_images + 'FFTwaveforms4.png')
 plt.show()

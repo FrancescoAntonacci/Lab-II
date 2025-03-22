@@ -17,7 +17,6 @@ filepath_images='img/FFT5/'
 f = np.array([177.455,178.0571,178.0571])*1e-3 #Just data1,2,3; converting to kHz 
 sf = np.array([0.002,0.0009,0.0009])*1e-3#Just data1,2,3 ;converting to kHz
 
-
 # Create a figure with subplots
 fig, axes = plt.subplots(len(filename), 2, figsize=(16, 10), sharex='col', sharey='col')
 
@@ -50,9 +49,9 @@ for idx, i in enumerate(filename):
     vv = np.linspace(min(v), max(v), 4000)
     
     # Plot time-domain signal
-    axes[idx, 0].plot(t, v, label='Vc(t)')
+    axes[idx, 0].plot(t, v, label='Segnale')
     axes[idx, 0].grid()
-    axes[idx, 0].legend()
+    axes[idx, 0].legend(loc='upper right')
     
     # Plot frequency-domain (FFT)
     # Reference lines
@@ -87,7 +86,7 @@ for idx, i in enumerate(filename):
         
 
     axes[idx, 1].set_yscale('log')
-    axes[idx, 1].set_xlim(-0.1, 10 * f[idx])
+    axes[idx, 1].set_xlim(-0.1, 6 * f[idx])
     axes[idx, 1].grid()
     axes[idx, 1].minorticks_on()
     axes[idx, 1].legend(loc='upper right')
@@ -95,18 +94,18 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'FFT', ha='center', fontsize=18)
-fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'FFT', ha='center', fontsize=18)
+fig.text(0.34, 0.90, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
 fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)
 
-fig.text(0.04, 0.5, 'Vc(t)[arb. units]', va='center', rotation='vertical', fontsize=18)
+fig.text(0.04, 0.5, 'V(t)[arb. units]', va='center', rotation='vertical', fontsize=18)
 fig.text(0.5, 0.5, 'ADS [arb. units]', va='center', rotation='vertical', fontsize=18)
 
-fig.text(0.91, 0.22, 'Onda sinusoidale', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.22, 'Onda quadra', va='center', rotation='vertical', fontsize=18)
 fig.text(0.91, 0.5, 'Onda triangolare', va='center', rotation='vertical', fontsize=18)
-fig.text(0.91, 0.77, 'Onda quadra', va='center', rotation='vertical', fontsize=18)
+fig.text(0.91, 0.77, 'Onda sinusoidale', va='center', rotation='vertical', fontsize=18)
 
 # Show all plots in a single figure
 plt.savefig(filepath_images + 'FFTwaveforms1.png')
