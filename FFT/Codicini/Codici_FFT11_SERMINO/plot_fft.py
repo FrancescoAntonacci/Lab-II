@@ -42,66 +42,83 @@ init = ((np.pi/(2650*1e-6), 1300, -0.1/(1e6), 1500),  # data_11_11
         (np.pi/(2650*1e-6), 1600, 5/1e-6, 1800),  # data9_92
         )
 # Plotting gruppi di 4
+num_sig = int(input("Quanti segnali vuoi visualizzare in una finestra? (Sconsigliato andare oltre i 4) "))
 
 i = 0
 while i < len(_file):
-    if i + 4 < len(_file):
-        fig, axes = plt.subplots(4, 2, figsize=(25, 15), gridspec_kw={'hspace': 1.5, 'wspace': 0.3})
+    if i + num_sig < len(_file):
+        fig, axes = plt.subplots(2, 2, figsize=(45, 15), gridspec_kw={'hspace': 0.5, 'wspace': 0.3})
         axes = axes.flatten()
-        for j in range(4):
+        
+        for j in range(num_sig):
             with open(_file[i + j], 'r') as file:
                 t, V = np.loadtxt(file, unpack=True)
-                ax_main = axes[2 * j]  # Grafico del segnale a sinistra
                 t = t * 1e-6
                 popt, pcov = fitting(t, V, init[i + j])
-                ax_main.plot(t, V, 'r-', label="Segnale")
-                ax_main.set_title(f'Segnale {i + j + 1}')
-                ax_main.grid(True, linestyle='--', alpha=0.5)
+                
+                # Grafico del segnale a sinistra
+                ax_left = axes[2 * j]
+                ax_left.plot(t, V, 'r-', label="Segnale")
+                ax_left.set_title(f'Segnale {i + j + 1}')
+                ax_left.grid(True, linestyle='--', alpha=0.5)
                 puntifft = int(len(V) / 2)
-
-                ax_main = axes[2 * j + 1]  # Grafico della rfft a destra
+                
+                # Grafico della rfft a destra
+                ax_right = axes[2 * j + 1]
                 V = abs(np.fft.rfft(V))
                 deltaf = (1) / max(t)
                 ff = np.linspace(0, deltaf * puntifft, puntifft + 1)
-                ax_main.plot(ff, V, 'blue', label="ADS della FFT")
-                ax_main.set_yscale('log')
-                ax_main.set_title(f'Trasformata di Fourier {i + j + 1}')
-                ax_main.grid(True, linestyle='--', alpha=0.5)
-                ax_main.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--', label='Valore atteso dal best-fit')
+                ax_right.plot(ff, V, 'blue', label="ADS della FFT")
+                ax_right.set_yscale('log')
+                ax_right.set_title(f'FFT {i + j + 1}')
+                ax_right.grid(True, linestyle='--', alpha=0.5)
+                ax_right.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--', label='Valore atteso dal best-fit')
                 s_w = np.sqrt(np.diag(pcov))[0]
-                ax_main.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
+                ax_right.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
+                ax_right.legend()
                 print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf}")
-        fig.supxlabel('Frequenze [Hz]', fontsize=fontsize)
-        fig.supylabel('ASD [arb. un.]', fontsize=fontsize)
-        plt.tight_layout(rect=[0.05, 0.05, 1, 1])
+        
+        # Etichette personalizzate per gli assi X e Y
+        fig.text(0.29, 0.02, 'Tempo [s]', ha='center', va='center', fontsize=14)   # Etichetta X per i grafici a sinistra
+        fig.text(0.735, 0.02, 'Frequenza [Hz]', ha='center', va='center', fontsize=14)  # Etichetta X per i grafici a destra
+        
+        fig.text(0.02, 0.5, 'V [arb. un.]', ha='center', va='center', rotation='vertical', fontsize=14)  # Etichetta Y per i grafici a sinistra
+        fig.text(0.50, 0.5, 'ASD del segnale [arb. un.]', ha='center', va='center', rotation='vertical', fontsize=14)  # Etichetta Y per i grafici a destra
+        
+        plt.tight_layout(rect=[0.05, 0.05, 0.95, 0.95])
         plt.show()
-        i += 4
+        i += num_sig
     else:
         with open(_file[i], 'r') as file:
             fig, axes = plt.subplots(1, 2, figsize=(10, 5), gridspec_kw={'hspace': 1.5, 'wspace': 0.3})
             t, V = np.loadtxt(file, unpack=True)
             t = t * 1e-6
-            ax_main = axes[0]
-            ax_main.plot(t, V, 'blue', label="Segnale")
-            ax_main.set_title(f'Segnale {i + j + 1}')
-            ax_main.grid(True, linestyle='--', alpha=0.5)
+            ax_left = axes[0]
+            deltaf = (1) / max(t)
             puntifft = int(len(V) / 2)
+            ax_left.plot(t, V, 'blue', label="Segnale")
+            ax_left.set_title(f'Segnale {i + 1}')
+            ax_left.grid(True, linestyle='--', alpha=0.5)
             
             popt, pcov = fitting(t, V, init[i])
             V = abs(np.fft.rfft(V))
-            deltaf = (1) / max(t)
             ff = np.linspace(0, deltaf * puntifft, puntifft + 1)
-            ax_main = axes[1]
-            ax_main.plot(ff, V, 'blue', label="Best Fit")
-            ax_main.set_yscale('log')
-            ax_main.set_title(f'Grafico {i + j + 1}')
-            ax_main.grid(True, linestyle='--', alpha=0.5)
-            ax_main.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--')
+            
+            ax_right = axes[1]
+            ax_right.plot(ff, V, 'blue', label="Best Fit")
+            ax_right.set_yscale('log')
+            ax_right.set_title(f'FFT {i + 1}')
+            ax_right.grid(True, linestyle='--', alpha=0.5)
+            ax_right.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--', label='Valore atteso dal best-fit')
             s_w = np.sqrt(np.diag(pcov))[0]
-            ax_main.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
-            fig.supxlabel('Frequenze [kHz]', fontsize=fontsize)
-            fig.supylabel('V [arb. un.]', fontsize=fontsize)
-            print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf}")
-            fig.tight_layout(rect=[0.05, 0.05, 1, 1])
+            ax_right.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
+            ax_right.legend()
+            
+            fig.text(0.29, 0.02, 'Tempo [s]', ha='center', va='center', fontsize=14)
+            fig.text(0.735, 0.02, 'Frequenza [Hz]', ha='center', va='center', fontsize=14)
+            fig.text(0.02, 0.5, 'V [arb. un.]', ha='center', va='center', rotation='vertical', fontsize=14)
+            fig.text(0.50, 0.5, 'ASD del segnale [arb. un.]', ha='center', va='center', rotation='vertical', fontsize=14)
+            
+            plt.tight_layout(rect=[0.05, 0.05, 0.95, 0.95])
             plt.show()
         i += 1

@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=0.80in, a4paper]{geometry} % Adjust margins here
+\usepackage[margin=0.75in, a4paper]{geometry} % Adjust margins here
 \usepackage{amsmath}
 \usepackage{booktabs} % For better looking tables
 \usepackage{float}
@@ -46,7 +46,7 @@
         mostrati in Fig.($\ref{fig:for_ond}$) assieme al rispettivo valore 
         estrapolato dalla FFT.
 
-        Come incertezza sulla frequenza $f_0$ estrapolata dalla FFt è stata 
+        Come incertezza sulla frequenza $f_0$ estrapolata dalla FFT è stata 
         considerata la deviazione standard di una distribuzione uniforme attorno
         a $f_0$ con ampiezza la risoluzione del campionamento:si assume infatti
          che ogni punti attorno a $f_0$ possa essere equiprobabilmente il "valore reale".  
@@ -206,27 +206,31 @@
 
 Sono state prese delle misure di un segnale in uscita da un autoscillatore, il cui schema è riportato in Fig(\ref{fig:circuitino_oscillante})
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.30]{FFT11/schema_circuitino.png}
-    \caption{Schema circuitale dell'oscillatore}
-    \label{fig:circuitino_oscillante}
-\end{figure}
+\begin{minipage}{0.445\textwidth}
 Per ogni segnale registrato, è stato eseguito il fit ai minimi quadratici per individuare la frequenza dell'oscillazione sinusoidale del segnale in uscita, usando la seguente funzione modello
 $$
     f(t; A, \omega, \phi, c) = A \sin{(\omega t + \phi)} + c,
 $$
 confrontandolo con il contenuto spettrale ottenuto tramite l'algoritmo della RFFT.
-Riportiamo in Fig(\ref{fig:sign_rfft_autoscill}) i grafici con a sinistra il segnale in uscita e a destra la trasformata di Fourier del segnale, dove viene graficato una linea verticale che rappresenta il valore stimato di $f = \frac{\omega}{2 \pi}$ stimato dal bestfit
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{FFT11/schema_circuitino.png}
+    \caption{Schema circuitale dell'oscillatore}
+    \label{fig:circuitino_oscillante}
+\end{minipage}
+\end{figure}
+
+Riportiamo in Fig(\ref{fig:sign_rfft_autoscill}) dei grafici di alcuni segnali con a sinistra il segnale in uscita e a destra la trasformata di Fourier del segnale, dove viene graficato una linea verticale che rappresenta il valore stimato di $f = \frac{\omega}{2 \pi}$ stimato dal bestfit
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{FFT11/first_graph.pdf}
-    \includegraphics[scale=0.4]{FFT11/second_graph.pdf}
+    \includegraphics[scale=0.425]{FFT11/first_graph.pdf}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.40]{FFT11/third_graph.pdf}
-    \includegraphics[scale=0.25]{FFT11/fourth_graph.pdf}
-    \caption{Segnali con relativa trasformata di Fourier graficata di lato}
+    \includegraphics[scale=0.425]{FFT11/second_graph.pdf}
+    \caption{Grafici del segnale in uscita dall'autoscillatore (a sinistra) e della sua FFT (a destra).}
     \label{fig:sign_rfft_autoscill}
 \end{figure}
 
@@ -261,7 +265,7 @@ Si osserva che i valori di frequenza stimati tramite bestfit e tramite RFFT sono
 $$
     \Delta f = \frac{1}{\max{t}}
 $$
-dove $\max{t}$ è il tempo massimo di acquisizione del segnale.
+dove $\max{t}$ è il tempo massimo di acquisizione del segnale. 
 \section{Oscillazioni smorzate}
 
         
