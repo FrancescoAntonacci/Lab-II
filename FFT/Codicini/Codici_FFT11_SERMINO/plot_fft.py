@@ -6,7 +6,7 @@ import os  # To list files in a directory (to loop)
 
 # Plotting the rfft of the signal for FFT11 data
 # Graphical setting for the plots
-fontsize = 14
+fontsize = 18
 params = {
     'figure.figsize': (12, 8),  # Dimensione della figura
     'axes.labelsize': fontsize,
@@ -50,7 +50,6 @@ while i < len(_file):
         axes = axes.flatten()
         for j in range(4):
             with open(_file[i + j], 'r') as file:
-                print(file)
                 t, V = np.loadtxt(file, unpack=True)
                 ax_main = axes[2 * j]  # Grafico del segnale a sinistra
                 t = t * 1e-6
@@ -64,14 +63,14 @@ while i < len(_file):
                 V = abs(np.fft.rfft(V))
                 deltaf = (1) / max(t)
                 ff = np.linspace(0, deltaf * puntifft, puntifft + 1)
-                ax_main.plot(ff, V, 'blue', label="Best Fit")
+                ax_main.plot(ff, V, 'blue', label="ADS della FFT")
                 ax_main.set_yscale('log')
-                ax_main.set_title(f'Grafico {i + j + 1}')
+                ax_main.set_title(f'Trasformata di Fourier {i + j + 1}')
                 ax_main.grid(True, linestyle='--', alpha=0.5)
-                ax_main.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--')
+                ax_main.axvline(popt[0] / (2 * np.pi), color='red', linestyle='--', label='Valore atteso dal best-fit')
                 s_w = np.sqrt(np.diag(pcov))[0]
                 ax_main.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
-        
+                print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf}")
         fig.supxlabel('Frequenze [Hz]', fontsize=fontsize)
         fig.supylabel('ASD [arb. un.]', fontsize=fontsize)
         plt.tight_layout(rect=[0.05, 0.05, 1, 1])
@@ -102,6 +101,7 @@ while i < len(_file):
             ax_main.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
             fig.supxlabel('Frequenze [kHz]', fontsize=fontsize)
             fig.supylabel('V [arb. un.]', fontsize=fontsize)
+            print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf}")
             fig.tight_layout(rect=[0.05, 0.05, 1, 1])
             plt.show()
         i += 1

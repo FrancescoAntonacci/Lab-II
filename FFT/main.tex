@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[margin=0.80in, a4paper]{geometry} % Adjust margins here
 \usepackage{amsmath}
+\usepackage{booktabs} % For better looking tables
 \usepackage{float}
 \usepackage{url} % For formatting URLs
 \usepackage{hyperref}
@@ -205,20 +206,62 @@
 
 Sono state prese delle misure di un segnale in uscita da un autoscillatore, il cui schema è riportato in Fig(\ref{fig:circuitino_oscillante})
 \begin{figure}[H]
-    \includegraphics[scale=0.50]{FFT11/schema_circuitino.png}
+    \centering
+    \includegraphics[scale=0.30]{FFT11/schema_circuitino.png}
     \caption{Schema circuitale dell'oscillatore}
     \label{fig:circuitino_oscillante}
 \end{figure}
-E' stato eseguito il fit ai minimi quadratici per individuare la frequenza dell'oscillazione sinusoidale del segnale in uscita, confrontandolo con il contenuto spettrale ottenuto tramite l'algoritmo della RFFT.
-Riportiamo in Fig() i grafici con a sinistra il segnale in uscita e a destra la trasformata del segnale
+Per ogni segnale registrato, è stato eseguito il fit ai minimi quadratici per individuare la frequenza dell'oscillazione sinusoidale del segnale in uscita, usando la seguente funzione modello
+$$
+    f(t; A, \omega, \phi, c) = A \sin{(\omega t + \phi)} + c,
+$$
+confrontandolo con il contenuto spettrale ottenuto tramite l'algoritmo della RFFT.
+Riportiamo in Fig(\ref{fig:sign_rfft_autoscill}) i grafici con a sinistra il segnale in uscita e a destra la trasformata di Fourier del segnale, dove viene graficato una linea verticale che rappresenta il valore stimato di $f = \frac{\omega}{2 \pi}$ stimato dal bestfit
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{FFT11/first_graph.pdf}
-    \includegraphics[width=\textwidth]{FFT11/second_graph.pdf}
-    \includegraphics[width=\textwidth]{FFT11/third_graph.pdf}
-    \includegraphics[width=\textwidth]{FFT11/fourth_graph.pdf}
+    \includegraphics[scale=0.4]{FFT11/first_graph.pdf}
+    \includegraphics[scale=0.4]{FFT11/second_graph.pdf}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.40]{FFT11/third_graph.pdf}
+    \includegraphics[scale=0.25]{FFT11/fourth_graph.pdf}
+    \caption{Segnali con relativa trasformata di Fourier graficata di lato}
+    \label{fig:sign_rfft_autoscill}
 \end{figure}
 
+Prima del confronto con i valori di bestfit, possiamo già osservare che abbiamo un picco a frequenza nulla, coerentemente con quanto atteso. Escludendo quest'ultimo, si nota la presenza di molteplici picchi, quando in realtà ci apettiamo dall'autoscillatore un segnale sinuosodaile "puro" quindi ci aspettiamo due picchi: uno corrispondente alla frequenza nulla e uno corrispondente a quello della frequenza del segnale. Questo è chiaramente dovuto al fatto che non si tratta di un autoscillatore puro e non riesce a produrmi un segnale perfettamente sinusoidale.
+In Tab(\ref{tab:cft_rfft_bestfit}) riportiamo i valori di bestfit
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        $n$ & $f_{0_\text{rfft}} \, [\text{Hz}]$ & $f_{0_\text{bestfit}} \, [\text{Hz}]$ \\
+        \midrule
+        1 & $195 \pm 7$         & $195.13 \pm 0.06$ \\
+        2 & $203 \pm 7$       & $206.61 \pm 0.07$ \\
+        3 & $210 \pm 7$         & $207.86 \pm 0.07$ \\
+        4 & $225 \pm 7$         & $227.02 \pm 0.08$ \\
+        5 & $50 \pm 7$          & $50 \pm 1$ \\
+        6 & $50 \pm 7$          & $50 \pm 4$ \\
+        7 & $168 \pm 7$         & $167.21 \pm 0.03$ \\
+        8 & $167 \pm 7$         & $166.95 \pm 0.03$ \\
+        9 & $166 \pm 7$         & $168.10 \pm 0.04$ \\
+        10 & $174 \pm 7$        & $176.66 \pm 0.04$ \\
+        11 & $182 \pm 7$        & $185.81 \pm 0.03$ \\
+        12 & $189 \pm 7$        & $190.06 \pm 0.04$ \\
+        13 & $190 \pm 7$        & $190.78 \pm 0.04$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Tabella con i valori di frequenza del segnale stimata tramite RFFT e tramite bestfit, dove $n$ rappresenta l'$n-$segnale analizzato}
+    \label{tab:cft_rfft_bestfit}
+\end{table}
+Si osserva che i valori di frequenza stimati tramite bestfit e tramite RFFT sono compatibili entro le barre di errori per tutti i valori. Come errori sul valore stimato tramite la RFFT si è utilizzata la spaziatura tra un valore della frequenza e quello successivo, che abbiamo scelto, nell'algoritmo della RFFT, di essere pari a 
+$$
+    \Delta f = \frac{1}{\max{t}}
+$$
+dove $\max{t}$ è il tempo massimo di acquisizione del segnale.
 \section{Oscillazioni smorzate}
 
         
@@ -379,10 +422,9 @@ Riportiamo in Fig() i grafici con a sinistra il segnale in uscita e a destra la 
                 \caption{E' evidente la presenza di una maggiore regolarità nel 
                 periodo di studio rispetto alle festività: il picco legato
                 al giorno e quello legato ai scompare durante le festività 
-                per le persistenti iperglicemie dovute all'aumentata insulino
-                resistenza e ai pasti più ricchi di grassi.
+                per le persistenti iperglicemie dovute all'aumentata insulino-resistenza e ai pasti più ricchi di grassi.
                 Il picco legato all'azione dell'insulina si attenua probabilmente
-                a causa dell'elevata insulinoresistenza.}
+                a causa dell'elevata insulino-resistenza.}
                 \label{fig:rubbish}
             \end{figure} 
 
