@@ -76,7 +76,7 @@ while i < len(_file):
                 s_w = np.sqrt(np.diag(pcov))[0]
                 ax_right.fill_betweenx([min(V), max(V)], (popt[0] - s_w) / (2 * np.pi), (popt[0] + s_w) / (2 * np.pi), color='r', alpha=0.5)
                 ax_right.legend()
-                print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf}")
+                print(f"La frequenza stimata è: {popt[0] / (2 * np.pi)} +- {s_w} con un deltaf pari a {deltaf/np.sqrt(12)}")
         
         # Etichette personalizzate per gli assi X e Y
         fig.text(0.29, 0.02, 'Tempo [s]', ha='center', va='center', fontsize=14)   # Etichetta X per i grafici a sinistra
