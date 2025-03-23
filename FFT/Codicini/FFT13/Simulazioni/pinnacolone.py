@@ -1,7 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.rcParams.update({"font.size": 18})
+fontsize = 18
+params = {
+    'figure.figsize': (15, 8),  # Dimensione della figura
+    'axes.labelsize': fontsize,
+    'axes.titlesize': fontsize,
+    'xtick.labelsize': fontsize,
+    'ytick.labelsize': fontsize,
+    'legend.fontsize': fontsize,
+    'lines.linewidth': 2,
+    'lines.markersize': 6
+}
+plt.rcParams.update(params)
+plt.style.use('seaborn-v0_8-muted')  # Stile pulito
+
 wosc=1e1
 C = 1e-6  # F
 r1=30
@@ -31,9 +44,47 @@ def vr2(t, w, tau,tau0, a, dt,theta):
     return a*(tau0/tau)*np.sqrt(1+(tau*w)**2)  * np.exp(-t/tau+1j * (w * (t+dt)+theta))
 
 def T_AC(w,wosc):
+    """
+    Transfer function of the circuit when the oscilloscope is in AC mode
+
+    Params:
+    -------
+    w: float
+        Frequency of the signal
+    wosc: float
+        Frequency of the oscillation/oscilloscope?
+    
+    Returns:
+    --------
+    T: float
+        Value of the transfer function with given values of w and wosc
+    """
     return 1/(1-1j*wosc/w)
 
 def vwc(t, w, a, dt,c, iter=1000):
+    """
+    Real amplitude of the signal exiting the capacitator (in AC mode??)
+
+    Params:
+    -------
+    t: float
+        list of time values
+    w: float
+        Frequency of the signal
+    a: float
+        Amplitude of the signal
+    dt: float
+        Time step?
+    c: float
+        offset of the signal
+    iter: int
+        Number of Fourier terms to consider
+    
+    Returns:
+    --------
+    f: float
+        Real amplitude of the signal
+    """
     iter += 1
     f = 0
     t = dt + t-toscmax
@@ -45,6 +96,24 @@ def vwc(t, w, a, dt,c, iter=1000):
     return np.real(a *f+ c)
 
 def vwr(t, w, a, dt,c, iter=1000):
+    """
+    Real amplitude of the signal exiting the inductor (in AC mode??)
+
+    Params:
+    -------
+    t: float
+        list of time values
+    w: float
+        Frequency of the signal
+    a: float
+        Amplitude of the signal
+    dt: float
+        Time step?
+    c: float
+        offset of the signal
+    iter: int
+        Number of Fourier terms to consider
+    """
     iter += 1
     f = 0
     t = dt + t-toscmax
@@ -58,6 +127,29 @@ def vwr(t, w, a, dt,c, iter=1000):
 
 
 def signal(t, w, a, dt,c, iter=10000):
+    """
+    Real amplitude of the signal exiting the function generator (in AC mode??)
+
+    Params:
+    -------
+    t: float
+        list of time values
+    w: float
+        Frequency of the signal
+    a: float
+        Amplitude of the signal
+    dt: float
+        Time step?
+    c: float
+        offset of the signal
+    iter: int
+        Number of Fourier terms to consider
+
+    Returns:
+    --------
+    f: float
+        Real amplitude of the signal
+    """
     iter += 1
     f = 0
     t = dt + t-toscmax
@@ -68,7 +160,7 @@ def signal(t, w, a, dt,c, iter=10000):
 tt1 = np.linspace(0, toscmax, 5000)
 tt2=np.linspace(toscmax,0.3, 5000)
 
-fig, axes = plt.subplots(2, 2, figsize=(16, 10), sharex='col', sharey='col')
+fig, axes = plt.subplots(2, 2, figsize=(16, 10), sharex='col', sharey='col',  gridspec_kw={'hspace': 0.5, 'wspace': 0.3})
 
 axes[0,0].plot(tt1, np.real(T_AC(w,wosc)*vc(tt1, w, tau, a, dt)), label="vc(t)")
 axes[0,0].plot(tt1,np.real(T_AC(w,wosc)*vr2(tt1, w, tau,tau0, a, dt,theta)), label="vr2(t)")
@@ -77,13 +169,14 @@ axes[0,0].plot(tt2,vwr(tt2,wgenfun,a,dt,c)+np.real(T_AC(w,wosc)*vr2(tt2, w, tau,
 axes[0,0].set_title("Segnali oscilloscopio in AC")
 axes[0,0].set_xlabel("t[arb.un]")
 axes[0,0].set_ylabel("V[arb.un]")
-
+axes[0, 0].legend()
 
 axes[0,1].plot(np.real(vc(tt1, w, tau, a, dt)),np.real(vr2(tt1, w, tau,tau0, a, dt,theta)), label="XY")
 axes[0,1].plot(vwc(tt2,wgenfun,a,dt,c)+ np.real(vc(tt2, w, tau, a, dt)),vwr(tt2,wgenfun,a,dt,c)+np.real(vr2(tt2, w, tau,tau0, a, dt,theta)))
 axes[0,1].set_title("Segnali XY oscilloscopio in AC")
 axes[0,1].set_xlabel("V[arb.un]")
 axes[0,1].set_ylabel("V[arb.un]")
+axes[0, 1].legend()
 
 
 
@@ -93,11 +186,13 @@ axes[1,0].plot(tt2,vwr(tt2,wgenfun,a,dt,c)+np.real(vr2(tt2, w, tau,tau0, a, dt,t
 axes[1,0].set_title("Segnali ")
 axes[1,0].set_xlabel("t[arb.un]")
 axes[1,0].set_ylabel("V[arb.un]")
+axes[1, 0].legend()
 
 axes[1,1].plot(np.real(vc(tt1, w, tau, a, dt)),np.real(vr2(tt1, w, tau,tau0, a, dt,theta)), label="XY")
 axes[1,1].plot(vwc(tt2,wgenfun,a,dt,c)+ np.real(vc(tt2, w, tau, a, dt)),vwr(tt2,wgenfun,a,dt,c)+np.real(vr2(tt2, w, tau,tau0, a, dt,theta)))
 axes[1,1].set_title("Segnali Xy")
 axes[1,1].set_xlabel("t[arb.un]")
 axes[1,1].set_ylabel("V[arb.un]")
+axes[1, 1].legend()
 
 plt.show()
