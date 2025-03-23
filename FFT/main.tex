@@ -60,9 +60,9 @@
                 \begin{tabular}{ccc}
                     onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
                     \hline
-                    Sinusoide       &   $0.1790190 \pm 0.0000002$           & $0.177455 \pm 0.000002$ \\
-                    Triangolare     &   $0.1790190 \pm 0.0000003$           & $0.1780571\pm 0.0000009$ \\
-                    Quadra          &   $0.1790190 \pm 0.0000003$           & $0.1780571 \pm 0.0000009$ \\
+                    Sinusoide       &   $0.179 \pm 0.001$           & $0.177455 \pm 0.000002$ \\
+                    Triangolare     &   $0.179 \pm 0.001$           & $0.1780571\pm 0.0000009$ \\
+                    Quadra          &   $0.179 \pm 0.001$           & $0.1780571 \pm 0.0000009$ \\
                 \end{tabular}
                 \caption{I tre segnali sono stati raccolti a distanza di poco tempo
                         cambiando solo la forma d'onda con il generatore di funzioni,
@@ -98,8 +98,8 @@
                 \begin{tabular}{ccc}
                     onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
                     \hline
-                    Sinusoide       &   $0.133540389 \pm 0.000000004$           & $0.13352992 \pm 0.0000003$ \\
-                    Quadra          &   $0.133540389 \pm 0.000000004$           & $0.1334881 \pm  0.000003$ \\
+                    Sinusoide       &   $0.13354 \pm 0.00002$           & $0.13352992 \pm 0.0000003$ \\
+                    Quadra          &   $0.13354 \pm 0.00002$           & $0.1334881 \pm  0.000003$ \\
                 \end{tabular}
                 \caption{Similmente a quanto accade in Tab.($\ref{tab:for_ond}$) le 
                 frequenze estrapolate con FFT sono molto vicine tra loro e molto precise;
@@ -135,9 +135,9 @@
                 \begin{tabular}{ccc}
                     onda            &   $f_{0fft}$[kHz]                     & $f_{0bestfit}$[kHz] \\
                     \hline
-                    Sinusoide       &   $0.1566416 \pm 0.0000003$           & $0.15559 \pm 0.00002$ \\
-                    Triangolare     &   $0.1566416 \pm 0.0000003$           & $0.15559 \pm 0.00002$ \\
-                    Quadra          &   $0.1566416 \pm 0.0000003$           & $0.15576 \pm 0.00006$ \\
+                    Sinusoide       &   $0.156 \pm 0.001$           & $0.15559 \pm 0.00002$ \\
+                    Triangolare     &   $0.156 \pm 0.001$           & $0.15559 \pm 0.00002$ \\
+                    Quadra          &   $0.156 \pm 0.001$           & $0.15576 \pm 0.00006$ \\
                 \end{tabular}
                 \caption{I tre segnali sono stati raccolti a distanza di poco tempo
                 cambiando solo la forma d'onda con il generatore di funzioni,
@@ -204,64 +204,66 @@
 
 \section{Autoscillatore}
 
-Sono state prese delle misure di un segnale in uscita da un autoscillatore, il cui schema è riportato in Fig(\ref{fig:circuitino_oscillante})
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.30]{FFT11/schema_circuitino.png}
-    \caption{Schema circuitale dell'oscillatore}
-    \label{fig:circuitino_oscillante}
-\end{figure}
-Per ogni segnale registrato, è stato eseguito il fit ai minimi quadratici per individuare la frequenza dell'oscillazione sinusoidale del segnale in uscita, usando la seguente funzione modello
-$$
-    f(t; A, \omega, \phi, c) = A \sin{(\omega t + \phi)} + c,
-$$
-confrontandolo con il contenuto spettrale ottenuto tramite l'algoritmo della RFFT.
-Riportiamo in Fig(\ref{fig:sign_rfft_autoscill}) i grafici con a sinistra il segnale in uscita e a destra la trasformata di Fourier del segnale, dove viene graficato una linea verticale che rappresenta il valore stimato di $f = \frac{\omega}{2 \pi}$ stimato dal bestfit
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{FFT11/first_graph.pdf}
-    \includegraphics[scale=0.4]{FFT11/second_graph.pdf}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.40]{FFT11/third_graph.pdf}
-    \includegraphics[scale=0.25]{FFT11/fourth_graph.pdf}
-    \caption{Segnali con relativa trasformata di Fourier graficata di lato}
-    \label{fig:sign_rfft_autoscill}
-\end{figure}
+    Sono state prese delle misure di un segnale in uscita da un autoscillatore, il cui schema è riportato in Fig(\ref{fig:circuitino_oscillante})
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.30]{FFT11/schema_circuitino.png}
+            \caption{Schema circuitale dell'oscillatore}
+            \label{fig:circuitino_oscillante}
+        \end{figure}
 
-Prima del confronto con i valori di bestfit, possiamo già osservare che abbiamo un picco a frequenza nulla, coerentemente con quanto atteso. Escludendo quest'ultimo, si nota la presenza di molteplici picchi, quando in realtà ci apettiamo dall'autoscillatore un segnale sinuosodaile "puro" quindi ci aspettiamo due picchi: uno corrispondente alla frequenza nulla e uno corrispondente a quello della frequenza del segnale. Questo è chiaramente dovuto al fatto che non si tratta di un autoscillatore puro e non riesce a produrmi un segnale perfettamente sinusoidale.
-In Tab(\ref{tab:cft_rfft_bestfit}) riportiamo i valori di bestfit
+    Per ogni segnale registrato, è stato eseguito il fit ai minimi quadratici per individuare la frequenza dell'oscillazione sinusoidale del segnale in uscita, usando la seguente funzione modello
+        $$
+            f(t; A, \omega, \phi, c) = A \sin{(\omega t + \phi)} + c,
+        $$
+    confrontandolo con il contenuto spettrale ottenuto tramite l'algoritmo della RFFT.
+    Riportiamo in Fig(\ref{fig:sign_rfft_autoscill}) i grafici con a sinistra il segnale in uscita e a destra la trasformata di Fourier del segnale, dove viene graficato una linea verticale che rappresenta il valore stimato di $f = \frac{\omega}{2 \pi}$ stimato dal bestfit
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.4]{FFT11/first_graph.pdf}
+            \includegraphics[scale=0.4]{FFT11/second_graph.pdf}
+        \end{figure}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c c c}
-        \toprule
-        $n$ & $f_{0_\text{rfft}} \, [\text{Hz}]$ & $f_{0_\text{bestfit}} \, [\text{Hz}]$ \\
-        \midrule
-        1 & $195 \pm 7$         & $195.13 \pm 0.06$ \\
-        2 & $203 \pm 7$       & $206.61 \pm 0.07$ \\
-        3 & $210 \pm 7$         & $207.86 \pm 0.07$ \\
-        4 & $225 \pm 7$         & $227.02 \pm 0.08$ \\
-        5 & $50 \pm 7$          & $50 \pm 1$ \\
-        6 & $50 \pm 7$          & $50 \pm 4$ \\
-        7 & $168 \pm 7$         & $167.21 \pm 0.03$ \\
-        8 & $167 \pm 7$         & $166.95 \pm 0.03$ \\
-        9 & $166 \pm 7$         & $168.10 \pm 0.04$ \\
-        10 & $174 \pm 7$        & $176.66 \pm 0.04$ \\
-        11 & $182 \pm 7$        & $185.81 \pm 0.03$ \\
-        12 & $189 \pm 7$        & $190.06 \pm 0.04$ \\
-        13 & $190 \pm 7$        & $190.78 \pm 0.04$ \\
-        \bottomrule
-    \end{tabular}
-    \caption{Tabella con i valori di frequenza del segnale stimata tramite RFFT e tramite bestfit, dove $n$ rappresenta l'$n-$segnale analizzato}
-    \label{tab:cft_rfft_bestfit}
-\end{table}
-Si osserva che i valori di frequenza stimati tramite bestfit e tramite RFFT sono compatibili entro le barre di errori per tutti i valori. Come errori sul valore stimato tramite la RFFT si è utilizzata la spaziatura tra un valore della frequenza e quello successivo, che abbiamo scelto, nell'algoritmo della RFFT, di essere pari a 
-$$
-    \Delta f = \frac{1}{\max{t}}
-$$
-dove $\max{t}$ è il tempo massimo di acquisizione del segnale.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.40]{FFT11/third_graph.pdf}
+            \includegraphics[scale=0.25]{FFT11/fourth_graph.pdf}
+            \caption{Segnali con relativa trasformata di Fourier graficata di lato}
+            \label{fig:sign_rfft_autoscill}
+        \end{figure}
+
+    Prima del confronto con i valori di bestfit, possiamo già osservare che abbiamo un picco a frequenza nulla, coerentemente con quanto atteso. Escludendo quest'ultimo, si nota la presenza di molteplici picchi, quando in realtà ci apettiamo dall'autoscillatore un segnale sinuosodaile "puro" quindi ci aspettiamo due picchi: uno corrispondente alla frequenza nulla e uno corrispondente a quello della frequenza del segnale. Questo è chiaramente dovuto al fatto che non si tratta di un autoscillatore puro e non riesce a produrmi un segnale perfettamente sinusoidale.
+    In Tab(\ref{tab:cft_rfft_bestfit}) riportiamo i valori di bestfit
+
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{c c c}
+                \toprule
+                $n$ & $f_{0_\text{rfft}} \, [\text{Hz}]$ & $f_{0_\text{bestfit}} \, [\text{Hz}]$ \\
+                \midrule
+                1 & $195 \pm 7$         & $195.13 \pm 0.06$ \\
+                2 & $203 \pm 7$       & $206.61 \pm 0.07$ \\
+                3 & $210 \pm 7$         & $207.86 \pm 0.07$ \\
+                4 & $225 \pm 7$         & $227.02 \pm 0.08$ \\
+                5 & $50 \pm 7$          & $50 \pm 1$ \\
+                6 & $50 \pm 7$          & $50 \pm 4$ \\
+                7 & $168 \pm 7$         & $167.21 \pm 0.03$ \\
+                8 & $167 \pm 7$         & $166.95 \pm 0.03$ \\
+                9 & $166 \pm 7$         & $168.10 \pm 0.04$ \\
+                10 & $174 \pm 7$        & $176.66 \pm 0.04$ \\
+                11 & $182 \pm 7$        & $185.81 \pm 0.03$ \\
+                12 & $189 \pm 7$        & $190.06 \pm 0.04$ \\
+                13 & $190 \pm 7$        & $190.78 \pm 0.04$ \\
+                \bottomrule
+            \end{tabular}
+            \caption{Tabella con i valori di frequenza del segnale stimata tramite RFFT e tramite bestfit, dove $n$ rappresenta l'$n-$segnale analizzato}
+            \label{tab:cft_rfft_bestfit}
+        \end{table}
+    Si osserva che i valori di frequenza stimati tramite bestfit e tramite RFFT sono compatibili entro le barre di errori per tutti i valori. Come errori sul valore stimato tramite la RFFT si è utilizzata la spaziatura tra un valore della frequenza e quello successivo, che abbiamo scelto, nell'algoritmo della RFFT, di essere pari a 
+        $$
+            \Delta f = \frac{1}{\max{t}}
+        $$
+    dove $\max{t}$ è il tempo massimo di acquisizione del segnale.
 \section{Oscillazioni smorzate}
 
         
@@ -355,12 +357,12 @@ dove $\max{t}$ è il tempo massimo di acquisizione del segnale.
                 \begin{tabular}{ccc}
                     materiale           &   $f_{0fft}$[kHz]     & $f_{0bestfit}$[kHz] \\
                     \hline
-                    Alluminio pieno     & $0.65\pm0.02$         & $0.65742\pm0.00008$ \\
-                    Profilato           & $0.65\pm0.02$         & $0.63773\pm0.00008$ \\
-                    Profilato segato    & $0.595\pm0.009$       & $0.60181\pm0.00002$ \\
-                    Bacchetta di ferro  & $0.42\pm0.02$         & $0.4509\pm0.0002$ \\
-                    Ferro laminato      & $0.35\pm0.02$         & $0.34989\pm0.0006$ \\
-                    Profilato e bacchetta& $0.65\pm0.02$        & $0.6393\pm0.0002$ \\  
+                    Alluminio pieno     & $0.65\pm0.02$         & $0.657\pm0.008$ \\
+                    Profilato           & $0.65\pm0.02$         & $0.637\pm0.008$ \\
+                    Profilato segato    & $0.595\pm0.009$       & $0.601\pm0.002$ \\
+                    Bacchetta di ferro  & $0.42\pm0.02$         & $0.451\pm0.009$ \\
+                    Ferro laminato      & $0.35\pm0.02$         & $0.349\pm0.009$ \\
+                    Profilato e bacchetta& $0.65\pm0.02$        & $0.639\pm0.009$ \\  
                 \end{tabular}
                 \label{tab:mat_smor}
 
