@@ -37,7 +37,7 @@ for idx, i in enumerate(filename):
 
     k=np.argmax(v_tilde[1:])+1
     f_fft=ff[k]
-    sf_fft=df/(len(ff)*np.sqrt(12))
+    sf_fft=df/(np.sqrt(12))
 
     print("f0_fft=",f_fft,"+-",sf_fft)
     print("f0_bestfit=",f[idx],"+-",sf[idx])
