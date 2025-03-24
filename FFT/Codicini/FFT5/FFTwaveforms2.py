@@ -10,7 +10,11 @@ filepath='dataFFT5/'
 #data 14 15 are long acquisitions       'data14','data15'
 #data 13 is a very short acquisition    'data13',
 #the rest is badly taken data           'data7','data8','data9','data10','data11','data12',
-
+fontsize = 13
+params = {
+    'legend.fontsize': fontsize,
+}
+plt.rcParams.update(params)
 
 filename=['data4','data5','data6']
 filepath_images='img/FFT5/'

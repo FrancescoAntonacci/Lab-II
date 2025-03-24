@@ -62,7 +62,6 @@ for idx, i in enumerate(filename):
     
     # Plot time-domain signal
     axes[idx, 0].plot(t, v, label='Vc(t)')
-    axes[idx, 0].plot(TT, vv, 'r--', label='T best-fit')
     axes[idx, 0].grid()
     axes[idx, 0].legend()
     
@@ -87,8 +86,8 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'FFT', ha='center', fontsize=18)
-fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'FFT', ha='center', fontsize=18)
+fig.text(0.34, 0.90, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
 fig.text(0.74, 0.04, 'f [kHz]', ha='center', fontsize=18)

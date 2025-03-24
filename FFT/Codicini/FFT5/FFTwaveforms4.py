@@ -15,6 +15,11 @@ filepath='dataFFT5/'
 def model(x, a,dx, tau,c):
     return a*np.exp(-(x+dx)/tau)+c
 
+fontsize = 13
+params = {
+    'legend.fontsize': fontsize,
+}
+plt.rcParams.update(params)
 
 filename=['data0','data7','data13']
 filepath_images='img/FFT5/'

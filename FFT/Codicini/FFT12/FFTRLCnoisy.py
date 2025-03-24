@@ -77,7 +77,7 @@ for idx, i in enumerate(filename):
 
 
 # Add common labels
-fig.text(0.74, 0.96, 'Trasformata di Fourier', ha='center', fontsize=18)
+fig.text(0.74, 0.90, 'Trasformata di Fourier', ha='center', fontsize=18)
 fig.text(0.34, 0.96, 'Segnale', ha='center', fontsize=18)
 
 fig.text(0.34, 0.04, 't [ms]', ha='center', fontsize=18)
