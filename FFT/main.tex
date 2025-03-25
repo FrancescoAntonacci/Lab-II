@@ -30,16 +30,15 @@
             \includegraphics[scale=0.45]{FFT5/FFTwaveforms1.png}
             \caption{Confronto tra le frequenze stimate tramite FFT e bestfit.
                     Attorno ai valori medi è stata rappresentata la barra di errore 
-                    con un'area colorata. Essendo molto piccola, per il valore del bestfit
-                    l'area colorata non si vede.
+                    con un'area colorata.
                     Coerentemente con quanto ci si può aspettare sono presenti due picchi nella FFT,
                     uno a frequenza nulla, in quanto il segnale non è alternato, l'altro
                     alla frequenza di oscillazione del segnale.}
             \label{fig:for_ond}
         \end{figure}    
 
-    Nel caso dell'onda sinusoidale si osseva la comparsa di un picco dovuto a 
-    rumore a $300$ Hz.
+    Nel caso dell'onda sinusoidale si osseva la comparsa di un picco dovuto probabilemte
+    a rumore a $300$ Hz.
     Per le altre forme d'onda è interessante notare la comparsa delle 
     armoniche successive alla principale, come ci si aspetta dallo 
     sviluppo in serie di seni e coseni delle rispettive forme d'onda.
@@ -76,8 +75,8 @@
                     Triangolare     &   $0.179 \pm 0.001$           & $0.1780571\pm 0.0000009$ \\
                     Quadra          &   $0.179 \pm 0.001$           & $0.1780571 \pm 0.0000009$ \\
                 \end{tabular}
-                \caption{Tutti i valori, eccetto i primi, sono compatibili tra loro 
-                        entro le barre di errore. }
+                \caption{Tutti i valori, eccetto quelli relativi alla sinusoide,
+                        sono compatibili tra loro entro le barre di errore. }
                 \label{tab:for_ond}
         \end{table}
 
@@ -90,7 +89,7 @@
          \begin{figure}[H]
             \centering
             \includegraphics[scale=0.45]{FFT5/FFTwaveforms3.png}
-            \caption{A destra sono mostrati segnali acquisiti in laboratorio, a sinistra 
+            \caption{A sinistra sono mostrati segnali acquisiti in laboratorio, a destra 
                     è stata eseguita la FFT.
                     E' molto interessante osservare che nel caso dell'onda quadra 
                     non compaiano le armonica successive: questo potrebbe essere 
@@ -199,7 +198,7 @@
 
 
 
-    Per quanto riguarda il sovracampionamento è sufficiente dire che la 
+    Per quanto riguarda il sovracampionamento è sufficente dire che la 
     FFT non riesce a trovare l'armonica principale del segnale sinusoidale e 
     che i diversi picchi che compaiono nel segnale possono essere di natura puramente
     accidentale.
@@ -258,7 +257,7 @@
     Ci aspettermmo solo un picco dovuto all'armonica principale in quanto
     l'autoscillatore dovrebbe produrre un segnale sinusoidale.
     Tuttavia ciò non accade per il fatto che l'autoscillatore fa passare più armoniche. 
-    Questo è chiaramente dovuto al fatto che non si tratta di un autoscillatore puro e 
+    Questo è dovuto al fatto che non si tratta di un autoscillatore puro e 
     la funzione di trasferimento ci dà solo l'armonica principale.
     In Tab(\ref{tab:cft_rfft_bestfit}) riportiamo i valori di bestfit.
 
@@ -278,8 +277,8 @@
             \end{tabular}
             \caption{Tabella con i valori di frequenza del segnale stimata tramite FFT 
             e tramite bestfit. Il segnale 5 e il segnale 6 sono interessanti
-            in quanto sono soggetti a rumore: l'incertezza dell'FFT non scala col rummore ma con
-            la lunghezza dell'acquisizione, il bestfit pesantemente della qualità dei dati.}
+            in quanto sono soggetti a rumore: l'incertezza dell'FFT non scala col rumore ma con
+            la lunghezza dell'acquisizione, invece il bestfit risente pesantemente della qualità dei dati.}
             \label{tab:cft_rfft_bestfit}
         \end{table}
     Si osserva che i valori di frequenza stimati tramite bestfit e tramite FFT 
@@ -311,7 +310,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width=\textwidth]{FFT12/FFTRLC.png}
-            \caption{A sinistra è rappresentato il segnale. A destra è rapprenentata la FFT insieme
+            \caption{A sinistra è rappresentato il segnale. A destra è rappresentata la FFT insieme
             alla frequenza stimata dal bestfit e quella misurata in laboratorio.
             Le incertezze su queste due grandezze sono rappresentate con due rispettive aree colorate.
             }
@@ -328,9 +327,9 @@
                     $0.22 \pm 20\%tol.$  &$0.43 \pm 0.01$           & $0.416 \pm 0.004$       & $0.41131\pm 0.00002$ \\
                     $0.47 \pm 20\%tol.$  &$0.314 \pm 0.009 $        &$0.298 \pm 0.004$        & $0.30393\pm 0.00002$ \\
                 \end{tabular}
-                \label{tab:osc_smor}
                 \caption{Confronto tra le frequenze di oscillazione misurate 
                 con quelle ottenute tramite FFT e bestfit.}
+                \label{tab:osc_smor}
         \end{table}
     
     Tutte le frequenze sono compatibili eccetto nel primo caso per la frequenza 
@@ -427,15 +426,50 @@
 
 
 \section{"Il pinnacolone"}
+    Per il circuito in Fig.(\ref{fig:mat_diag}) è stato simulato il transiente nel quale 
+    il diodo torna dall'interdizione nella quale avvengono le oscillazioni alla conduzione.
+    Per determinare $Vc$ la grandezza rilevante è la corrente che passa per il 
+    ramo dell'induttore: è stata dunque usata un'onda quadra a cui è stata applicata la 
+    funzione di trasferimento in Eq.(\ref{eq:tran1}).
+    Il transiente è osservato dall'oscilloscopio in DC, in tal caso il segnale non viene 
+    deformato, o in AC dove alla funzione di trasferimento in Eq.(\ref{eq:tran1}) si 
+    moltiplica quella del filtro passa-alto in Eq.(\ref{eq:osc}).
+        \begin{equation}
+            T_{osc}(\omega)=\frac{1}{1-\frac{j\omega_{osc}}{\omega}}        
+            \label{eq:osc}
+        \end{equation}
+    
+        \begin{equation}
+            Z_1=\frac{1}{j \omega C} \quad 
+            Z_2= R + r + j \omega L \quad 
+            Z=r_{G}+\frac{Z_1 Z_2}{Z_1 +Z_2} \quad 
+            I_{\omega L}=\frac{V_{\omega} Z_1}{Z_1 Z + Z_2 Z} 
+            \label{eq:tran1}
+        \end{equation}
+    Oltre agli elementi in Fig.(\ref{fig:mat_diag}) è stata aggiunta $r_{G} = 50 \Omega$ interna al generatore.
+    Il risultato della simulazione è riportato in Fig.(\ref{fig:pinnacolone}).
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{FFT13/pinnacolone.png}
+        \caption{E' stata trovata la forma d'onda ricreata, tuttavia non è stato raccordato il segnale prima 
+            e dopo il transiente. Il problema principale è che l'onda quadra trasformata con la funzione di 
+            trasferimento non è nulla nel punto di raccordo prima e dopo il transiente
+            nonostante lo sia l'onda quadra.}
+        \label{fig:pinnacolone}
+    \end{figure} 
+
 
 \section{Glicemia}
 
-        E' stata acquisita la Glicemia di un paziente di diabete mellito tipo 1 in 
+        E' stata acquisita la glicemia di un paziente di diabete mellito tipo 1 in 
         due periodi diversi: le vacanze natalizie e la sessione di studio per gli esami.
         I risultati dell'analisi con FFT sono riportati in Fig.($\ref{fig:rubbish}$).
         I due periodi sono paragonabili in quanto ravvicinati e si assume che
         il clima e lo stess non abbiano subito variazioni significative 
         nel paziente.
+        Per il periodo di esami  è disponibile un'acquisizione più lunga, i risultati
+        della FFT sono  riportati in Fig.(\ref{fig:rubbish1}).
         
         Si evidenziano i tempi che determinano le frequenze caratteristiche dell'andamento glicemico:
             \begin{itemize}
@@ -447,13 +481,20 @@
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=\textwidth]{rubbish/rubbish.png}
-                \caption{E' evidente la presenza di una maggiore regolarità nel 
+                \caption{C'è maggiore regolarità nel 
                 periodo di studio rispetto alle festività: il picco legato
                 al giorno e quello legato ai pasti scompare durante le festività 
-                per le persistenti iperglicemie dovute all'aumentata insulino-resistenza e ai pasti più ricchi di grassi.
-                Il picco legato all'azione dell'insulina si attenua probabilmente
-                a causa dell'elevata insulino-resistenza.}
+                per probabilemte le persistenti iperglicemie dovute all'aumentata 
+                insulino-resistenza e ai pasti più ricchi di grassi.}
                 \label{fig:rubbish}
             \end{figure} 
 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{rubbish/porcheria.png}
+                \caption{A sinistra glicemia acquisita in un mese di sessione di studio,
+                 a destra l'FFT. Con un intervallo di campionamento più ampio rispetto 
+                 a Fig.(\ref{fig:rubbish}) i picchi sono più evidenti.}
+                \label{fig:rubbish1}
+            \end{figure} 
 \end{document}

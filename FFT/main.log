@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  24 MAR 2025 20:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  25 MAR 2025 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -367,7 +367,7 @@ File: ./img//FFT5/FFTwaveforms1.png Graphic file (type png)
 Package pdftex.def Info: ./img//FFT5/FFTwaveforms1.png  used on input line 30.
 (pdftex.def)             Requested size: 520.3392pt x 325.21199pt.
 
-Overfull \hbox (31.23633pt too wide) in paragraph at lines 30--37
+Overfull \hbox (31.23633pt too wide) in paragraph at lines 30--36
  [][] 
  []
 
@@ -377,24 +377,123 @@ Overfull \hbox (31.23633pt too wide) in paragraph at lines 30--37
 <./img//FFT5/FFTwaveforms3.png, id=61, 1156.32pt x 722.7pt>
 File: ./img//FFT5/FFTwaveforms3.png Graphic file (type png)
 <use ./img//FFT5/FFTwaveforms3.png>
-Package pdftex.def Info: ./img//FFT5/FFTwaveforms3.png  used on input line 92.
+Package pdftex.def Info: ./img//FFT5/FFTwaveforms3.png  used on input line 91.
 (pdftex.def)             Requested size: 520.3392pt x 325.21199pt.
 
-Overfull \hbox (31.23633pt too wide) in paragraph at lines 92--98
+Overfull \hbox (31.23633pt too wide) in paragraph at lines 91--97
  [][] 
  []
 
 <./img//FFT5/FFTwaveforms2.png, id=68, 1156.32pt x 722.7pt>
 File: ./img//FFT5/FFTwaveforms2.png Graphic file (type png)
 <use ./img//FFT5/FFTwaveforms2.png>
-Package pdftex.def Info: ./img//FFT5/FFTwaveforms2.png  used on input line 132.
+Package pdftex.def Info: ./img//FFT5/FFTwaveforms2.png  used on input line 131.
 (pdftex.def)             Requested size: 520.3392pt x 325.21199pt.
 
-Overfull \hbox (31.23633pt too wide) in paragraph at lines 132--136
+Overfull \hbox (31.23633pt too wide) in paragraph at lines 131--135
  [][] 
  []
 
 [2 <./img//FFT5/FFTwaveforms3.png>]
 <./img//FFT5/FFTwaveforms4.png, id=80, 1156.32pt x 722.7pt>
 File: ./img//FFT5/FFTwaveforms4.png Graphic file (type png)
-<use ./img//FFT
+<use ./img//FFT5/FFTwaveforms4.png>
+Package pdftex.def Info: ./img//FFT5/FFTwaveforms4.png  used on input line 164.
+(pdftex.def)             Requested size: 520.3392pt x 325.21199pt.
+
+Overfull \hbox (31.23633pt too wide) in paragraph at lines 164--169
+ [][] 
+ []
+
+[3 <./img//FFT5/FFTwaveforms2.png>]
+<./img//FFT11/schema_circuitino.png, id=93, 981.6675pt x 397.485pt>
+File: ./img//FFT11/schema_circuitino.png Graphic file (type png)
+<use ./img//FFT11/schema_circuitino.png>
+Package pdftex.def Info: ./img//FFT11/schema_circuitino.png  used on input line 233.
+(pdftex.def)             Requested size: 220.09479pt x 89.11487pt.
+ [4 <./img//FFT5/FFTwaveforms4.png>]
+<./img//FFT11/first_graph.pdf, id=105, 1112.23526pt x 585.38701pt>
+File: ./img//FFT11/first_graph.pdf Graphic file (type pdf)
+<use ./img//FFT11/first_graph.pdf>
+Package pdftex.def Info: ./img//FFT11/first_graph.pdf  used on input line 245.
+(pdftex.def)             Requested size: 472.70222pt x 248.79065pt.
+<./img//FFT11/second_graph.pdf, id=106, 1112.23526pt x 585.38701pt>
+File: ./img//FFT11/second_graph.pdf Graphic file (type pdf)
+<use ./img//FFT11/second_graph.pdf>
+Package pdftex.def Info: ./img//FFT11/second_graph.pdf  used on input line 246.
+(pdftex.def)             Requested size: 472.70222pt x 248.79065pt.
+<./img//FFT11/third_graph.pdf, id=107, 1112.23526pt x 585.38701pt>
+File: ./img//FFT11/third_graph.pdf Graphic file (type pdf)
+<use ./img//FFT11/third_graph.pdf>
+Package pdftex.def Info: ./img//FFT11/third_graph.pdf  used on input line 250.
+(pdftex.def)             Requested size: 472.70222pt x 248.79065pt.
+ [5 <./img//FFT11/schema_circuitino.png> <./img//FFT11/first_graph.pdf> <./img//FFT11/second_graph.pdf>]
+<./img//FFT12/RLCdiagram.png, id=205, 463.7325pt x 353.32pt>
+File: ./img//FFT12/RLCdiagram.png Graphic file (type png)
+<use ./img//FFT12/RLCdiagram.png>
+Package pdftex.def Info: ./img//FFT12/RLCdiagram.png  used on input line 304.
+(pdftex.def)             Requested size: 220.09479pt x 167.69395pt.
+ [6 <./img//FFT11/third_graph.pdf>]
+<./img//FFT12/FFTRLC.png, id=252, 1156.32pt x 722.7pt>
+File: ./img//FFT12/FFTRLC.png Graphic file (type png)
+<use ./img//FFT12/FFTRLC.png>
+Package pdftex.def Info: ./img//FFT12/FFTRLC.png  used on input line 312.
+(pdftex.def)             Requested size: 489.10287pt x 305.68228pt.
+
+Underfull \hbox (badness 2269) in paragraph at lines 344--352
+\OT1/cmr/m/n/10 cita da un cir-cuito RLC, come mostrato in
+ []
+
+<./img//FFT13/RLCmaterialsdiagram.png, id=257, 527.9725pt x 264.99pt>
+File: ./img//FFT13/RLCmaterialsdiagram.png Graphic file (type png)
+<use ./img//FFT13/RLCmaterialsdiagram.png>
+Package pdftex.def Info: ./img//FFT13/RLCmaterialsdiagram.png  used on input line 355.
+(pdftex.def)             Requested size: 220.09479pt x 110.46614pt.
+[7 <./img//FFT12/RLCdiagram.png> <./img//FFT12/FFTRLC.png>]
+<./img//FFT13/FFTMATERIALS1.png, id=269, 1156.32pt x 722.7pt>
+File: ./img//FFT13/FFTMATERIALS1.png Graphic file (type png)
+<use ./img//FFT13/FFTMATERIALS1.png>
+Package pdftex.def Info: ./img//FFT13/FFTMATERIALS1.png  used on input line 368.
+(pdftex.def)             Requested size: 489.10287pt x 305.68228pt.
+<./img//FFT13/FFTMATERIALS2.png, id=270, 1156.32pt x 722.7pt>
+File: ./img//FFT13/FFTMATERIALS2.png Graphic file (type png)
+<use ./img//FFT13/FFTMATERIALS2.png>
+Package pdftex.def Info: ./img//FFT13/FFTMATERIALS2.png  used on input line 372.
+(pdftex.def)             Requested size: 489.10287pt x 305.68228pt.
+ [8 <./img//FFT13/RLCmaterialsdiagram.png> <./img//FFT13/FFTMATERIALS1.png>] [9 <./img//FFT13/FFTMATERIALS2.png>]
+<./img//FFT13/pinnacolone.png, id=295, 1156.32pt x 515.2851pt>
+File: ./img//FFT13/pinnacolone.png Graphic file (type png)
+<use ./img//FFT13/pinnacolone.png>
+Package pdftex.def Info: ./img//FFT13/pinnacolone.png  used on input line 454.
+(pdftex.def)             Requested size: 489.10287pt x 217.95148pt.
+<rubbish/rubbish.png, id=298, 1156.32pt x 722.7pt>
+File: rubbish/rubbish.png Graphic file (type png)
+<use rubbish/rubbish.png>
+Package pdftex.def Info: rubbish/rubbish.png  used on input line 483.
+(pdftex.def)             Requested size: 489.10287pt x 305.68228pt.
+ [10 <./img//FFT13/pinnacolone.png>]
+<rubbish/porcheria.png, id=310, 1156.32pt x 361.35pt>
+File: rubbish/porcheria.png Graphic file (type png)
+<use rubbish/porcheria.png>
+Package pdftex.def Info: rubbish/porcheria.png  used on input line 494.
+(pdftex.def)             Requested size: 489.10287pt x 152.84114pt.
+ [11 <./rubbish/rubbish.png> <./rubbish/porcheria.png>] (./main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 2CA505B084850EC86F7F816AED070409;1096.
+ ) 
+Here is how much of TeX's memory you used:
+ 10939 strings out of 480171
+ 178138 string characters out of 5894489
+ 469002 words of memory out of 5000000
+ 28708 multiletter control sequences out of 15000+600000
+ 474362 words of font info for 46 fonts, out of 8000000 for 9000
+ 59 hyphenation exceptions out of 8191
+ 67i,13n,77p,599b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/candido/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on main.pdf (11 pages, 3406134 bytes).
+PDF statistics:
+ 384 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+
