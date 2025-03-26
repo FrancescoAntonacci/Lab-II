@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1742928216 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" "main.pdf" "main" 1742928220
+["pdflatex"] 1743003510 "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" "main.pdf" "main" 1743003515
   "/etc/texmf/web2c/texmf.cnf" 1727515552 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/candido/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1727515690 11524 8326a7710b77ab608f8df617cc0b6449 ""
-  "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" 1742928209 24007 eb8085567037f27988dc6557057b8b20 ""
+  "/media/candido/Extreme SSD/Unipi/Secondo anno/Lab 2/Materiale/Esercizi/FFT/main.tex" 1743003504 24009 8795da650b37d541016caf46c99a1a05 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -97,14 +97,14 @@
   "img//FFT13/FFTMATERIALS1.png" 1742835921 190856 944c713cfc6262381f2d3a397551ce08 ""
   "img//FFT13/FFTMATERIALS2.png" 1742835921 178599 351d2c3e21242e42bd0d88243176dc89 ""
   "img//FFT13/RLCmaterialsdiagram.png" 1742713325 27577 4e4a517f0f55fcfb93bf394e6833f0a6 ""
-  "img//FFT13/pinnacolone.png" 1742928014 107534 5f880ddba15755a0e57a753f72850a9d ""
+  "img//FFT13/pinnacolone.png" 1743003451 116607 1540ec5e8f0f9163a3d84c52c7ec84a9 ""
   "img//FFT5/FFTwaveforms1.png" 1742837717 288606 7cb57eafff7ae40f16e39ccfea4e1405 ""
   "img//FFT5/FFTwaveforms2.png" 1742837849 279163 7df7a5693d13d0910e760fbc8e9e665b ""
   "img//FFT5/FFTwaveforms3.png" 1742838418 150035 f7e2809641eec4fb83ecce45d968430b ""
   "img//FFT5/FFTwaveforms4.png" 1742837832 251053 44a0991975b9e6ef988031da1edb5953 ""
-  "main.aux" 1742928220 13535 0d2ceda165425a3f7fe2a0f65a4262a7 "pdflatex"
-  "main.out" 1742928220 1096 2ca505b084850ec86f7f816aed070409 "pdflatex"
-  "main.tex" 1742928209 24007 eb8085567037f27988dc6557057b8b20 ""
+  "main.aux" 1743003515 13539 b4c1e94542cbd65ed83f7bb15b61b322 "pdflatex"
+  "main.out" 1743003515 1096 2ca505b084850ec86f7f816aed070409 "pdflatex"
+  "main.tex" 1743003504 24009 8795da650b37d541016caf46c99a1a05 ""
   "rubbish/porcheria.png" 1742908966 558747 bc54c0ca7c72d3cb0cd9068c6e44ffac ""
   "rubbish/rubbish.png" 1742843702 1053254 95602bb9432062ce94199a0e56db6758 ""
   (generated)

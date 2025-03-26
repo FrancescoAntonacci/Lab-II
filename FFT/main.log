@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  25 MAR 2025 19:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.9.28)  26 MAR 2025 16:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -461,11 +461,11 @@ File: ./img//FFT13/FFTMATERIALS2.png Graphic file (type png)
 Package pdftex.def Info: ./img//FFT13/FFTMATERIALS2.png  used on input line 372.
 (pdftex.def)             Requested size: 489.10287pt x 305.68228pt.
  [8 <./img//FFT13/RLCmaterialsdiagram.png> <./img//FFT13/FFTMATERIALS1.png>] [9 <./img//FFT13/FFTMATERIALS2.png>]
-<./img//FFT13/pinnacolone.png, id=295, 1156.32pt x 515.2851pt>
+<./img//FFT13/pinnacolone.png, id=295, 1348.5582pt x 706.0779pt>
 File: ./img//FFT13/pinnacolone.png Graphic file (type png)
 <use ./img//FFT13/pinnacolone.png>
 Package pdftex.def Info: ./img//FFT13/pinnacolone.png  used on input line 454.
-(pdftex.def)             Requested size: 489.10287pt x 217.95148pt.
+(pdftex.def)             Requested size: 489.10287pt x 256.08405pt.
 <rubbish/rubbish.png, id=298, 1156.32pt x 722.7pt>
 File: rubbish/rubbish.png Graphic file (type png)
 <use rubbish/rubbish.png>
@@ -484,13 +484,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  10939 strings out of 480171
  178138 string characters out of 5894489
- 469002 words of memory out of 5000000
+ 469004 words of memory out of 5000000
  28708 multiletter control sequences out of 15000+600000
  474362 words of font info for 46 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  67i,13n,77p,599b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/candido/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (11 pages, 3406134 bytes).
+Output written on main.pdf (11 pages, 3410440 bytes).
 PDF statistics:
  384 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams
