@@ -428,21 +428,29 @@
 \section{"Il pinnacolone"}
     Per il circuito in Fig.(\ref{fig:mat_diag}) è stato simulato il transiente nel quale 
     il diodo torna dall'interdizione nella quale avvengono le oscillazioni alla conduzione.
-    Per determinare $Vc$ la grandezza rilevante è la corrente che passa per il 
-    ramo dell'induttore: è stata dunque usata un'onda quadra a cui è stata applicata la 
-    funzione di trasferimento in Eq.(\ref{eq:tran1}).
+    Per determinare $V_c$ e $V_r$ la grandezza rilevante è la corrente che passa per il 
+    ramo dell'induttore: è stata dunque usata Eq.(\ref{eq:tran2}) dove $V_{\omega}$ è un'onda quadra.
+    Le impedenze del circuito utilizzate in in Eq.(\ref{eq:tran2}) sono calcolate
+    in in Eq.(\ref{eq:tran1}).
     Il transiente è osservato dall'oscilloscopio in DC, in tal caso il segnale non viene 
-    deformato, o in AC dove alla funzione di trasferimento in Eq.(\ref{eq:tran1}) si 
+    deformato, o in AC dove alla funzione di trasferimento in Eq.(\ref{eq:tran2}) si 
     moltiplica quella del filtro passa-alto in Eq.(\ref{eq:osc}).
         \begin{equation}
             T_{osc}(\omega)=\frac{1}{1-\frac{j\omega_{osc}}{\omega}}        
             \label{eq:osc}
         \end{equation}
     
-        \begin{align*}
-            &Z_1=\frac{1}{j \omega C}, & &Z_2= R + r + j \omega L, & &Z=r_{G}+\frac{Z_1 Z_2}{Z_1 +Z_2}, & &I_{\omega L}=\frac{V_{\omega} Z_1}{Z_1 Z + Z_2 Z}, 
+        \begin{equation}
+            Z_1=\frac{1}{j \omega C}, \quad Z_2= R + r + j \omega L, \quad 
+            Z=r_{G}+\frac{Z_1 Z_2}{Z_1 +Z_2}
             \label{eq:tran1}
-        \end{align*}
+        \end{equation}
+        
+        \begin{equation}
+            I_{\omega L}=\frac{V_{\omega} Z_1}{Z_1 Z + Z_2 Z} 
+            \label{eq:tran2}
+        \end{equation}
+
     Oltre agli elementi in Fig.(\ref{fig:mat_diag}) è stata aggiunta $r_{G} = 50 \Omega$ interna al generatore.
     Il risultato della simulazione è riportato in Fig.(\ref{fig:pinnacolone}).
 
